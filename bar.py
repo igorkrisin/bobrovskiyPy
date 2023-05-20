@@ -34,7 +34,7 @@ class LinkedList:
         arr = []
         while node is not None:
             if node.value == val:
-                arr.append(node.value)
+                arr.append(node)
             node = node.next
         return arr 
     
@@ -107,3 +107,4 @@ class LinkedList:
         temp = node.next
         node.next = newNode
         newNode.next = temp
+
