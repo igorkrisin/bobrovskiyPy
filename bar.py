@@ -43,26 +43,20 @@ class LinkedList:
         if node == None:
             return
         if all:
-            if node.value == val:
-                self.head = node.next
-                node = self.head
-            if node == None:
-                return
-            while node is not None:
+            while node.next is not None:
                 if node.value == val:
                     self.head = node.next
                     node = self.head
                     continue
-                if node == None:
-                    return
-                if node.next == None:
-                    return
                 if node.next.value == val:
-                    if node.next.next == None:
-                        node.next = None
-                        break
                     node.next = node.next.next
+                    continue
                 node = node.next
+            if node == None:
+                return
+            if node.value == val:
+                self.head = node.next
+                node = self.head
         if not all:
             if node.value == val:
                 self.head = node.next
