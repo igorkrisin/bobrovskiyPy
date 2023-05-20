@@ -1,11 +1,9 @@
 class Node:
-
     def __init__(self, v):
         self.value = v
         self.next = None
 
 class LinkedList:
-
     def __init__(self):
         self.head = None
         self.tail = None
@@ -39,7 +37,6 @@ class LinkedList:
                 arr.append(node.value)
             node = node.next
         return arr 
-    
     
     def delete(self, val, all=True):
         node = self.head
@@ -91,8 +88,6 @@ class LinkedList:
                return
            node = temp
            
-           
-
     def len(self):
         node = self.head
         count = 0
@@ -112,16 +107,3 @@ class LinkedList:
         temp = node.next
         node.next = newNode
         newNode.next = temp
-        
-        
-    
-s_list = LinkedList()
-s_list.add_in_tail(Node(2))
-s_list.add_in_tail(Node(9))
-s_list.add_in_tail(Node(2))
-s_list.add_in_tail(Node(2))
-s_list.add_in_tail(Node(2))
-
-s_list.insert(Node(9),Node(1))
-
-s_list.print_all_nodes()
