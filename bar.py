@@ -38,7 +38,7 @@ class LinkedList:
             node = node.next
         return arr 
     
-    def delete(self, val, all=True):
+    def delete(self, val, all=False):
         node = self.head
         if node == None:
             return
