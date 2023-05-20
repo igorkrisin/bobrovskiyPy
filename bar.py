@@ -90,9 +90,13 @@ class LinkedList:
             node = node.next
         return count 
 
-    def insert(self, afterNode, newNode):
+    def insert(self, afterNode, newNode):    
         node = self.head
         if node == None:
+            return
+        if afterNode == None:
+            newNode.next = node
+            self.head = newNode
             return
         while node.value is not afterNode.value:
             if node.next == None:
@@ -101,4 +105,5 @@ class LinkedList:
         temp = node.next
         node.next = newNode
         newNode.next = temp
+
 
