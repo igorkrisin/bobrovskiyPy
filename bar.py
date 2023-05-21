@@ -38,7 +38,7 @@ class LinkedList:
             node = node.next
         return arr 
     
-    def delete(self, val, all=False):
+    def delete(self, val, all=True):
         node = self.head
         if node == None:
             return
@@ -46,17 +46,14 @@ class LinkedList:
             while node.next is not None:
                 if node.value == val:
                     self.head = node.next
-                    node = self.head
+                    node = node.next
                     continue
                 if node.next.value == val:
                     node.next = node.next.next
                     continue
                 node = node.next
-            if node == None:
-                return
             if node.value == val:
-                self.head = node.next
-                node = self.head
+                self.head = None
         if not all:
             if node.value == val:
                 self.head = node.next
@@ -71,6 +68,7 @@ class LinkedList:
                 node = node.next
             if node == None:
                 return
+        return
         
     def clean(self):
        node = self.head
@@ -105,5 +103,4 @@ class LinkedList:
         temp = node.next
         node.next = newNode
         newNode.next = temp
-
 
