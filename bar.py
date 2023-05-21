@@ -68,7 +68,7 @@ class LinkedList:
                 node = node.next
             if node.value == val:
                 self.head = None
-                node  = None
+            self.tail = node
         return
         
     def clean(self):
