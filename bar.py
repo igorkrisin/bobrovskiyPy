@@ -42,18 +42,6 @@ class LinkedList:
         node = self.head
         if node == None:
             return
-        if all:
-            while node.next is not None:
-                if node.value == val:
-                    self.head = node.next
-                    node = node.next
-                    continue
-                if node.next.value == val:
-                    node.next = node.next.next
-                    continue
-                node = node.next
-            if node.value == val:
-                self.head = None
         if not all:
             if node.value == val:
                 self.head = node.next
@@ -68,6 +56,19 @@ class LinkedList:
                 node = node.next
             if node == None:
                 return
+        if all:
+            while node.next is not None:
+                if node.value == val:
+                    self.head = node.next
+                    node = node.next
+                    continue
+                if node.next.value == val:
+                    node.next = node.next.next
+                    continue
+                node = node.next
+            if node.value == val:
+                self.head = None
+                node  = None
         return
         
     def clean(self):
