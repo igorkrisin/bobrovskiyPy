@@ -43,11 +43,13 @@ class LinkedList:
         count = 0
         if node == None:
             return
+        if node.value == val and self.len() == 1:
+            self.head = None
+            self.tail = None
+            return
+        if node.value != val and self.len() == 1:
+            return
         if not all:
-            if node.value == val and self.len() == 1:
-                self.head = None
-                self.tail = None
-                return
             if node.value == val and self.len() > 1:
                 self.head = node.next
                 return
@@ -64,8 +66,7 @@ class LinkedList:
                     node.next = node.next.next
                     return 
                 node = node.next
-            if node == None:
-                return
+            return
         if all:
             while node.next is not None:
                 if node.value == val:
@@ -131,4 +132,3 @@ class LinkedList:
             node = node.next
         node = node.next
         return
-
