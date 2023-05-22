@@ -105,6 +105,8 @@ class LinkedList:
         node = self.head
         count = 0
         if node == None:
+            self.head = newNode
+            self.tail = newNode
             return
         if afterNode == None:
             newNode.next = node
@@ -132,3 +134,4 @@ class LinkedList:
             node = node.next
         node = node.next
         return
+    
