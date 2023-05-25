@@ -103,7 +103,7 @@ class LinkedList2:
             node = node.next
         return count
 
-    def insert(self, afterNode, newNode):
+    def insert(self, afterNode, newNode) -> None:
         node = self.head
 
         if node is None and afterNode is not None:
@@ -115,6 +115,7 @@ class LinkedList2:
         if afterNode is None and node is not None:
             node = self.tail
             node.next = newNode
+            newNode.prev = node
             newNode.next = None
             self.tail = newNode
             return
@@ -145,5 +146,3 @@ class LinkedList2:
             newNode.next = node
             newNode.prev = None
             self.head = newNode
-
-    
