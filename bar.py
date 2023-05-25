@@ -146,19 +146,4 @@ class LinkedList2:
             newNode.prev = None
             self.head = newNode
 
-    def create_array_from_list(self) -> [int]:
-        node: Node = self.head
-        arr: [int] = []
-        while node is not None:
-            arr.append(node.value)
-            node = node.next
-        return arr
-
-    def create_reference_to_val(self, arr) -> [int]:
-        if arr is []:
-            return []
-        if arr is None:
-            return []
-        for i in range(0, len(arr)):
-            arr[i]: [int] = arr[i].value
-        return arr
+    
