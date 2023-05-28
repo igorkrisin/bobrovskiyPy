@@ -1,148 +1,72 @@
-class Node:
-    def __init__(self, v):
-        self.value = v
-        self.prev = None
-        self.next = None
+import ctypes
 
+class DynArray:
 
-class LinkedList2:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.count = 0
+        self.capacity = 16
+        self.array = self.make_array(self.capacity)
 
-    def add_in_tail(self, item) -> None:
-        if self.head is None:
-            self.head = item
-            item.prev = None
-            item.next = None
+    def __len__(self):
+        return self.count
+
+    def make_array(self, new_capacity):
+        return (new_capacity * ctypes.py_object)()
+
+    def __getitem__(self, i):
+        if i < 0 or i >= self.count:
+            raise IndexError('Index is out of bounds')
+        return self.array[i]
+
+    def resize(self, new_capacity):
+        new_array = self.make_array(new_capacity)
+        for i in range(self.count):
+            new_array[i] = self.array[i]
+        self.array = new_array
+        self.capacity = new_capacity
+
+    def append(self, itm):
+        if self.count == self.capacity:
+            self.resize(2 * self.capacity)
+        self.array[self.count] = itm
+        self.count += 1
+
+    def insert(self, i, itm) -> None:
+        if i < 0 or i > self.count:
+            raise IndexError('Index is out of bounds')
+        if self.count == 0 and i == 0:
+            self.array[0] = itm
+            self.count += 1
+            return
+        elif self.count == self.capacity and i == self.count:
+            self.resize(2 * self.capacity)
+            self.array[i] = itm
+            self.count += 1
+            return
+        elif i == self.count:
+            self.array[i] = itm
+            self.count += 1
+            return
+        elif self.count == self.capacity:
+            self.resize(2 * self.capacity)
+            self.count += 1
         else:
-            self.tail.next = item
-            item.prev = self.tail
-        self.tail = item
+            self.count += 1
 
-    def find(self, val) -> Node:
-        node = self.head
-        while node is not None:
-            if node.value == val:
-                return node
-            node = node.next
+        for j in range(self.count-1, i, -1):
+            self.array[j] = self.array[j-1]
+        self.array[i] = itm
 
+    def delete(self, i) -> None:
 
-    def find_all(self, val):
-        node = self.head
-        arr = []
-        while node is not None:
-            if node.value == val:
-                arr.append(node)
-            node = node.next
-        return arr
-
-    def delete(self, val, all=False):
-        node = self.head
-        if node is None:
-            return
-        if node.next is None:
-            if node.value == val:
-                self.head = None
-                self.tail = None
-                return
-            else:
-
-                return
-        if not all:
-            if node.value == val:
-                self.head = node.next
-                self.head.prev = None
-                return
-            while node.next is not None:
-                if node.value == val:
-                    break
-                node = node.next
-            if node.next is not None:
-                node.prev.next = node.next
-                node.next.prev = node.prev
-            else:
-                if node.value == val:
-                    node.prev.next = None
-                    self.tail = node.prev
-            return
-        if all:
-            node = self.head
-            if node.value == val:
-                node.prev = None
-                self.head = node.next
-            while node.next is not None:
-                if node.next.value == val and node.next.next is not None:
-                    node.next = node.next.next
-                    node.next.prev = node
-                elif node.next.value == val and node.next.next is None:
-                    node.next = None
-                    self.tail = node
-                    return
-                node = node.next
-            return
-
-    def clean(self):
-        node = self.head
-        while node is not None:
-            temp = node.next
-            if temp is None:
-                self.head = None
-                self.tail = None
-                return
-            node.next.prev = None
-            self.head = temp
-            node = temp
-
-
-    def len(self):
-        node = self.head
-        count: int = 0
-        while node is not None:
-            count += 1
-            node = node.next
-        return count
-
-    def insert(self, afterNode, newNode) -> None:
-        node = self.head
-
-        if node is None and afterNode is not None:
-            return
-        if afterNode is None and node is None:
-            self.head = newNode
-            self.tail = newNode
-            return
-        if afterNode is None and node is not None:
-            node = self.tail
-            node.next = newNode
-            newNode.prev = node
-            newNode.next = None
-            self.tail = newNode
-            return
-        while node is not None:
-            if node.next is None:
-                node.next = newNode
-                newNode.prev = node
-                newNode.next = None
-                self.tail = newNode
-                return
-            if node.value is afterNode.value:
-                temp = node.next
-                node.next = newNode
-                newNode.prev = node
-                newNode.next = temp
-                temp.prev = newNode
-                return
-            node = node.next
-        return
-
-    def add_in_head(self, newNode):
-        node = self.head
-        if node is None:
-            self.head = newNode
-            self.tail = newNode
+        if i < 0 or i >= self.count:
+            raise IndexError('Index is out of bounds')
+        if i == self.count - 1:
+            self.count -= 1
         else:
-            node.prev = newNode
-            newNode.next = node
-            newNode.prev = None
-            self.head = newNode
+            for j in range(i, self.count - 1):
+                self.array[j] = self.array[j+1]
+            self.count -= 1
+        if self.capacity/self.count > 2 and self.capacity > 16:
+            self.capacity = int(self.capacity/1.5)
+
