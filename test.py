@@ -57,7 +57,7 @@ class DynArray:
             self.array[j] = self.array[j-1]
         self.array[i] = itm
 
-    def delete(self, i) -> None:
+    def delete(self, i: int) -> None:
         if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
         else:
@@ -72,12 +72,12 @@ class DynArray:
             self.capacity = int(self.capacity/1.5)
 
 
-    def create_arr(self, size):
+    def create_arr(self, size) -> None:
         for i in range(0, size):
             self.append(i)
 
     def convert_darr_to_list(self) -> [int]:
-        arr = []
+        arr: [int] = []
         #print('sc: ', self.count)
         for i in range(0, self.count):
             arr.append(self.array[i])
