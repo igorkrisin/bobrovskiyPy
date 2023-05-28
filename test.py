@@ -58,15 +58,14 @@ class DynArray:
         self.array[i] = itm
 
     def delete(self, i) -> None:
-
-        if i < 0 or i > self.count:
+        if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
-        if i == self.count - 1:
-            self.count -= 1
         else:
             for j in range(i, self.count - 1):
                 self.array[j] = self.array[j+1]
             self.count -= 1
+            if self.count < 0:
+                raise IndexError('Index is out of bounds')
         if self.count == 0:
             return
         if self.capacity/self.count > 2 and self.capacity > 16:
@@ -93,26 +92,30 @@ class DynArray:
 
 
 da = DynArray()
-da.create_arr(1)
+da.create_arr(15)
+
 
 print('da1: ', da.convert_darr_to_list())
-#da.delete(0)
-print('dacap1: ',da.capacity)
-print('daco1: ',da.count)
-#da.delete(0)
-print('dacap2: ',da.capacity)
-print('daco2: ',da.count)
-da.delete(1)
-print('daco3: ',da.count)
-print('dacap3 :',da.capacity)
-print('da3: ', da.convert_darr_to_list())
+
+print('dacap1: ', da.capacity)
+print('daco1: ', da.count)
+
+da.delete(14)
+
+
+
+print('da2: ', da.convert_darr_to_list())
+print('dacap2: ', da.capacity)
+print('daco2: ', da.count)
+#da.delete(16)
+#print('daco3: ',da.count)
+#print('dacap3 :',da.capacity)
+#print('da3: ', da.convert_darr_to_list())
 #da.print_da()
 
 
 import unittest
 class DinamycArrTest(unittest.TestCase):
-
-
     #print('test')
     def test_insert_in_arr_in_tail_i_equal_len(self) -> None:
         self.arr: DynArray = DynArray()
@@ -217,10 +220,23 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_single_el(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(1)
-        self.arr.delete(1)
+        self.arr.delete(0)
         self.assertEqual(self.arr.convert_darr_to_list(), [])
         self.assertEqual(self.arr.count, 0)
         self.assertEqual(self.arr.capacity, 16)
+
+    def test_element_of_range_delete(self) -> None:
+        self.arr: DynArray = DynArray()
+        self.arr.create_arr(5)
+        with self.assertRaises(Exception) as context:
+            self.arr.delete(0)
+            self.arr.delete(0)
+            self.arr.delete(0)
+            self.arr.delete(0)
+            self.arr.delete(0)
+            self.arr.delete(0)
+            self.assertTrue('Index is out of bounds' in context.exception)
+
 
 if __name__ == "__main__":
     unittest.main()
