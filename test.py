@@ -69,7 +69,7 @@ class DynArray:
         if self.count == 0:
             return
         if self.capacity/self.count > 2 and self.capacity > 16:
-            self.capacity = int(self.capacity/1.5)
+            self.resize(int(self.capacity/1.5))
 
 
     def create_arr(self, size: int) -> None:
@@ -186,10 +186,10 @@ class DinamycArrTest(unittest.TestCase):
 
     def test_delete_middle_el_capacity_min(self) -> None:
         self.arr: DynArray = DynArray()
-        self.arr.create_arr(15)
+        self.arr.create_arr(16)
         self.arr.delete(12)
-        self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
-        self.assertEqual(self.arr.count, 14)
+        self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15])
+        self.assertEqual(self.arr.count, 15)
         self.assertEqual(self.arr.capacity, 16)
 
     def test_delete_middle_el_capacity_from_32_to_16(self) -> None:
