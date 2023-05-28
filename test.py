@@ -10,15 +10,15 @@ class DynArray:
     def __len__(self):
         return self.count
 
-    def make_array(self, new_capacity):
+    def make_array(self, new_capacity: int):
         return (new_capacity * ctypes.py_object)()
 
-    def __getitem__(self, i):
+    def __getitem__(self, i: int) -> None:
         if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
         return self.array[i]
 
-    def resize(self, new_capacity):
+    def resize(self, new_capacity: int) -> None:
         new_array = self.make_array(new_capacity)
         for i in range(self.count):
             new_array[i] = self.array[i]
@@ -72,7 +72,7 @@ class DynArray:
             self.capacity = int(self.capacity/1.5)
 
 
-    def create_arr(self, size) -> None:
+    def create_arr(self, size: int) -> None:
         for i in range(0, size):
             self.append(i)
 
