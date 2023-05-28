@@ -1,9 +1,9 @@
 import unittest
-from bar import LinkedList
-from bar import Node
+from externTask import LinkedList
+from externTask import Node
 
 
-def summ_value_node_two_lists(self, list_1, list_2): #задание со *
+def summ_value_node_two_lists(self, list_1, list_2) -> LinkedList: #задание со *
     node1: Node = list_1.head
     node2: Node = list_2.head
     if list_1.len() == list_2.len():
@@ -13,7 +13,9 @@ def summ_value_node_two_lists(self, list_1, list_2): #задание со *
             node2 = node2.next
         return list_1
     else:
-        return
+        list_1.head = None
+        list_1.tail = None
+        return list_1 #Под вопросом что возыращать???
 
 def create_array_from_list(self) -> [int]:
     node: Node = self.head
