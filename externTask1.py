@@ -1,9 +1,10 @@
 import unittest
-from externTask import LinkedList
+
 from externTask import Node
+from externTask import LinkedList
 
 
-def summ_value_node_two_lists(self, list_1, list_2) -> LinkedList: #задание со *
+def summ_value_node_two_lists(self, list_1, list_2) -> LinkedList: #задание со звездочкой
     node1: Node = list_1.head
     node2: Node = list_2.head
     if list_1.len() == list_2.len():
@@ -15,7 +16,7 @@ def summ_value_node_two_lists(self, list_1, list_2) -> LinkedList: #задани
     else:
         list_1.head = None
         list_1.tail = None
-        return list_1 #Под вопросом что возыращать???
+        return list_1
 
 def create_array_from_list(self) -> [int]:
     node: Node = self.head
@@ -30,6 +31,7 @@ def create_reference_to_val(self, arr) -> [int]:
     for i in range(0, len(arr)):
         arr[i]: [int] = arr[i].value
     return arr
+
 
 
 
@@ -189,7 +191,7 @@ class TestLinkedList(unittest.TestCase):
         self.n_list: LinkedList = LinkedList()
         self.n_list.add_in_tail(Node(3))
         self.n_list.add_in_tail(Node(1))
-        self.summ_list: LinkedList = self.s_list.summ_value_node_two_lists(self.s_list, self.n_list)
+        self.summ_list = self.s_list.summ_value_node_two_lists(self.s_list, self.n_list)
         self.assertEqual(self.summ_list.create_array_from_list(), [6, 2])
 
 
