@@ -13,10 +13,9 @@ def summ_value_node_two_lists(self, list_1, list_2) -> LinkedList: #задани
             node1 = node1.next
             node2 = node2.next
         return list_1
-    else:
-        list_1.head = None
-        list_1.tail = None
-        return list_1
+    list_1.head = None
+    list_1.tail = None
+    return list_1
 
 def create_array_from_list(self) -> [int]:
     node: Node = self.head
