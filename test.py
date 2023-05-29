@@ -68,11 +68,13 @@ class DynArray:
                 raise IndexError('Index is out of bounds')
         if self.count == 0:
             return
-        if self.capacity/self.count > 2 and self.capacity > 16:
-            self.resize(int(self.capacity/1.5))
-        elif self.capacity/self.count > 2 and self.capacity == 16:
-            self.resize(self.capacity * 1)
+        self.check_capacity_and_resize()
 
+    def check_capacity_and_resize(self) -> None:
+        if self.capacity / self.count > 2 and int(self.capacity / 1.5) > 16:
+            self.resize(int(self.capacity / 1.5))
+        elif self.capacity / self.count > 2 and int(self.capacity / 1.5) < 16:
+            self.resize(16)
 
 
     def create_arr(self, size: int) -> None:
@@ -89,6 +91,10 @@ class DynArray:
     def print_da(self) -> None:
         for i in range(0, self.count):
             print(self.array[i])
+
+    def delete_count(self, ind: int, amount: int) -> None:
+        for i in range(0, amount):
+            self.delete(ind)
 
 
 
@@ -118,14 +124,13 @@ da.print_da()
 #da.print_da()
 
 
-'''import unittest
+import unittest
 class DinamycArrTest(unittest.TestCase):
     #print('test')
     def test_insert_in_arr_in_tail_i_equal_len(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(16)
         self.arr.insert(16, 18)
-        #print(self.arr.convert_darr_to_list())
         self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18])
         self.assertEqual(self.arr.count, 17)
         self.assertEqual(self.arr.capacity, 32)
@@ -176,6 +181,16 @@ class DinamycArrTest(unittest.TestCase):
         self.arr.delete(14)
         self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
         self.assertEqual(self.arr.count, 14)
+        self.assertEqual(self.arr.capacity, 16)
+
+    def test_delete_when_capacity_min_resize_capacity(self) -> None:
+        self.arr: DynArray = DynArray()
+        self.arr.create_arr(46)
+        self.assertEqual(self.arr.count, 46)
+        self.assertEqual(self.arr.capacity, 64)
+        self.arr.delete_count(1, 45)
+        self.assertEqual(self.arr.convert_darr_to_list(), [0])
+        self.assertEqual(self.arr.count, 1)
         self.assertEqual(self.arr.capacity, 16)
 
     def test_delete_when_capacity_min(self) -> None:
@@ -243,5 +258,5 @@ class DinamycArrTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()'''
+    unittest.main()
 
