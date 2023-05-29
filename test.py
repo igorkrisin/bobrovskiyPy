@@ -170,7 +170,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_index_of_range_insert(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(15)
-
+        self.assertEqual(self.arr.count, 15)
+        self.assertEqual(self.arr.capacity, 16)
         with self.assertRaises(Exception) as context:
             self.arr.insert(17, 99)
             self.assertTrue('Index is out of bounds' in context.exception)
@@ -178,6 +179,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_last_el(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(15)
+        self.assertEqual(self.arr.count, 15)
+        self.assertEqual(self.arr.capacity, 16)
         self.arr.delete(14)
         self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
         self.assertEqual(self.arr.count, 14)
@@ -196,6 +199,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_when_capacity_min(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(15)
+        self.assertEqual(self.arr.count, 15)
+        self.assertEqual(self.arr.capacity, 16)
         self.arr.delete(14)
         self.arr.delete(13)
         self.arr.delete(12)
@@ -206,6 +211,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_middle_el_capacity_min(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(16)
+        self.assertEqual(self.arr.count, 16)
+        self.assertEqual(self.arr.capacity, 16)
         self.arr.delete(12)
         self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15])
         self.assertEqual(self.arr.count, 15)
@@ -214,6 +221,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_middle_el_capacity_from_32_to_16(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(33)
+        self.assertEqual(self.arr.count, 33)
+        self.assertEqual(self.arr.capacity, 64)
         self.arr.delete(14)
         self.arr.delete(14)
         self.assertEqual(self.arr.convert_darr_to_list(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32])
@@ -223,6 +232,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_first_el(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(15)
+        self.assertEqual(self.arr.count, 15)
+        self.assertEqual(self.arr.capacity, 16)
         self.arr.delete(0)
         self.assertEqual(self.arr.convert_darr_to_list(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
         self.assertEqual(self.arr.count, 14)
@@ -231,7 +242,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_index_of_range_delete(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(17)
-
+        self.assertEqual(self.arr.count, 17)
+        self.assertEqual(self.arr.capacity, 32)
         with self.assertRaises(Exception) as context:
             self.arr.delete(18)
             self.assertTrue('Index is out of bounds' in context.exception)
@@ -239,6 +251,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_delete_single_el(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(1)
+        self.assertEqual(self.arr.count, 1)
+        self.assertEqual(self.arr.capacity, 16)
         self.arr.delete(0)
         self.assertEqual(self.arr.convert_darr_to_list(), [])
         self.assertEqual(self.arr.count, 0)
@@ -247,6 +261,8 @@ class DinamycArrTest(unittest.TestCase):
     def test_element_of_range_delete(self) -> None:
         self.arr: DynArray = DynArray()
         self.arr.create_arr(5)
+        self.assertEqual(self.arr.count, 5)
+        self.assertEqual(self.arr.capacity, 16)
         with self.assertRaises(Exception) as context:
             self.arr.delete(0)
             self.arr.delete(0)
