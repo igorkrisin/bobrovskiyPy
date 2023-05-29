@@ -4,6 +4,7 @@ class Node:
         self.next = None
 
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -135,3 +136,19 @@ class LinkedList:
             node = node.next
         node = node.next
         return
+
+    def create_array_from_list(self) -> [int]:
+        node: Node = self.head
+        arr: [int] = []
+        while node is not None:
+            arr.append(node.value)
+            node = node.next
+        return arr
+
+    def create_reference_to_val(self, arr) -> [int]:
+        for i in range(0, len(arr)):
+            arr[i]: [int] = arr[i].value
+        return arr
+
+
+

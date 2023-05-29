@@ -70,6 +70,9 @@ class DynArray:
             return
         if self.capacity/self.count > 2 and self.capacity > 16:
             self.resize(int(self.capacity/1.5))
+        elif self.capacity/self.count > 2 and self.capacity == 16:
+            self.resize(self.capacity * 1)
+
 
 
     def create_arr(self, size: int) -> None:
@@ -92,7 +95,7 @@ class DynArray:
 
 
 da = DynArray()
-da.create_arr(15)
+da.create_arr(3)
 
 
 print('da1: ', da.convert_darr_to_list())
@@ -100,13 +103,14 @@ print('da1: ', da.convert_darr_to_list())
 print('dacap1: ', da.capacity)
 print('daco1: ', da.count)
 
-da.delete(14)
-
+da.delete(0)
 
 
 print('da2: ', da.convert_darr_to_list())
 print('dacap2: ', da.capacity)
 print('daco2: ', da.count)
+
+da.print_da()
 #da.delete(16)
 #print('daco3: ',da.count)
 #print('dacap3 :',da.capacity)
@@ -114,7 +118,7 @@ print('daco2: ', da.count)
 #da.print_da()
 
 
-import unittest
+'''import unittest
 class DinamycArrTest(unittest.TestCase):
     #print('test')
     def test_insert_in_arr_in_tail_i_equal_len(self) -> None:
@@ -239,5 +243,5 @@ class DinamycArrTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main()'''
 

@@ -31,7 +31,7 @@ class DynArray:
         self.array[self.count] = itm
         self.count += 1
 
-    def insert(self, i, itm) -> None:
+    def insert(self, i: int, itm) -> None:
         if i < 0 or i > self.count:
             raise IndexError('Index is out of bounds')
         if self.count == 0 and i == 0:
@@ -57,7 +57,7 @@ class DynArray:
             self.array[j] = self.array[j-1]
         self.array[i] = itm
 
-    def delete(self, i) -> None:
+    def delete(self, i: int) -> None:
         if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
         else:
