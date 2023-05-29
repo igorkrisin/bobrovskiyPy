@@ -191,7 +191,7 @@ class TestLinkedList(unittest.TestCase):
         self.n_list: LinkedList = LinkedList()
         self.n_list.add_in_tail(Node(3))
         self.n_list.add_in_tail(Node(1))
-        self.summ_list = self.s_list.summ_value_node_two_lists(self.s_list, self.n_list)
+        self.summ_list = summ_value_node_two_lists(self, self.n_list, self.n_list)
         self.assertEqual(self.summ_list.create_array_from_list(), [6, 2])
 
 
