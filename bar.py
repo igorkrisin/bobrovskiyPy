@@ -9,6 +9,8 @@ class Stack:
         if self.size() == 0:
             return None
         self.stack = self.stack[1:]
+        if self.size() == 0:
+            return None
 
     def push(self, value) -> None:
         self.stack = [value] + self.stack
