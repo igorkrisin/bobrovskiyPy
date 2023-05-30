@@ -10,15 +10,15 @@ class DynArray:
     def __len__(self):
         return self.count
 
-    def make_array(self, new_capacity):
+    def make_array(self, new_capacity: int):
         return (new_capacity * ctypes.py_object)()
 
-    def __getitem__(self, i):
+    def __getitem__(self, i: int) -> None:
         if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
         return self.array[i]
 
-    def resize(self, new_capacity):
+    def resize(self, new_capacity: int) -> None:
         new_array = self.make_array(new_capacity)
         for i in range(self.count):
             new_array[i] = self.array[i]
@@ -31,7 +31,7 @@ class DynArray:
         self.array[self.count] = itm
         self.count += 1
 
-    def insert(self, i: int, itm) -> None:
+    def insert(self, i, itm) -> None:
         if i < 0 or i > self.count:
             raise IndexError('Index is out of bounds')
         if self.count == 0 and i == 0:
@@ -68,5 +68,10 @@ class DynArray:
                 raise IndexError('Index is out of bounds')
         if self.count == 0:
             return
-        if self.capacity/self.count > 2 and self.capacity > 16:
-            self.capacity = int(self.capacity/1.5)
+        self.check_capacity_and_resize()
+
+    def check_capacity_and_resize(self) -> None:
+        if self.capacity / self.count > 2 and int(self.capacity / 1.5) > 16:
+            self.resize(int(self.capacity / 1.5))
+        elif self.capacity / self.count > 2 and int(self.capacity / 1.5) < 16:
+            self.resize(16)
