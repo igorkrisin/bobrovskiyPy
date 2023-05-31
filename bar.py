@@ -8,14 +8,15 @@ class Stack:
     def pop(self):
         if self.size() == 0:
             return None
-        del self.stack[0]
-        if self.size() == 0:
-            return None
+        temp = self.stack[self.size()-1]
+        del self.stack[self.size()-1]
+        return temp
+
 
     def push(self, value) -> None:
-        self.stack = [value] + self.stack
+        self.stack = self.stack + [value]
 
     def peek(self):
         if self.size() == 0:
             return None
-        return self.stack[0]
+        return self.stack[self.size()-1]
