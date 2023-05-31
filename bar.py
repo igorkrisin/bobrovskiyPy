@@ -8,7 +8,7 @@ class Stack:
     def pop(self):
         if self.size() == 0:
             return None
-        self.stack = self.stack[1:]
+        del self.stack[0]
         if self.size() == 0:
             return None
 
