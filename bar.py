@@ -1,22 +1,18 @@
-class Stack:
+
+class Queue:
     def __init__(self):
-        self.stack = []
+        self.queue = []
 
-    def size(self) -> int:
-        return len(self.stack)
+    def enqueue(self, item: int) -> None:
+        self.queue.append(item)
 
-    def pop(self):
+    def dequeue(self) -> object:
         if self.size() == 0:
             return None
-        temp = self.stack[self.size()-1]
-        del self.stack[self.size()-1]
+        temp: object = self.queue[0]
+        del self.queue[0]
         return temp
 
-
-    def push(self, value) -> None:
-        self.stack = self.stack + [value]
-
-    def peek(self):
-        if self.size() == 0:
-            return None
-        return self.stack[self.size()-1]
+    def size(self):
+        return len(self.queue)
+    
