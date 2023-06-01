@@ -154,9 +154,8 @@ def check_curly_braces(braces: str) -> bool:
             stack.push(braces[i])
         elif braces[i] == ")":
             stack.pop()
-    if stack.size() == 0:
-        return True
-    return False
+    return True
+
 
 
 
