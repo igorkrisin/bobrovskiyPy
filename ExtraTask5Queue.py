@@ -1,5 +1,5 @@
-#from bar import Queue
-#from Task4stack import Stack
+from bar import Queue
+from Task4stack import Stack
 import unittest
 
 
@@ -12,14 +12,14 @@ import unittest
 #qu = Queue()
 
 
-def rotate_queue(self, quant):
+def rotate_queue(self, quant: int):
     if self.size() == 0:
         return None
     for i in range(0, quant):
         self.enqueue(self.dequeue())
 
 
-'''que = Queue()
+que = Queue()
 que.enqueue(5)
 que.enqueue(6)
 que.enqueue(7)
@@ -29,93 +29,9 @@ rotate_queue(que, 4)
 print(que.queue)
 
 
-class TestLinkedList(unittest.TestCase):
-
-    def setUp(self) -> None:
-        self.que: Queue = Queue()
-
-    def test_dequeue_single_el(self) -> None:
-        self.que: Queue = Queue()
-        self.assertEqual(self.que.size(), 0)
-        self.que.enqueue(4)
-        self.assertEqual(self.que.size(), 1)
-        self.assertEqual(self.que.dequeue(), 4)
-        self.assertEqual(self.que.queue, [])
-        self.assertEqual(self.que.size(), 0)
-
-    def test_enqueue_few_el_dequeue_few_el(self) -> None:
-        self.que: Queue = Queue()
-        self.assertEqual(self.que.size(), 0)
-        self.que.enqueue(0)
-        self.que.enqueue(1)
-        self.que.enqueue(2)
-        self.que.enqueue(3)
-        self.que.enqueue(4)
-        self.que.enqueue(5)
-        self.assertEqual(self.que.size(), 6)
-        self.que.dequeue()
-        self.assertEqual(self.que.queue, [1, 2, 3, 4, 5])
-        self.assertEqual(self.que.size(), 5)
-        self.que.dequeue()
-        self.assertEqual(self.que.queue, [2, 3, 4, 5])
-        self.assertEqual(self.que.size(), 4)
-        self.que.dequeue()
-        self.que.dequeue()
-        self.que.dequeue()
-        self.que.dequeue()
-        self.assertEqual(self.que.queue, [])
-        self.assertEqual(self.que.size(), 0)
-
-    def test_rotation_queue(self) -> None:
-        self.qu: Queue = Queue()
-        self.assertEqual(self.que.size(), 0)
-        self.qu.enqueue(0)
-        self.qu.enqueue(1)
-        self.qu.enqueue(2)
-        self.qu.enqueue(3)
-        self.qu.enqueue(4)
-        self.qu.enqueue(5)
-        self.assertEqual(self.qu.queue, [0, 1, 2, 3, 4, 5])
-        self.assertEqual(self.qu.size(), 6)
-        rotate_queue(3)
-        self.assertEqual(self.qu.queue, [3, 4, 5, 0, 1, 2])
-        self.qu.dequeue()
-        self.qu.dequeue()
-        self.qu.dequeue()
-        self.qu.dequeue()
-        self.qu.dequeue()
-        self.qu.dequeue()
-        self.qu.rotate_queue(3)
-        self.assertEqual(self.qu.queue, [])
-
-
-# Executing the tests in the above test case class
-if __name__ == "__main__":
-    unittest.main()'''
-
-
-class Stack:
-    def __init__(self):
-        self.stack = []
-
-    def size(self) -> int:
-        return len(self.stack)
-
-    def pop(self):
-        if self.size() == 0:
-            return None
-        temp = self.stack[self.size()-1]
-        del self.stack[self.size()-1]
-        return temp
-
-
-    def push(self, value) -> None:
-        self.stack = self.stack + [value]
-
-
 class Queue2Stack:
 
-    def __int__(self):
+    def __init__(self):
         
         self.stack1 = Stack()
         self.stack2 = Stack()
@@ -138,45 +54,17 @@ class Queue2Stack:
 
 
 st = Queue2Stack()
-#print(st.push(5))
-
-
-class Stack2:
-    def __init__(self):
-        self.stack = []
-    def push(self, elem):
-        if self.stack:
-            self.stack.append((elem, min(elem, self.stack[-1][1])))
-        else:
-            self.stack.append((elem, elem))
-
-    def pop(self):
-        return self.stack.pop()[0]
-
-    def size(self) -> int:
-        return len(self.stack)
-
-class Queue2:
-    def __init__(self):
-        self.s1 = Stack2()
-        self.s2 = Stack2()
-
-    def push(self, elem):
-        self.s1.push(elem)
-
-    def pop(self):
-        if not self.s2:
-            while self.s1:
-                self.s2.push(self.s1.pop())
-        return self.s2.pop()
-
-
-
-
-qu1 = Queue2()
-
-qu1.push(45)
-qu1.push(55)
-
-print(qu1)
-
+st.push(55)
+st.push(76)
+st.push(57)
+st.push(90)
+st.push(48)
+st.print_2_stack()
+st.pop()
+st.print_2_stack()
+st.pop()
+st.print_2_stack()
+st.pop()
+st.print_2_stack()
+st.push(567)
+st.print_2_stack()
