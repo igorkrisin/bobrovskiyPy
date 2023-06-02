@@ -11,14 +11,14 @@ class Deque:
     def removeFront(self) -> object:
         if self.size() == 0:
             return None
-        temp = self.deque[self.size()-1]
+        temp: object = self.deque[self.size()-1]
         del self.deque[self.size()-1]
         return temp
 
     def removeTail(self) -> object:
         if self.size() == 0:
             return None
-        temp = self.deque[0]
+        temp: object = self.deque[0]
         self.deque.pop(0)
         return temp
 
