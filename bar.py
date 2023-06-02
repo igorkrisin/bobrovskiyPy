@@ -1,18 +1,26 @@
-
-class Queue:
+class Deque:
     def __init__(self):
-        self.queue = []
+        self.deque = []
 
-    def enqueue(self, item: int) -> None:
-        self.queue.append(item)
+    def addFront(self, item) -> None:
+        self.deque.append(item)
 
-    def dequeue(self) -> object:
+    def addTail(self, item) -> None:
+        self.deque = [item] + self.deque
+
+    def removeFront(self) -> object:
         if self.size() == 0:
             return None
-        temp: object = self.queue[0]
-        del self.queue[0]
+        temp = self.deque[self.size()-1]
+        del self.deque[self.size()-1]
         return temp
 
-    def size(self):
-        return len(self.queue)
-    
+    def removeTail(self) -> object:
+        if self.size() == 0:
+            return None
+        temp = self.deque[0]
+        self.deque.pop(0)
+        return temp
+
+    def size(self) -> int:
+        return len(self.deque)
