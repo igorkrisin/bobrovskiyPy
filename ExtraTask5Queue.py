@@ -12,7 +12,7 @@ import unittest
 #qu = Queue()
 
 
-def rotate_queue(self, quant: int):
+def rotate_queue(self, quant: int) -> None:
     if self.size() == 0:
         return None
     for i in range(0, quant):
