@@ -9,8 +9,6 @@ import unittest
 
 
 def is_palindrom(deque: Deque):
-    #if deque is None:
-        #return True
     while deque.size() != 0:
         if deque.removeFront() != deque.removeTail():
             return False
