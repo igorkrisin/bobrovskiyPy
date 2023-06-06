@@ -1,4 +1,4 @@
-
+import unittest
 class Node:
     def __init__(self, v):
         self.value = v
@@ -188,19 +188,29 @@ class OrderedList:
             print(node.value)
             node = node.next
 
+    def find_asc(self, val):
+        node = self.head
+        while node is not None:
+            if self.__ascending is False and node.value < val or self.__ascending is True and node.value > val:
+                return
+            if node.value == val:
+                return node
+            node = node.next
+
+
+
 class OrderedStringList(OrderedList):
     def __init__(self, asc):
         super(OrderedStringList, self).__init__(asc)
 
     def compare(self, v1: str, v2: str) -> int:
-
         v1 = self.del_first_and_last_space(v1)
         v2 = self.del_first_and_last_space(v2)
-        if len(v1) < len(v2):
+        if v1 < v2:
             return -1
-        if len(v1) == len(v2):
+        if v1 == v2:
             return 0
-        if len(v1) > len(v2):
+        if v1 > v2:
             return 1
 
     def del_first_and_last_space(self, v: str) -> str:
