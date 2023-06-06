@@ -188,6 +188,11 @@ class OrderedList:
             print(node.value)
             node = node.next
 
+    # 6 сложность операции поиска с учетом добавления прерывания не изменилась в целом, но при отсуствии "поискового" элемента в
+    #  списке алгоритму не придется осущeствлять поиск до конца выражения, а значит сложность будет меньше, чем O(n)
+    # предположу что О(log N)
+
+
     def find_asc(self, val):
         node = self.head
         while node is not None:
@@ -196,6 +201,8 @@ class OrderedList:
             if node.value == val:
                 return node
             node = node.next
+
+
 
 
 
