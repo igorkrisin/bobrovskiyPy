@@ -196,8 +196,6 @@ class OrderedStringList(OrderedList):
 
         v1 = self.del_first_and_last_space(v1)
         v2 = self.del_first_and_last_space(v2)
-        print('v1: ', v1)
-        print('v2: ', v1)
         if len(v1) < len(v2):
             return -1
         if len(v1) == len(v2):
@@ -209,4 +207,3 @@ class OrderedStringList(OrderedList):
         v = v.lstrip(' ')
         v = v.rstrip(' ')
         return v
-    
