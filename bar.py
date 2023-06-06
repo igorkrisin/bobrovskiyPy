@@ -1,4 +1,4 @@
-import unittest
+
 class Node:
     def __init__(self, v):
         self.value = v
@@ -39,7 +39,8 @@ class OrderedList:
                         temp.prev = new_node
                         new_node.next = temp
                         return
-                    elif node.next.next is None and self.compare(value, node.next.value) == 1:
+                    elif node.next.next is None and self.compare(value, node.next.value) == 1 \
+                            or self.compare(value, node.next.value) == 0:
                         temp = node.next
                         node.next = new_node
                         new_node.prev = node
@@ -75,6 +76,7 @@ class OrderedList:
                     elif node.next.next is None and self.compare(value, node.next.value) == 1:
                         self.add_in_tail(new_node)
                     node = node.next
+        return
 
     def find(self, val) -> Node:
         node = self.head
@@ -186,24 +188,25 @@ class OrderedList:
             print(node.value)
             node = node.next
 
-
 class OrderedStringList(OrderedList):
     def __init__(self, asc):
         super(OrderedStringList, self).__init__(asc)
 
     def compare(self, v1: str, v2: str) -> int:
+
         v1 = self.del_first_and_last_space(v1)
         v2 = self.del_first_and_last_space(v2)
-
+        print('v1: ', v1)
+        print('v2: ', v1)
         if len(v1) < len(v2):
             return -1
         if len(v1) == len(v2):
             return 0
         if len(v1) > len(v2):
             return 1
-        return 0
 
     def del_first_and_last_space(self, v: str) -> str:
         v = v.lstrip(' ')
         v = v.rstrip(' ')
         return v
+    
