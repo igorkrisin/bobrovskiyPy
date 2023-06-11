@@ -6,11 +6,11 @@ class PowerSet:
     def size(self) -> int:
         return len(self.pow_set)
 
-    def put(self, value) -> None:
+    def put(self, value: object) -> None:
         if self.pow_set.count(value) == 0:
             self.pow_set.append(value)
 
-    def get(self, value) -> bool:
+    def get(self, value: object) -> bool:
         if value in self.pow_set:
             return True
         return False
@@ -22,28 +22,28 @@ class PowerSet:
                 return True
         return False
 
-    def intersection(self, set2: 'PowerSet'):
+    def intersection(self, set2: 'PowerSet') -> 'PowerSet':
         set_summ: PowerSet = PowerSet()
         for i in range(0, len(self.pow_set)):
             if self.pow_set[i] in set2.pow_set:
                 set_summ.put(self.pow_set[i])
         if len(set_summ.pow_set) > 0:
-            return set_summ.pow_set
-        return set_summ.pow_set
+            return set_summ
+        return set_summ
 
-    def union(self, set2: 'PowerSet'):
+    def union(self, set2: 'PowerSet') -> 'PowerSet':
         for i in range(0, set2.size()):
             self.put(set2.pow_set[i])
-        return self.pow_set
+        return self
 
-    def difference(self, set2: 'PowerSet'):
+    def difference(self, set2: 'PowerSet') -> 'PowerSet':
         summ_set: PowerSet = PowerSet()
         for i in self.pow_set:
             if i not in set2.pow_set:
                 summ_set.put(i)
-        return summ_set.pow_set
+        return summ_set
 
-    def issubset(self, set2: 'PowerSet'):
+    def issubset(self, set2: 'PowerSet') -> bool:
         summ_set: PowerSet = PowerSet()
         for i in self.pow_set:
             if i in set2.pow_set:
