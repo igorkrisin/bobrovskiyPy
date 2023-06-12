@@ -32,9 +32,12 @@ class PowerSet:
         return set_summ
 
     def union(self, set2: 'PowerSet') -> 'PowerSet':
+        summ_set: PowerSet = PowerSet()
         for i in range(0, set2.size()):
-            self.put(set2.pow_set[i])
-        return self
+            summ_set.put(set2.pow_set[i])
+        for i in range(0, self.size()):
+            summ_set.put(self.pow_set[i])
+        return summ_set
 
     def difference(self, set2: 'PowerSet') -> 'PowerSet':
         summ_set: PowerSet = PowerSet()
@@ -51,3 +54,4 @@ class PowerSet:
         if summ_set.size() == set2.size():
             return True
         return False
+    
