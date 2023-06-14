@@ -1,57 +1,39 @@
-class PowerSet:
+class BloomFilter:
 
-    def __init__(self):
-        self.pow_set = []
+    def __init__(self, f_len):
+        self.filter_len = f_len
+        self.b_filter = 0b1 << f_len
+        self.val = bin(self.b_filter)
 
-    def size(self) -> int:
-        return len(self.pow_set)
 
-    def put(self, value: object) -> None:
-        if self.pow_set.count(value) == 0:
-            self.pow_set.append(value)
+    def hash1(self, str1):
+        rand = 17
+        ind = 0
+        res = 0
+        for c in str1:
+            code = ord(c)
+            ind = (ind * rand + code)
+            res = ind % self.filter_len
+        return 0b1 << (self.filter_len - 1 - res)
 
-    def get(self, value: object) -> bool:
-        if value in self.pow_set:
-            return True
-        return False
 
-    def remove(self, value) -> bool:
-        for i in range(0, len(self.pow_set)):
-            if value == self.pow_set[i]:
-                self.pow_set.pop(i)
-                return True
-        return False
 
-    def intersection(self, set2: 'PowerSet') -> 'PowerSet':
-        set_summ: PowerSet = PowerSet()
-        for i in range(0, len(self.pow_set)):
-            if self.pow_set[i] in set2.pow_set:
-                set_summ.put(self.pow_set[i])
-        if len(set_summ.pow_set) > 0:
-            return set_summ
-        return set_summ
+    def hash2(self, str1):
+        rand = 223
+        ind = 0
+        res = 0
+        for c in str1:
+            code = ord(c)
+            ind = (ind * rand + code)
+            res = ind % self.filter_len
+        return 0b1 << (self.filter_len - 1 - res)
 
-    def union(self, set2: 'PowerSet') -> 'PowerSet':
-        summ_set: PowerSet = PowerSet()
-        for i in range(0, set2.size()):
-            summ_set.put(set2.pow_set[i])
-        for i in range(0, self.size()):
-            summ_set.put(self.pow_set[i])
-        return summ_set
+    def add(self, str1):
+        self.b_filter |= self.hash1(str1)
+        self.b_filter |= self.hash2(str1)
 
-    def difference(self, set2: 'PowerSet') -> 'PowerSet':
-        summ_set: PowerSet = PowerSet()
-        for i in self.pow_set:
-            if i not in set2.pow_set:
-                summ_set.put(i)
-        return summ_set
-
-    def issubset(self, set2: 'PowerSet') -> bool:
-        summ_set: PowerSet = PowerSet()
-        for i in self.pow_set:
-            if i in set2.pow_set:
-                summ_set.put(i)
-        if summ_set.size() == set2.size():
-            return True
-        return False
+    def is_value(self, str1):
+        index1 = self.filter_len - len(bin(self.hash1(str1))) + 5
+        index2 = self.filter_len - len(bin(self.hash2(str1))) + 5
+        return bin(self.b_filter)[index1] == '1' and bin(self.b_filter)[index2] == '1'
     
