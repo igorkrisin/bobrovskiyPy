@@ -1,39 +1,55 @@
-class BloomFilter:
+class NativeCache:
+    def __init__(self, sz):
+        self.size = sz
+        self.slots = [None] * self.size
+        self.values = [None] * self.size
+        self.hits = [0] * self.size
 
-    def __init__(self, f_len):
-        self.filter_len = f_len
-        self.b_filter = 0b1 << f_len
-        self.val = bin(self.b_filter)
+    def hash_fun(self, key):
+        summ = 0
+        for i in range(0, len(key) - 1):
+            summ += ord(key[i])
+        return summ % self.size
 
+    def is_key(self, key):
+        for i in range(0, self.size):
+            if self.slots[i] == key:
+                self.hits[i] += 1
+                return True
+        return False
 
-    def hash1(self, str1):
-        rand = 17
-        ind = 0
-        res = 0
-        for c in str1:
-            code = ord(c)
-            ind = (ind * rand + code)
-            res = ind % self.filter_len
-        return 0b1 << (self.filter_len - 1 - res)
+    def put(self, key, value):
+        ind = self.hash_fun(key)
+        if self.is_crowded():
+            min_ind = self.min_hits()
+            self.slots[min_ind] = None
+            self.values[min_ind] = None
+            self.hits[min_ind] = 0
+            self.slots[min_ind] = key
+            self.values[min_ind] = value
+            return
+        self.slots[ind] = key
+        self.values[ind] = value
 
+    def get(self, key):
+        for i in range(0, self.size):
+            if key == self.slots[i]:
+                self.hits[i] += 1
+                return self.values[i]
+        return None
 
+    def is_crowded(self) -> bool:
+        for i in range(0, self.size):
+            if self.values[i] is None:
+                return False
+        return True
 
-    def hash2(self, str1):
-        rand = 223
-        ind = 0
-        res = 0
-        for c in str1:
-            code = ord(c)
-            ind = (ind * rand + code)
-            res = ind % self.filter_len
-        return 0b1 << (self.filter_len - 1 - res)
-
-    def add(self, str1):
-        self.b_filter |= self.hash1(str1)
-        self.b_filter |= self.hash2(str1)
-
-    def is_value(self, str1):
-        index1 = self.filter_len - len(bin(self.hash1(str1))) + 5
-        index2 = self.filter_len - len(bin(self.hash2(str1))) + 5
-        return bin(self.b_filter)[index1] == '1' and bin(self.b_filter)[index2] == '1'
+    def min_hits(self) -> int:
+        min_hits: int = self.hits[0]
+        min_ind = 0
+        for i in range(0, self.size):
+            if self.hits[i] < min_hits:
+                min_hits = self.hits[i]
+                min_ind = i
+        return min_ind
     
