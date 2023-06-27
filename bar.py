@@ -1,8 +1,8 @@
 
-    b - (start_coord_x_for_snake)
+    b - start_coord_x_for_snake
     #исходная координата x змейки (не знал английского совсем - называл как мог :) )
 
-    a - (start_coord_y_for_snake)
+    a - start_coord_y_for_snake
     # исходная координата y змейки
 
     height - screen_hight
