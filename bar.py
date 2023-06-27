@@ -1,55 +1,48 @@
-class NativeCache:
-    def __init__(self, sz):
-        self.size = sz
-        self.slots = [None] * self.size
-        self.values = [None] * self.size
-        self.hits = [0] * self.size
 
-    def hash_fun(self, key):
-        summ = 0
-        for i in range(0, len(key) - 1):
-            summ += ord(key[i])
-        return summ % self.size
+    b - (start_coord_x_for_snake)
+    #исходная координата x змейки (не знал английского совсем - называл как мог :) )
 
-    def is_key(self, key):
-        for i in range(0, self.size):
-            if self.slots[i] == key:
-                self.hits[i] += 1
-                return True
-        return False
+    a - (start_coord_y_for_snake)
+    # исходная координата y змейки
 
-    def put(self, key, value):
-        ind = self.hash_fun(key)
-        if self.is_crowded():
-            min_ind = self.min_hits()
-            self.slots[min_ind] = None
-            self.values[min_ind] = None
-            self.hits[min_ind] = 0
-            self.slots[min_ind] = key
-            self.values[min_ind] = value
-            return
-        self.slots[ind] = key
-        self.values[ind] = value
+    height - screen_hight
+    #высота экрана в библиотеке curses
 
-    def get(self, key):
-        for i in range(0, self.size):
-            if key == self.slots[i]:
-                self.hits[i] += 1
-                return self.values[i]
-        return None
+    width - screen_width
+    #ширина экрана в библиотеке curses
 
-    def is_crowded(self) -> bool:
-        for i in range(0, self.size):
-            if self.values[i] is None:
-                return False
-        return True
+    napravl_x - go_to_the_right_snake
+    napravl_x - go_to_the_left_snake
+    # движения змейки вправо (и влево), назвал одним именем и вправо и влево - только значения менял. 2 имени гораздо понятнее
 
-    def min_hits(self) -> int:
-        min_hits: int = self.hits[0]
-        min_ind = 0
-        for i in range(0, self.size):
-            if self.hits[i] < min_hits:
-                min_hits = self.hits[i]
-                min_ind = i
-        return min_ind
+    score - score_in_game
+    #счет в игре
+
+    speed - speed_snake
+    #скорость змейки
+
+    x - snake_coord_x
+    y - snacke_coord_y
+    #координаты змейки x и y
+
+    f - file_to_store_data
+    #файл содержаший информацию
+
+    s = data_from_file
+    #информация из файла
+
+    m - matrix_for_game
+    #матрица для игры
+
+    speed - speed_process_game
+    #скорость процесса игры
     
+    dvig - exit_game
+    #завершение игры, остановка главного цикла игры
+
+    n - string_for_matrix_piece
+    #строка для хранения элементов матрицы (для дальнейшей конвертации)
+
+    str = str_for_print_pieces_matrix
+    #строка для выврда на печать элементов матрицы
+
