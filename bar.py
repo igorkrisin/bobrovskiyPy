@@ -1,48 +1,58 @@
 
-    b - start_coord_x_for_snake
-    #исходная координата x змейки (не знал английского совсем - называл как мог :) )
 
-    a - start_coord_y_for_snake
-    # исходная координата y змейки
+6.1
+    T* matr - T* matrixForChessBoard
+    //матрица для шахматной доски
 
-    height - screen_hight
-    #высота экрана в библиотеке curses
+    int xKingWhite - int CoordXForWhiteKing
+    //координата х для белого короля
 
-    width - screen_width
-    #ширина экрана в библиотеке curses
+    int matrWidth - matrixWidthForBoard;
+    //ширина матрицы для доски
 
-    napravl_x - go_to_the_right_snake
-    napravl_x - go_to_the_left_snake
-    # движения змейки вправо (и влево), назвал одним именем и вправо и влево - только значения менял. 2 имени гораздо понятнее
+    color currentColor - currentColorPiece;
+    //действущий цвет фигуры
 
-    score - score_in_game
-    #счет в игре
+    int xDeParture - int finishXCoordForMove
+    //координата куда фигура сходит на доске
 
-    speed - speed_snake
-    #скорость змейки
 
-    x - snake_coord_x
-    y - snacke_coord_y
-    #координаты змейки x и y
+6.2
 
-    f - file_to_store_data
-    #файл содержаший информацию
+    auth - nameForAuthoriz
+    //имя пользователя для авторизации
 
-    s = data_from_file
-    #информация из файла
+    email - validateAdrsEmail
+    //валидный адрес Email
 
-    m - matrix_for_game
-    #матрица для игры
+    reg - fieldForRegUser
+    //поле для регистрации пользователя
 
-    speed - speed_process_game
-    #скорость процесса игры
-    
-    dvig - exit_game
-    #завершение игры, остановка главного цикла игры
+    errors - array_errors
+    //массив ошибок
 
-    n - string_for_matrix_piece
-    #строка для хранения элементов матрицы (для дальнейшей конвертации)
 
-    str = str_for_print_pieces_matrix
-    #строка для выврда на печать элементов матрицы
+6.3
+    stack - stakForParse
+    //стек храняший символы для дальнейшего парсинга
+    count - countScoreForGameEnd
+    //счетчик очков для функции окончания ингры
+    tempArr - storageForDataInstr
+    //массив для инструкций
+    finishText - desAssemblStr
+    //десассемблтрованная строка
+6.4
+    isCastlingPossibleWhite - isCastlingPossbleWht
+    //возможен ли кастлин для белых
 
+    lst - listEnemyForWhtPiece
+    //список врадеских фигур для белых
+
+    arrY - yListCoordForBlack
+    //список коордтнат по Y для черных
+
+    tempP - tempPointForList
+    //временный указатель для списка
+
+    amount - ValueForPiecec
+    //значение "веса" фигуры
