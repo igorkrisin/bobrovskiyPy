@@ -1,58 +1,57 @@
 
 
-6.1
-    T* matr - T* matrixForChessBoard
-    //матрица для шахматной доски
+7.1
+    el1 - isEqualValueEl
+    //Проверяем равенство двух элементов
 
-    int xKingWhite - int CoordXForWhiteKing
-    //координата х для белого короля
+    possCastLeftWhite - isPossCastLeftWhite
+    //Проверка возможности кастлинга для белых слева
 
-    int matrWidth - matrixWidthForBoard;
-    //ширина матрицы для доски
+    enpasWhite - isEmpassantWht
+    //произошел ли эмпассант
 
-    color currentColor - currentColorPiece;
-    //действущий цвет фигуры
+    flag - isGameAgain
+    //повторить  игру или выйти
 
-    int xDeParture - int finishXCoordForMove
-    //координата куда фигура сходит на доске
-
-
-6.2
-
-    auth - nameForAuthoriz
-    //имя пользователя для авторизации
-
-    email - validateAdrsEmail
-    //валидный адрес Email
-
-    reg - fieldForRegUser
-    //поле для регистрации пользователя
-
-    errors - array_errors
-    //массив ошибок
+    castlingFlag - isAddMoveInList
+    //можно ли добавить ход кастлинга в список общий списрк ходов
 
 
-6.3
-    stack - stakForParse
-    //стек храняший символы для дальнейшего парсинга
-    count - countScoreForGameEnd
-    //счетчик очков для функции окончания ингры
-    tempArr - storageForDataInstr
-    //массив для инструкций
-    finishText - desAssemblStr
-    //десассемблтрованная строка
-6.4
-    isCastlingPossibleWhite - isCastlingPossbleWht
-    //возможен ли кастлин для белых
+7.2
+    finishSearchMove - found
+    //поиск хода в списку ходов
 
-    lst - listEnemyForWhtPiece
-    //список врадеских фигур для белых
+   checkCheck - foundCheck
+   //в списку ходов найден шах
 
-    arrY - yListCoordForBlack
-    //список коордтнат по Y для черных
+    wrongMove - error
+    //выбран не не правильный ход на доске
 
-    tempP - tempPointForList
-    //временный указатель для списка
+7.3
+    for(int X = x+dirX... - for(int xCurrentCoord = xCoord + xStep...
+    //расчетная координата Х с учетом шага хода фигуры (X - передаеюся в функцию аргументом)
 
-    amount - ValueForPiecec
-    //значение "веса" фигуры
+7.4
+    int xDeparture - xStartCoord
+    int xArrivle - xFinishCoord
+    //координата откуда ходит фигура и куда ходит фигура
+
+    startStr - headString
+    finishString - tailString
+    //начало и конец строки
+
+7.5
+    arrTempX - arrAddNewCoordX
+    //массив в крирвый добавляются координаты Х
+
+    tempList - ListForReverse
+    //список хранящий перевернутый список
+
+    tempStr - strForTokenize
+    //строка хранящая результат токенизации
+
+    tempDict - dictionaryForCopy
+    //словарь для копирования основного словаря
+
+
+    //нашел, что в первом доп задании по АСД я добавил лишние списки, временные списки не нужны были, можно обойтись без них
