@@ -1,57 +1,36 @@
+char chars[32] - simbolForPrintBoard
+//символы для печати доски
 
+lst - bunchOfMoveRook
+//список ходов ладьи
 
-7.1
-    el1 - isEqualValueEl
-    //Проверяем равенство двух элементов
+newLstBoard, lstBoard - copiedListBoard, currentListBoard
+//хранит скопированый список игоровых досок, существующий список досок
 
-    possCastLeftWhite - isPossCastLeftWhite
-    //Проверка возможности кастлинга для белых слева
+value, minValue - valueCurrentScore, valueMinScore
+//существущее значение очков, минимальное значение очков
 
-    enpasWhite - isEmpassantWht
-    //произошел ли эмпассант
+numberEl - elNumWithMinVal
+//номер элемента с минимальным значением
 
-    flag - isGameAgain
-    //повторить  игру или выйти
+depth - depthMoveValue
+//значение(количество) глубины просчитываемых ходов
 
-    castlingFlag - isAddMoveInList
-    //можно ли добавить ход кастлинга в список общий списрк ходов
+checkKing - whichKingHasCoord
+//на каких координатах стоит король(только мне понятное название было)
 
+mal - sizeAllocForMalloc
+//размер выделенной памяти для маллок
 
-7.2
-    finishSearchMove - found
-    //поиск хода в списку ходов
+integ1 - firstNumForAdd
+//первое число ля операции сложение
 
-   checkCheck - foundCheck
-   //в списку ходов найден шах
+len_num1 - lenghtFirstNum
+//длина первого числа
 
-    wrongMove - error
-    //выбран не не правильный ход на доске
+max_len - lenNumMax
+//максимальная длина числа
+//язык с - поэтому имена паременных камелкейс
 
-7.3
-    for(int X = x+dirX... - for(int xCurrentCoord = xCoord + xStep...
-    //расчетная координата Х с учетом шага хода фигуры (X - передаеюся в функцию аргументом)
-
-7.4
-    int xDeparture - xStartCoord
-    int xArrivle - xFinishCoord
-    //координата откуда ходит фигура и куда ходит фигура
-
-    startStr - headString
-    finishString - tailString
-    //начало и конец строки
-
-7.5
-    arrTempX - arrAddNewCoordX
-    //массив в крирвый добавляются координаты Х
-
-    tempList - ListForReverse
-    //список хранящий перевернутый список
-
-    tempStr - strForTokenize
-    //строка хранящая результат токенизации
-
-    tempDict - dictionaryForCopy
-    //словарь для копирования основного словаря
-
-
-    //нашел, что в первом доп задании по АСД я добавил лишние списки, временные списки не нужны были, можно обойтись без них
+count - countCharacter
+//счетчик символов
