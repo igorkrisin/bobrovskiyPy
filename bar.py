@@ -1,36 +1,41 @@
-char chars[32] - simbolForPrintBoard
-//символы для печати доски
+1
+    X - Inizalization
+    //инициализауция списка
 
-lst - bunchOfMoveRook
-//список ходов ладьи
+    CreateUsersTable - UsersTable
+    //таблицы пользователей
 
-newLstBoard, lstBoard - copiedListBoard, currentListBoard
-//хранит скопированый список игоровых досок, существующий список досок
+    MoveForBoard - Move
+    //класс ходов
 
-value, minValue - valueCurrentScore, valueMinScore
-//существущее значение очков, минимальное значение очков
+    MatrixBoard - Board
+    //класс доски
 
-numberEl - elNumWithMinVal
-//номер элемента с минимальным значением
+    ChessPieces - Pieces
+    //класс фигур
 
-depth - depthMoveValue
-//значение(количество) глубины просчитываемых ходов
+2
+    getXDep - getXCoordMoveFinish
+    //геттер для координаты Х, куда фигура может сходить
 
-checkKing - whichKingHasCoord
-//на каких координатах стоит король(только мне понятное название было)
+    setYArr - setYCoordStart
+    //сеттер откуда финура может сходить по координате Y
 
-mal - sizeAllocForMalloc
-//размер выделенной памяти для маллок
+    print - printPieces
+    //печать фигур
 
-integ1 - firstNumForAdd
-//первое число ля операции сложение
+    print - printChessBoard
+    //печать шахматной  доски
 
-len_num1 - lenghtFirstNum
-//длина первого числа
+    getPossLW - isCastlingLeftWhite
+    //возможен ли кастлинг слева у белых
 
-max_len - lenNumMax
-//максимальная длина числа
-//язык с - поэтому имена паременных камелкейс
+    printKing - printCoordKing
+    //печать координат короля
 
-count - countCharacter
-//счетчик символов
+    printEnpass - printListForEnpass
+    //список возможного энпассанта
+
+
+
+
