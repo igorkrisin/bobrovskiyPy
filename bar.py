@@ -1,41 +1,37 @@
-1
-    X - Inizalization
-    //инициализауция списка
+myFree - freedingMemory
+//ф-я освобождения памяти
 
-    CreateUsersTable - UsersTable
-    //таблицы пользователей
+myMalloc - allocatedMemory
+//ф-я выделения памяти
 
-    MoveForBoard - Move
-    //класс ходов
+append - appendNewListsEl
+// ф-я добавления нового элемента в односвязный список
 
-    MatrixBoard - Board
-    //класс доски
+consBoard - constructChessBoard
+//ф-я создания шахматной доски
 
-    ChessPieces - Pieces
-    //класс фигур
+checkColor - checkPiecesColor
+//ф-я проверки цвета фигур
 
-2
-    getXDep - getXCoordMoveFinish
-    //геттер для координаты Х, куда фигура может сходить
+comparPiece - checkEqualPieces
+//ф-я проверки одинаковые ли фигуры
 
-    setYArr - setYCoordStart
-    //сеттер откуда финура может сходить по координате Y
+flipColor - flipColorForPiece
+//смена цвета фигуры
 
-    print - printPieces
-    //печать фигур
+resetFlagsWhite - resetWhtEnpasFlags
+// метод сброс флагов энпассанта белых фигур
 
-    print - printChessBoard
-    //печать шахматной  доски
+printEnpass - printArrEnpassFlags
+// метод печати массива флагов энпассанта(на каких фигурах в каком состоянии флаг)
 
-    getPossLW - isCastlingLeftWhite
-    //возможен ли кастлинг слева у белых
+assignmentForArr - copyingMatrixToArray
+// метод переноса(копирования) матрицы в массив, конечно операция внутри присвоение,
+но думаю для более простого понимания лучше указать суть что произойдет внутри метода
 
-    printKing - printCoordKing
-    //печать координат короля
+printBoard - printBoardWithPieces
+// метод  доски с фигурами
 
-    printEnpass - printListForEnpass
-    //список возможного энпассанта
-
-
-
+allMove - creatingAllMoveList
+//создание списка всех ходов
 
