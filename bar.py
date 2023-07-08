@@ -1,86 +1,55 @@
-#1
 
-from math import *
+1 x - START_GAME_COORD_X
+//координаты с которых стратует змейка по оси Х - сделал название константы понятным,
+//написал заглавными буквами с подчеркиванием
 
+//далее по коду я менял эту константу - показывая направление движения змейки, что неверно
+//и затрудняет чтение кода, нужно было присвоить значение константы в переменной и изменять ее
 
-class TicketsFactory:
-    def making_tickets(self, type_ticket):
-        ticket = self.get_ticket(type_ticket)
-        return ticket
-
-    def get_ticket(self, type_ticket):
-        if type_ticket == 'RAIL':
-            return self.create_rail_ticket
-        elif format == 'FLIGHT':
-            return self.create_rail_ticket
-        else:
-            raise ValueError(type_ticket)
-
-    @staticmethod
-    def create_rail_ticket(data_for_ticket):
-        personal_data = {
-            'name': data_for_ticket.name,
-            'second_name': data_for_ticket.passang_second_name,
-            'pass_serial_number': data_for_ticket.passp_serial_number,
-            'wagon_number': data_for_ticket.wagon_number,
-            'number_seat': data_for_ticket.pass_seat_number
-
-        }
-        return personal_data
-
-    @staticmethod
-    def create_flight_ticket(data_for_ticket):
-        personal_data = {
-            'name': data_for_ticket.name,
-            'second_name': data_for_ticket.second_name,
-            'pass_serial_number': data_for_ticket.serial_number,
-            'flight_number': data_for_ticket.car_number,
-            'number_seat': data_for_ticket.seat_number
-
-        }
-        return personal_data
+2 одну такую строку x += x_napravl -
+заменить на 2 таких current_coord_x = START_GAME_COORD_X
+                    current_coord_x += direction_move
 
 
-class ShapeFactory:
-    def print_shape(self, size_shape, type_shape):
-        shape = self.get_shape(type_shape)
-        return shape
+3 vh - VIEW_HIGHT_PXL
+// высота экрана pygame в пикселях, правильно и понятно записал константу добавил постфикс с еденицами измерения
 
-    def get_shape(self, type_shape):
-        if type_shape == 'SQUARE':
-            return self.create_square
-        elif type_shape == 'CIRCLE':
-            return self.create_circle
-        else:
-            raise ValueError(type_shape)
+4 pygame.time.delay(100) - TIME_DELAY_MS = 100
+                         pygame.time.delay(TIME_DELAY_MS)
+//время задержки при обновлении экрана в миллисекундах. 100 - магическое число непонятное значение в коде,
+//я решил выделить ее в отдельную константу
 
-    @staticmethod
-    def creating_square(size_shape):
-        area_square = size_shape*4
+5 speed - SNAKE_SPEED_FPS
+//скорость движения змейки, она же обновеления экрана. Символы заменил на заглавные добавил осмымсленное название
+//и префикс с единицами измерения
 
-        return area_square
-
-    @staticmethod
-    def creating_circle(size_shape):
-        area_circle = 3.14 * size_shape ^ 2
-
-        return area_circle
+6 y_car - START_COORD_RED_CAR_TO_Y
+//начальная координата машины по оси y, указал что это координаты начала движения авто
 
 
-class PointFactory:
-    def __init__(self, x_coord, y_coord):
-        self.x_coord = x_coord
-        self.y_coord = y_coord
+7 creen.blit(text_render, (200, 200)) - TEXT_HIGHT_PXL = 200
+                                      TEXT_WIDTH_PXL = 200
+                                      creen.blit(text_render, (TEXT_HIGHT_PXL, TEXT_WIDTH_PXL))
+//размер поля для текста, данная величина используется по коду в нескольких местах, в одном и том же смысле.
+// Я сложил ее в константу, в случае изменения величины поля для текста, не нужно будет менять несколько мест
+//плюс это магические величины непонятно что означают
 
-    @staticmethod
-    def creating_cartesian_point(x_coord, y_coord):
-        return PointFactory(x_coord, y_coord)
+8 const num - const FACTOR_NUMS
+//множитель чисел, изменил на правильное написание добавмл понятное название
 
-    @staticmethod
-    def creating_polar_point(rho, theta):
-        return PointFactory(rho * cos(theta), rho * sin(theta))
+9 TITLE - SIZE_TITLE_TEXT_PXL
+//размер текста титула в пикселях, добавил осмысленное назвние
 
+10 DIRECTS - DIRECTS_MOVE_FOR_TANK
+//направление движения для танка. Добавил осмысленное название.
 
-#2 Никогда не использовал интерфейсы и абстрактные классы
+11 if jump_counter >= -30 - MAX_JUMP_SIZE = -30
+                            if jump_counter >= MAX_JUMP_SIZE
+//Максималтная величина вылета персонажа по оси Y, добавил название числу
+//значение которого без описания малопонятно(или не понятно)
+
+12 number = 1 -
+//количество строк которые выведутся на экран, думаю данную констарту можно убрать -
+// в коде применяется в одном месте в стандартной функции и имеет значение 1.
 
 
