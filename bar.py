@@ -1,55 +1,84 @@
+1. summ = (dec%2).to_s + summ - string_decimal = (dec%2).to_s
+                             string_summ = string_decimal%2 + string_summ
+//арифметическаое действе для последубющей конвертации в бинарный тип,
+//вывел в отдельную строчку приведение типов, что бы сделать преобразование типов понятным
 
-1 x - START_GAME_COORD_X
-//координаты с которых стратует змейка по оси Х - сделал название константы понятным,
-//написал заглавными буквами с подчеркиванием
+2. summ += (bin[n]).to_i * 2 ** n - integer_bin = (bin[n]).to_i
+                                    result_convertation += integer_bin * 2 ** n
+//обратная операция преобразования бинарного числа в int
+//вывел в отдельную строчку приведение типов, что бы сделать преобразование типов понятным
 
-//далее по коду я менял эту константу - показывая направление движения змейки, что неверно
-//и затрудняет чтение кода, нужно было присвоить значение константы в переменной и изменять ее
+3. dec = dec/2 -    if (decimal/2).is_a? Integer (язык Ruby)
+                        decimal = decimal/2
+//арифметическаое действе для последубющей конвертации в бинарный тип,
+//добавил проверку на целочисленность деления
 
-2 одну такую строку x += x_napravl -
-заменить на 2 таких current_coord_x = START_GAME_COORD_X
-                    current_coord_x += direction_move
+4. if bin[i+j] == "1" - BINARY_ONE = "1"
+                        bin[i+j] == binary_one
+//конвератция из бинарного в 16ти разрядное
+//убрал магическую строку
+
+5. summ = "" - result_convertation = ""
+//конвератция из бинарного в 16ти разрядное
+//при конвертации строк название summ вводит читающего в заблуждение -
+//сделала более понятным название результирующей переменной
+
+6. if text[0] == "HALT" - mnemonic_command = text[0]
+                          if mnemonic_command == "HALT"
+//проверка в инеионической команде на остановку вычисления
+//добавил доп переменную, которая убирает магическую строку
+
+7. return  "0000000000000000" - BINARY_HALT = "0000000000000000"
+                                return BINARY_HALT
+//возврат бинарного значения для команды HALT
+//заменил магическую строку на константу
+
+8. if(x < 0 || x  > matrWidth || y > matrHight || y < 0) - xOutOfRange = x < 0 || x  > matrWidth
+                                                           yOutOfRange = y > matrHight || y < 0
+                                                           if(xOutOfRange || yOutOfRange)
+//проверка на выход индекса из матрицы
+// заменил условия на логические переменные
+
+9. if(board.at(kingDepBl.at(0),kingDepBl.at(1)).name_piece == king && board.at(kingDepBl.at(0),kingDepBl.at(1)).color_piece == colors){
+        if(board.at(rookDepBlL.at(0),rookDepBlL.at(1)).name_piece == rook && board.at(rookDepBlL.at(0),rookDepBlL.at(1)).color_piece == colors &&
+                board.at(1,0).name_piece == Empty && board.at(2,0).name_piece == Empty && board.at(3,0).name_piece == Empty){
+
+isKingOnCells0_1 = board.at(kingDepBl.at(0),kingDepBl.at(1)).name_piece == king
+isBlackKingColor = board.at(kingDepBl.at(0),kingDepBl.at(1)).color_piece == colors
+isRookOnCells0_1 = board.at(rookDepBlL.at(0),rookDepBlL.at(1)).name_piece == rook
+isBlackRookColor = board.at(rookDepBlL.at(0),rookDepBlL.at(1)).color_piece == colors
+isEmptyCell01 = board.at(1,0).name_piece == Empty
+isEmptyCell1_0 = board.at(1,0).name_piece == Empty
+isEmptyCell1_0 = board.at(2,0).name_piece == Empty
+isEmptyCell3_0 = board.at(3,0).name_piece == Empty
+
+if(isKingOnBoard && isBlackKingColor && isRookOnCells0_1 &&
+   isBlackRookColor && isEmptyCell1_0 && isEmptyCell1_0 && isEmptyCell3_0){...}}
+//проерка условий кастлинга
+//заменил вложенность if  и добавил логические переменные
+
+10. if(colors == black && board.enpasBlack[i] == true){...}-  isColorBlack = colors == black
+                                                           isEnpassantForBlack = board.enpasBlack[i] == true
+                                                           if(isColorBlack && isEnpassantForBlack){...}
+//проверка возможности энпассанта
+//добавил логические переменные
+
+11.if(checkCheck(board.xKingWhite,board.yKingWhite, board) &&
+      filterIlegalMove(listMovesKing(board.xKingWhite,board.yKingWhite, board), board, colors).empty()) {...}
+
+    isCheckKingWhite = checkCheck(board.xKingWhite,board.yKingWhite, board
+    isEmptyMoveLstKingWht = filterIlegalMove(listMovesKing(board.xKingWhite,board.yKingWhite, board), board, colors).empty()
+    if(isCheckKingWhite && isEmptyMoveLstKingWht){...}
+//проверка на наличие шаха у белого кололя и пустоту списка его ходов
+//добавил логические переменные
+
+12. float lenght = float volume / float height / float width - double lenght = double volume / double height / double width
+//формула подсчета длины из объема
+//сменил все чмсла float на число с большей точностью double
 
 
-3 vh - VIEW_HIGHT_PXL
-// высота экрана pygame в пикселях, правильно и понятно записал константу добавил постфикс с еденицами измерения
-
-4 pygame.time.delay(100) - TIME_DELAY_MS = 100
-                         pygame.time.delay(TIME_DELAY_MS)
-//время задержки при обновлении экрана в миллисекундах. 100 - магическое число непонятное значение в коде,
-//я решил выделить ее в отдельную константу
-
-5 speed - SNAKE_SPEED_FPS
-//скорость движения змейки, она же обновеления экрана. Символы заменил на заглавные добавил осмымсленное название
-//и префикс с единицами измерения
-
-6 y_car - START_COORD_RED_CAR_TO_Y
-//начальная координата машины по оси y, указал что это координаты начала движения авто
 
 
-7 creen.blit(text_render, (200, 200)) - TEXT_HIGHT_PXL = 200
-                                      TEXT_WIDTH_PXL = 200
-                                      creen.blit(text_render, (TEXT_HIGHT_PXL, TEXT_WIDTH_PXL))
-//размер поля для текста, данная величина используется по коду в нескольких местах, в одном и том же смысле.
-// Я сложил ее в константу, в случае изменения величины поля для текста, не нужно будет менять несколько мест
-//плюс это магические величины непонятно что означают
 
-8 const num - const FACTOR_NUMS
-//множитель чисел, изменил на правильное написание добавмл понятное название
-
-9 TITLE - SIZE_TITLE_TEXT_PXL
-//размер текста титула в пикселях, добавил осмысленное назвние
-
-10 DIRECTS - DIRECTS_MOVE_FOR_TANK
-//направление движения для танка. Добавил осмысленное название.
-
-11 if jump_counter >= -30 - MAX_JUMP_SIZE = -30
-                            if jump_counter >= MAX_JUMP_SIZE
-//Максималтная величина вылета персонажа по оси Y, добавил название числу
-//значение которого без описания малопонятно(или не понятно)
-
-12 number = 1 -
-//количество строк которые выведутся на экран, думаю данную констарту можно убрать -
-// в коде применяется в одном месте в стандартной функции и имеет значение 1.
 
 
