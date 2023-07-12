@@ -1,413 +1,356 @@
-1
-до:////////////////////////////
-gameStore = ["к", "н", "б"]
+1.
+до://////////////////////
+while (true) {
+char answer;
+ #...код...#
+cin >> answer;
+if (answer == 'y') {
 #...код...#
-while playerScore != countAttempt and compScore != countAttempt:
-#...код...#
-
-после:////////////////////////
-#...код...#
-gameStore = ["к", "н", "б"]
-while playerScore != countAttempt and compScore != countAttempt:
-# ...код...#
-//массив значений перебираемых в цикле, перенес и инициализировал его непосредственно перед циклом
-
-
-
-2
-до:////////////////////////////
-theBoard = {"top-L": " ", "top-M": " ", "top-R": " ",
-            "mid-L": " ", "mid-M": " ", "mid-R": " ",
-            "low-L": " ", "low-M": " ", "low-R": " "}
-
-#...код...#
-turn = "X"
-for i in range(9):
-    printBoard(theBoard)
-    # ...код...#
-
-после:////////////////////////
-#...код...#
-turn = "X"
-theBoard = {"top-L": " ", "top-M": " ", "top-R": " ",
-            "mid-L": " ", "mid-M": " ", "mid-R": " ",
-            "low-L": " ", "low-M": " ", "low-R": " "}
-for i in range(9):
-    printBoard(theBoard)
-    # ...код...#
-
-//словарь ханящий значения клеток крестики-нолики,  перенес и инициализировал его непосредственно перед циклом
-
-3
-до://///////////////
+после://////////////////
+while (true) {
+ #...код...#
+char answer;
+cin >> answer;
+if (answer == 'y') {
 #...код...#
 
-bg = pygame.image.load("bg.png")
-bg = pygame.transform.scale(bg, (1300, 500))
-car = pygame.image.load("car1.png")
-car = pygame.transform.scale(car, (180, 132))
-car_pink = pygame.image.load("car2.png")
-car_pink = pygame.transform.scale(car_pink, (100, 117))
-bullet = pygame.image.load("bul.png")
-bullet = pygame.transform.scale(bullet,(20,30))
-finish = pygame.image.load("finish.png")
-finish1 = False
-finish2 = False
+//переместил переменную хранящую символ непосредственно к месту ее использования
+//уменьшил окно уязвимости и улучшил читаемость кода
 
-window = pygame.display.set_mode((1300, 500))
-screen = pygame.Surface((1300, 500))
-start_game = True
-speed = 25
-number = 1
-bull_speed = 0.1
+2.
+до://///////////////////////
+#...код...#
+    int x = 0;
+    int y = 0;
+#...код...#
+main(){
+    while(1){
+        x = napr_x+x;
+        y = napr_y+y;
+#...код...#
+}
+
+после://////////////////////
+#...код...#
+main(){
+    int x = 0;
+    int y = 0;
+    while(1){
+        x = napr_x+x;
+        y = napr_y+y;
+}
+#...код...#
+
+//переместил глобальную переменную в главную функцию пронраммы, сделав ее локальной, это возможно
+//в связи с тем что до функции main она нигде не используется и может инициализироваться непосредственно в ней
+//уменьшил окно уязвимости повысиля читаемость кода
+
+3.
+до://///////////////////////
+#...код...#
+    int speed;
+#...код...#
+main(){
+#...код...#
+    speed = 5;
+    halfdelay(speed);
 #...код...#
 
 после://///////////////////
-
+main(){
+#...код...#
+    const int SPEED_SNAKE_MS = 5;
+    halfdelay(SPEED_SNAKE_MS);
 #...код...#
 
-CARS_SPEED = 25
-number = 1
 
-
-bullet = pygame.image.load("bul.png")
-bullet = pygame.transform.scale(bullet, (20, 30))
-
-def bul_to_go(y_bull, BULLS_SPEED):
-    while y_bull > 0:
-        y_bull -= BULLS_SPEED
-        screen.blit(bullet, (788, y_bull))
-
-
-y_car = 340
-y_car_pink = 344
-y_bull = y_car
-
-text_font = pygame.font.SysFont("comicsansmc", 80)
-text_render = text_font.render("Выиграл Игрок 1", 0, (0, 0, 0))
-text_render_2 = text_font.render("Выиграл Игрок 2", 0, (0, 0, 0))
-text_render_3 = text_font.render(str(number), 0, (0, 0, 0))
-
-finish = pygame.image.load("finish.png")
-finish1 = False
-finish2 = False
-window = pygame.display.set_mode((1300, 500))
-screen = pygame.Surface((1300, 500))
-start_game = True
-
-while start_game:
- #...код...#
-
-    window.blit(screen, (0, 0))
-
-    bg = pygame.image.load("bg.png")
-    bg = pygame.transform.scale(bg, (1300, 500))
-    car = pygame.image.load("car1.png")
-    car = pygame.transform.scale(car, (180, 132))
-    car_pink = pygame.image.load("car2.png")
-    car_pink = pygame.transform.scale(car_pink, (100, 117))
-
-    #...код...#
-
-//код в котором все переменные и константы вынесены в начало файла,
-//так делать нельзя их нужно инициплизировать непосредственно перед использованием
-//перенес все перемные непосредственно к месту их использования, исправил название констанкт
-//BULLS_SPEED = 0.1 - никак не используется эта константа - удалил
+//убрал определениепересенно как глобальной, перенес ее определение непосрественно в главный цикл
+//седлал переменную константой
+//обезопасил от изменения данной информации
+//уменьшил окно уязвимости
 
 4
-до:////////////////
-
+до:////////////////////
 #...код...#
-
-FRAME_COLOR = (0,255,204)
-WHITE = (255,255,255)
-BLUE = [204,255,255]
-SIZE_BLOCK=20
-COUNT_BLOKS = 20
-SNAKE_COLOR = [255,6,57]
-MARGIN = 1
-size = [500,600]
-
+int napr_x;
+int napr_y;
 #...код...#
-
-while True:
-    # ...код...#
-после://///////////////
-
-#...код...#
-FRAME_COLOR = (0,255,204)
-WHITE = (255,255,255)
-BLUE = [204,255,255]
-SIZE_BLOCK=20
-COUNT_BLOKS = 20
-SNAKE_COLOR = [255,6,57]
-MARGIN = 1
-size = [500,600]
-
-while True:
-    # ...код...#
-
-//все константы перенес непосредственно к месту из выполения
-
-5
-до://///////////////
-int whiteBl = white;
- 	  while(1) {
-		list* lst = NULL;
-        # ...код...#
+int main()
+{
+    napr_x = 1;
+    napr_y = 0;
+    #...код...#
 
 после://////////////////
-int whiteBl = white;
- 	  while(1) {
-        # ...код...#
+# ...код...#
+int main()
+{
+    int DIRECTION_MOVE_X_SNAKE = 0;
+    int DIRECTION_MOVE_Y_SNAKE = 0;
+    # ...код...#
+//переместил переменную в main, сделал константой,
+//дал понятное название(переменная больше нигде не используется)
+//уменьшил окно уязвимости
+//улучшил читаемость кода
 
-//главный цикл программы, в нем нашел неиспользуемую переменную - удалил
+5.
+до://////////////////////
+#...код...#
+color currentColor = white;
+#...код...#
+Matrix<Pieces> &movePlayer(Matrix<Pieces> &board, color colors){
+#...код...#
+    while(true) {
+
+        cout << "enter the coordinats in the format 2b2c" << endl << "now move for "; colors == white? cout << "white :":cout <<"black :";
+        cin >> coord;
+        cout << "coord: " << coord << endl;
+        colors = currentColor;
+#...код...#
+после:////////////////
+#...код...#
+color currentColor = white;
+Matrix<Pieces> &movePlayer(Matrix<Pieces> &board, color colors){
+#...код...#
+    while(true) {
+
+        cout << "enter the coordinats in the format 2b2c" << endl << "now move for "; colors == white? cout << "white :":cout <<"black :";
+        cin >> coord;
+        cout << "coord: " << coord << endl;
+        colors = currentColor;
+#...код...#
+
+//перенес глобальную переменную непосрелственно к месту ее использования
+//тем самым улучшил читабельность кода и сократил время жизни переменной
+//уменьшил окно уязвимости
 
 6.
-до://////////////////
-int findBoardinLst(boards* lstBoard, piece board[64]){
-    while(lstBoard != NULL) {
-	if(comparisonBoards(lstBoard->board, board)){
-	    return 1;
-	}
-	lstBoard = lstBoard->next;
-    }
-    # ...код...#
-после://////////////////
+до://///////////////////////
+    vector<int> allEval;
+    #...код...#
+    for (int i = 0; i < (int)everyMove.size(); i++) {
+        # ...код...#
+        allEval.push_back(evalMove(newBoard,depth-1,swapColor(colors)));
 
-int findBoardinLst(boards* lstBoard, piece board[64]){
-    while(lstBoard != NULL) {
-	if(comparisonBoards(lstBoard->board, board)){
-	    return 1;
-	}
-	lstBoard = lstBoard->next;
-    }
-    lstBoard = NULL;
+после:////////////////////////
+    #...код...#
+    vector<int> allEval;
+    for (int i = 0; i < (int)everyMove.size(); i++) {
+        # ...код...#
+        allEval.push_back(evalMove(newBoard,depth-1,swapColor(colors)));
 
-// в функции поиска досок, после использования переменной присвоил ей null
+//перенес переменную непосредственно к циклу, где она применяется
+//тем самым улучшил читабельность кода и сократил время жизни переменной
+//уменьшил окно уязвимости
 
 7.
-до://////////////////////
-piece * newBoard2 = copyBoard(board);
-# ...код...#
-if (checkEnPassantBlackRight(newBoard2)){
-newBoard2[y * 8+x] = empty;
-newBoard2[(y-1) * 8+x] = pawn;
-newBoard2[(y-2) * 8+x-1] = empty;
-}
-# ...код...#
-после://////////////////////
-piece * newBoard2 = copyBoard(board);
-# ...код...#
-if (checkEnPassantBlackRight(newBoard2)){
-newBoard2[y * 8+x] = empty;
-newBoard2[(y-1) * 8+x] = pawn;
-newBoard2[(y-2) * 8+x-1] = empty;
-}
-piece* newBoard2 = NULL;
-# ...код...#
-
-//присвоил временному списку для хранения досок NULL после использования
-
-8.
-
+#...код...#
 до://///////////////////////
-list* returnEl(list* lst, int numbEl) {
-    int count = 0;
-    while(count != numbEl) {
-		count++;
-		lst = lst -> next;
-    }
-# ...код...#
-после:///////////////////////
-list* returnEl(list* lst, int numbEl) {
-    int count = 0;
-    while(count != numbEl) {
-		count++;
-		lst = lst -> next;
-    }
-    count = 0
-# ...код...#
-//В функции возврата элемента по его номеру обнулил счетчик после его использования
-
-9.
-    до:///////////////////////
-    bin1 = convertTo16Bit(bin1)
-    bin2 = convertTo16Bit(bin2)
-    # ...код...#
-    summ = additionBin(bin1, temp)
-    if(summ.size() > bin1.size())
-        summ[0] = ""
-    end
-    # ...код...#
-    после:////////////////////////
-    bin1 = convertTo16Bit(bin1)
-    bin2 = convertTo16Bit(bin2)
-    # ...код...#
-    summ = additionBin(bin1, temp)
-    if(summ.size() > bin1.size())
-        summ[0] = ""
-    bin1 = "Error шт functionn SubBinNEw"
-    bin2 = "Error шт functionn SubBinNEw"
-    end
-
-//записал во временную строку сообщение об ошибке указав название функции откуда сообние вызывано
-
-10.
-до:////////////////////////////
-def dataInstruc()
-    # ...код...#
-    for i in 0...tempArr.size
-        if tempArr[i][0] == "#"
-            next
-        elsif  tempArr[i] == ""
-            next
-        elsif tempArr[i].match(/ORG\s+([0-9]+)/)
-            temp = tempArr[i].match(/ORG (.*)/)
-            objectFile += addition0Param(10, convertDecToBin(temp[1].to_i).to_s)+"\n"
-            # ...код...#
+    int threatMap[64] = {
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0
+    };
+    #...код...#
+void threatKnight(int y, int x, int threatMap[64], piece board[64]) {
 
 после:///////////////////////////
-def dataInstruc()
-    # ...код...#
-    for i in 0...tempArr.size
-        if tempArr[i][0] == "#"
-            next
-        elsif  tempArr[i] == ""
-            next
-        elsif tempArr[i].match(/ORG\s+([0-9]+)/)
-            puts "tempARR: #{(tempArr[i])}"
-            temp = tempArr[i].match(/ORG (.*)/)
-            objectFile += addition0Param(10, convertDecToBin(temp[1].to_i).to_s)+"\n"
-            puts "objectFile: \n#{objectFile}"
-            # ...код...#
+#...код...#
+int threatMap[64] = {
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0
+    };
+void threatKnight(int y, int x, int threatMap[64], piece board[64]) {
 
-//добавил в функцию обработки инструкций отладочную печать занчений временного массива объекта файла
+//переместил к месту использования переменной
+//сузил окно уязвимости и лонически понятен код лучше за счет расположения
+/переменной ближе к месту использования
+
+8.
+до://///////////////
+int integer;
+int zaim = 0;
+while (strlen(num1) != strlen(num2)){
+#...код...#
+
+for (int i = strlen(num1) - 1; i >= 0; --i){
+    integer = (num1[i] - 48) - (num2[i] - 48) - zaim;
+    #...код...#
+}
+после:///////////////////////
+int zaim = 0;
+while (strlen(num1) != strlen(num2)){
+#...код...#
+
+for (int i = strlen(num1) - 1; i >= 0; --i){
+    int integer = (num1[i] - 48) - (num2[i] - 48) - zaim;
+    #...код...#
+}
+
+//нашел неинициализированную переменную место инициализации - удалил
+//инициализировал там, где впервые применяется переменная сузил область видимости переменной
+//уменьшил окно уязвимости
+
+9.
+до://////////////////////
+#...код...#
+int* coord_x;
+#...код...#
+void add_arr(int x, int y){
+    #...код...#
+    coord_x[begining] = x;
+
+после:///////////
+#...код...#
+int* coord_x;
+void add_arr(int x, int y){
+    #...код...#
+    coord_x[begining] = x;
+//перенес перемеенную к месте ее непосредственного использования
+//уменьшил окно уязвимости и улучшил читаемость кодв
+
+10.
+до://///////////////
+#...код...#
+int bar=0;
+#...код...#
+void del_arr(){
+    if (--bar<0)
+	bar = size_sn -1;
+    }
+    #...код...#
+после://////////////////
+#...код...#
+int bar=0;
+void del_arr(){
+    if (--bar<0)
+	bar = size_sn -1;
+    }
+    #...код...#
+
+//перенес переменную ближе к месту ее вызова
+//улучшил читаемость кода, уменьшил окно уязвимости
 
 11.
-до:////////////////////////
-# ...код...#
-when "1010"                                        #MULT
-    if adressModeField != '01'
-        mbr = memory[convertBinToInt(mar)]
-    end
-    ac = multBin(ac, mbr)
-    pc = binIncrement(pc)
-# ...код...#
-после:////////////////////////
-# ...код...#
-when "1010"                                        #MULT
-    if adressModeField != '01'
-        mbr = memory[convertBinToInt(mar)]
-        p "mbr: #{mbr}"
-    end
-    p "ac1: #{ac}"
-    ac = multBin(ac, mbr)
-    p "ac2: #{ac}"
-    pc = binIncrement(pc)
-# ...код...#
+до:////////////////////
+int begining;
+#...код...#
+void add_arr(int x, int y){
+#...код...#
+if (--begining < 0)
+{
+    begining = size_sn - 1;
+}
+#...код...#
+после:////////////////////
+int begining;
+void add_arr(int x, int y){
+#...код...#
+if (--begining < 0)
+{
+    begining = size_sn - 1;
+}
+#...код...#
 
-//Добавил отладчную печать регистров в главный цикл процессора, теперь буду явно видет значения регистров
+//перенес переменную ближе к месту ее повторного вызова
+//уменьшил окно уязвимости
 
-12.
-до:////////////////////////
-# ...код...#
-case operatField
-    when "0000" 			                        #HALT
-    traceRegister(ir, xr, mar, mbr, pc, ac,index)         #TRACER
-    break
-# ...код...#
-после://///////////////////
-# ...код...#
-case operatField
-    when "0000" 			                        #HALT
-    p "operatField: #{operatField}"
-    traceRegister(ir, xr, mar, mbr, pc, ac,index)         #TRACER
-    break
-# ...код...#
+12
+до://///////////////////
+#...код...#
+func getDown(matrix [][]int) [][]int {
+    var count int
+        for true {
+            count = 0
+            #...код...#
+после:////////////////////
+#...код...#
+func getDown(matrix [][]int) [][]int {
+        for true {
+            var count int := 0
+            #...код...#
 
-// добавил отладочную печать в главный цикл программы при отладке сиогу уонтролировать значения полей
+//удалил созданную, но неинициализированную переменную
+// инициализировал ее сразу в меcnt использования
+//уменьщил ее область видимости
 
 13.
-до://////////////////////////
-# ...код...#
-    if temp == nil
-        raise "line number: #{i}"
-    end
-    arr = temp[0].split(" ")
-    puts arr[1]
-    if arr[0] == "ORG"
-        valueLable = arr[1].to_i - 1
-    # ...код...#
+до://///////////////////////
+#...код...#
+enum  pieces {king, queen, bishop, knight, rook, pawn, Empty};
+#...код...#
+class Pieces {
 
-после://////////////////////////
-# ...код...#
-    if temp == nil
-        print "mnemonic text with lable is wrong: ";p temp;
-        raise "line number: #{i}"
-    end
-    arr = temp[0].split(" ")
-    puts arr[1]
-    if arr[0] == "ORG"
-        valueLable = arr[1].to_i - 1
-        puts "valueLable: #{valueLable}"
-    # ...код...#
+public:
 
-//Добавлена для парсинга значений отдалочная печать что бы модно было контролировать
-//что парсинг выдает
+    pieces name_piece;
+    #...код...#
+после://///////////////////////
+#...код...#
+enum  pieces {king, queen, bishop, knight, rook, pawn, Empty};
+class Pieces {
+
+public:
+
+    pieces name_piece;
+    #...код...#
+
+//перенес enum ближе к классу где он использкнтя - облегчил читаемость кода
 
 14.
+до://///////////////////
+#...код...#
+Matrix < Pieces > & movePlayer(Matrix < Pieces > & board, color colors){
+    string coord;
+    int xDep = 0, ...#...код...#
+    if(regex_match(coord, r)){
+        xDep = coord[0]-48-1;
+после:///////////////
+#...код...#
+Matrix < Pieces > & movePlayer(Matrix < Pieces > & board, color colors){
+    string coord;
+    #...код...#
+    int xDep = 0, ...
+    if(regex_match(coord, r)){
+        xDep = coord[0]-48-1;
 
-до://////////////////////////////
-def multBin(bin1, bin2)
-    summSubTotal = []
-    summ = ""
-    bin1 = bin1.reverse
-    bin2 = bin2.reverse
-    # ...код...#
-    summ = additionBin(summSubTotal[0], summSubTotal[1])
-    # ...код...#
-после://////////////////////////////
-def multBin(bin1, bin2)
-    summSubTotal = []
-    bin1 = bin1.reverse
-    bin2 = bin2.reverse
-    # ...код...#
-    summ = additionBin(summSubTotal[0], summSubTotal[1])
-    # ...код...#
-
-// в функции слишкрм рано объявлено значение пересенной summ - убрал инициализацию пустой строкой
-//оставил код где она иницивлизируется в нужном месте значением
+// перенес переменную ближе к коду в которой она применяется- сделал меньше окно уязвимости
+// улучшил читаемость кода
 
 15.
+до:///////////////
+    #...код...#
+    int xArr = 0;
+    #...код...#
+    static const regex r("[1-8][a-h][1-8][a-h]");
+        #...код...#
+            xArr  = coord[2]-48-1;
+            #...код...#
+после://///////////////
+#...код...#
+    int xArr = 0;
+    static const regex r("[1-8][a-h][1-8][a-h]");
+        #...код...#
+            xArr  = coord[2]-48-1;
+            #...код...#
 
-до://////////////////////////
-def multBin(bin1, bin2)
-    summSubTotal = []
-    bin1 = bin1.reverse
-    bin2 = bin2.reverse
-    for i in 0...bin1.size
-        temp = ""
-        for y in 0...bin2.size
-            temp = ((bin1[i].to_i) * (bin2[y].to_i)).to_s + temp
-            puts temp
-        end
-        # ...код...#
-def multBin(bin1, bin2)
-    summSubTotal = []
-    bin1 = bin1.reverse
-    bin2 = bin2.reverse
-    puts "bin1 #{bin1}"
-    puts "bin2 #{bin2}"
-    for i in 0...bin1.size
-        puts "i: #{i} "
-        temp = ""
-        for y in 0...bin2.size
-            puts "y: #{y} "
-            temp = ((bin1[i].to_i) * (bin2[y].to_i)).to_s + temp
-            puts temp
-        end
-        # ...код...#
-//Добавил отладочную печать что ms видеть явно правильное ли значение принимают числа
-//на какой итерации цикла какие действия происходят распечатал счетчики
-//и значение промежуточного массива
+//перенес переменную непосрелственно к месту выполенения кода улучшил читаемость кода и уменьшил окно уязвимости
+
+
+
+
+
+
+
+
