@@ -14,6 +14,7 @@ int yEnpasBlack = 4;
 //именно поэтому координаты при которых enpassant имеет место быть для белых линия 3 для черных 4.
 
 2.
+
 vector<variant<Move, castling>> & Castling(Matrix<Pieces> & board, color colors) {
     //координаты castling для белых
     array <int, 2> kingDepW = {4, 7};
