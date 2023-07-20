@@ -1,94 +1,165 @@
 1.
 
-Прояснение
+Не используйте комментарии там, где можно использовать функцию или переменную
+Короткие
 
-//Белые - вывод заглавными буквами
-//Черные строчные буквы вывод
-
-//белые фигуры выврлятся на печать ЗАГЛАВНЫМИ БУКВАМИ
-//черные - строчными буквами
+// функция, проверяет что игра закончилась. Если в матрице нет 0, то игра закончена.
+(данный комментарий можно удалить и назвать функцию понятнее)
+def isGameOver
 
 2.
+Закомментированный код
 
-Прояснение
+func main() {
 
-int goToY;//элемент структуры
+	/*submit := exec.Command("ls")
+	result, codError := submit.Output()
+	fmt.Println(string(result))
+	fmt.Println(codError)
+	//fmt.Printf("You pressed: %q\r\n", char)*/
+    (убираем закомментированный неиспользуемый код)
 
-int goToY;//элемент структуры данных списка
+func main() {
 
 3.
-Комментарий TODO
+Бормотание
 
+return stack.data, true //некий костыль
+(комментарий не говорящий ни о чем)
 
-convertBoardToStr (x:xs) = convertLstToStr x++"\n"++convertBoardToStr xs --TODO исправить доску и добавить юникод
+return stack.data, true //возырат пары значений, true - выражение верно
 
-convertBoardToStr (x:xs) = convertLstToStr x++"\n"++convertBoardToStr xs --TODO исправить доску и добавить юникод для наглядности
 4.
-Прояснение
 
---если встретили открывающую скобку, то кладем ее на стек
-checkAmountParenthesses ("(":xs) st  = checkAmountParenthesses xs ("(":st)
+Закомментированный код
 
---если встретили открывающую скобку, то кладем ее на стек для того что бы опрелелить правильное количество открыващихся
---м закрываюзиъся скобок
-checkAmountParenthesses ("(":xs) st  = checkAmountParenthesses xs ("(":st)
+var tempList *list = nil
+	//exp = exp.nextdata
+	for exp != nil {
+
+var tempList *list = nil
+	for exp != nil {
 
 5.
-Комментарий TODO
+Не используйте комментарии там, где можно использовать функцию или переменную
 
--- TODO применить конечный автомат в польский калькулятор
+case *list:
+// true - нет ошибок
+// false - произошла ошибка
 
---TODO применить конечный автомат для усоверщенствоания польского калькуллятора
+
+isValueRight = true
+isValueWithError = false
+case *list
 
 6.
-Прояснение
+Позиционные маркеры
 
-// функция, проверяет что игра закончилась. Если в матрице нет 0, то игра закончена.
+case string:
+			////////////////////////////////////////////////////////////////////////
+(можно просто убрать особого профита в коде нет от этой конструкции)
 
-// функция, проверяет что игра закончилась. Если в матрице нет 0, то игра закончена.
-//пустые клетки на игровом поле закрнчились
+case string
+
 
 7.
-Прояснение
+Закомментированный код
 
-def separWordField(word)#разделение полей процессора
+fmt.Print("exp: ")
+					printList(exp)
+					fmt.Println("")
+					//evalList(exp,dict)
 
-def separWordField(word)  # определяем каждое поле в свою переменную,
-# что бы взамодействовать с ними по отдельности
+fmt.Print("exp: ")
+					printList(exp)
+					fmt.Println("")
 
 8.
-Предупреждение о последствиях
-case *list:
-		// true - нет ошибок
-		// false - произошла ошибка
+Избыточные комментарии
 
-case *list:
-    //если вернется false, значит в выражение попало неприемлемое значение/символ
+if err == io.EOF { // если конец файла
+		break // выходим из цикла
+	}
+(вполне очевидное поведение, комментарии издишни)
+
+if err == io.EOF {
+		break
+	}
+
 9.
-Усиление
+Позиционные маркеры
+//////////////////////////////////////////////////////////////////////////////////////// class end///////////////////////////////////////////////////////
 
-memAdress = line.to_s #адрес в памяти куда сложить команду
+void push_back_list(vector<variant<Move, castling>> &listMove, vector<variant<Move, castling>> &everyMoveList);//прототип!!!//////////////////////////////////////////////////////////
+(без данных маркеров очевидно окончание классв=ов и начало прототипов функций)
 
-memAdress = line.to_s #только в данный адрес в необходимо складывать команды
+void push_back_list(vector<variant<Move, castling>> &listMove, vector<variant<Move, castling>> &everyMoveList);
+
 
 10.
-Прояснение
+Не используйте комментарии там, где можно использовать функцию или переменную
+// координаты castling для белых
+array < int, 2 > kingDepW = {4, 7};
 
-when "01"               #Immediate mode (=)
-when "01"               #Immediate mode данный режим активируется добавлением символа (=) к команде
+array < int, 2 > kingStartCoordWhtCast= {4, 7};
+
 11.
-Комментарий TODO
+Не используйте комментарии там, где можно использовать функцию или переменную
 
-mar = convertTo16Bit(mbr.slice(5,11))#??? TODO правмльно ли записаны индексы? в adress field записаны с 6 по 10
+return false;    //этот false возвращается, когда наткнулись на фигуру другого цвета не на rook  и не на queen
 
-mar = convertTo16Bit(mbr.slice(5,11))#??? #TODO необходимо проверить правмльно ли записаны индексы?
-# индексы храняися в поле adress field  с 6 по 10 позицию
+bool notRookAndNotQeen = false
+return notRookAndNotQeen
 
 12.
-Представление намерений
+Шум
 
-num, remaind = separDivNum(dec1, dec2)
-    temp = (num.to_i/dec2.to_i).to_s
+traceRegister(ir, xr, mar, mbr, pc, ac,index)         #TRACER
+(данный комментарий дублирует очевидную информацию)
 
-num, remaind = separDivNum(dec1, dec2)#отделяем цифры пока первое не станет возможным поделить на второе
+traceRegister(ir, xr, mar, mbr, pc, ac,index)
+
+13.
+Не используйте комментарии там, где можно использовать функцию или переменную
+memAdress = line.to_s #адрес в памяти куда сложить команду
+
+memAdressForCommand = line.to_s
+
+14.
+Закомментированный код
+
+end
+# traceBitMemory(options[:trace], memArr)
+mainLoop()
+
+end
+mainLoop()
+
+15.
+Избыточные комментарии
+Закомментированный код
+
+def divDec(dec1, dec2)
+    num, remaind = separDivNum(dec1, dec2)#отделяем цифры пока первое не станет возможным поделить на второе
     temp = (num.to_i/dec2.to_i).to_s#делим отделимый остаток на второе число
+    rem2 = num.to_i%dec2.to_i#остаток от деления после отделения цифры и выполенния первого шага деления
+    while remaind != ""
+
+        rem2 = (rem2.to_s + remaind[0]).to_i#прибавляем к этому остатку следующее число из делителя для следующей итерации деления
+        remaind = remaind.slice(1, remaind.size - 1)# остаток от делителя режем на 1 знак спереди (его забрали на сл цикл строкой выше)
+       #rem2, remaind = separDivNum((rem2.to_s + remaind), dec2)
+        print "rem2: #{rem2}\n"
+        temp = temp + (rem2.to_i/dec2.to_i).to_s
+        rem2 = (rem2.to_i%dec2.to_i).to_s
+    end
+
+def divDec(dec1, dec2)
+    number, remaindOfNumOne = separDivNum(dec1, dec2)
+    summRemindOfNumOne = (number.to_i/dec2.to_i).to_s
+    remaindOfNumTwo = number.to_i%dec2.to_i
+    while remaindOfNumOne != ""
+        remaindOfNumTwo = (remaindOfNumTwo.to_s + remaindOfNumOne[0]).to_i
+        remaindOfNumOne = remaindOfNumOne.slice(1, remaindOfNumOne.size - 1)
+        summRemindOfNumOne = summRemindOfNumOne + (remaindOfNumTwo.to_i/dec2.to_i).to_s
+        remaindOfNumTwo = (remaindOfNumTwo.to_i%dec2.to_i).to_s
+    end
