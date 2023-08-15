@@ -1,4 +1,4 @@
-def degree(N: int, M: int):
+def degree(N: int, M: int) -> int:
     if M == 0 and N == 0:
         return 0
     if M == 0:
