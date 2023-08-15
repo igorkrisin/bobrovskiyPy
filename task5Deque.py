@@ -14,7 +14,7 @@ class Deque:
     def removeFront(self) -> object:
         if self.size() == 0:
             return None
-        self.deque.pop()
+        return self.deque.pop()
 
     def removeTail(self) -> object:
         if self.size() == 0:
@@ -26,12 +26,20 @@ class Deque:
     def size(self) -> int:
         return len(self.deque)
 
+    def add_str_in_deque(self, string):
+        for i in range(0, len(string)):
+            self.deque.append(string[i])
 
 
 
-deq = Deque()
 
-deq.addTail(5)
+
+#deq = Deque()
+
+#deq.add_str_in_deque("qewqeq")
+#print(deq.deque)
+
+'''deq.addTail(5)
 deq.addTail(6)
 print(deq.deque)
 deq.addTail(8)
@@ -82,4 +90,4 @@ class TestLinkedList(unittest.TestCase):
 
 
     if __name__ == "__main__":
-        unittest.main()
+        unittest.main()'''

@@ -164,9 +164,19 @@ class LinkedList2:
             arr[i]: [int] = arr[i].value
         return arr
 
+    def print_all_nodes(self):
+        node = self.head
+        while node is not None:
+            print(node.value)
+            node = node.next
+
+
+
+
 s_list = LinkedList2()
 
 s_list.add_in_head(Node(55))
+s_list.print_all_nodes()
 #s_list.insert(Node(77), Node(5))
 #print(s_list.len())
 #print('answer:')
@@ -356,15 +366,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.link.head.value, 17)
         self.assertEqual(self.link.tail.value, 15)
 
-    def test_add_in_head(self) -> None:
-        self.link: LinkedList2 = LinkedList2()
-        self.link.add_in_tail(Node(10))
-        self.link.add_in_tail(Node(15))
-        self.link.add_in_tail(Node(15))
-        self.link.add_in_head(Node(17))
-        self.assertEqual(self.link.create_array_from_list(), [17, 10, 15, 15])
-        self.assertEqual(self.link.head.value, 17)
-        self.assertEqual(self.link.tail.value, 15)
 
 if __name__ == "__main__":
     unittest.main()

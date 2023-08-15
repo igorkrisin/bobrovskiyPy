@@ -208,7 +208,6 @@ def postfix_expression(expr: str) -> int:
 
 
 class TestLinkedList(unittest.TestCase):
-
     def test_postfix_expression(self) -> None:
         self.assertEqual(postfix_expression("8 2 + 5 * 9 + ="), 59)
         self.assertEqual(postfix_expression("12 3 + 5 / 4 + ="), 7)
