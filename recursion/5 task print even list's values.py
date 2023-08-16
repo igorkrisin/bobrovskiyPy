@@ -1,4 +1,4 @@
-def print_even_lists_values(lst: [object]) -> None:
+def print_even_lists_values(lst: [int]) -> None:
     if len(lst) == 0:
         return
     if lst[0]%2 == 0:
