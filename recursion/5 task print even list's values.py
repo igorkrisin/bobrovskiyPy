@@ -1,10 +1,9 @@
-def print_even_lists_values(lst: [int]) -> None:
-    if len(lst) == 0:
+def print_even_lists_values(lst: [int], i=0) -> None:
+    if i >= len(lst):
         return
-    if lst[0]%2 == 0:
-        print(lst.pop(0))
-    else:
-        lst.pop(0)
-    print_even_lists_values(lst)
+    if lst[i] % 2 == 0:
+        print(lst[i])
+    print_even_lists_values(lst, i + 1)
 
-print_even_lists_values([0, 1,2,3,4,5,6,7,8])
+
+print_even_lists_values([0, 1, 2, 3, 4, 5, 6, 7, 16])
