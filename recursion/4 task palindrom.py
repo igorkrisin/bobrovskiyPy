@@ -1,10 +1,33 @@
-def is_palindrom(string: str) -> bool:
-    if len(string) == 0:
-        return True
-    if len(string) == 1:
-        return True
-    if string[0] != string[len(string)-1]:
-        return False
-    return is_palindrom(string[1:len(string)-1])
 
-print(is_palindrom('fffg'))
+def is_palindrom(string: str, i=0) -> bool:
+    if i >= len(string)-1:
+        return True
+    if string[i] != string[len(string)-i-1]:
+        return False
+
+    return is_palindrom(string, i+1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def is_palindrom_loop(string: str) -> bool:
+    for i in range(0, len(string)-1//2):
+        if string[i] != string[len(string) - i-1]:
+            return False
+    return True
+#print(is_palindrom_loop('ffgggggggsdfsdff'))
+print(is_palindrom('fffffjf'))
