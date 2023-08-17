@@ -1,5 +1,8 @@
-
-def is_palindrom(string: str, i=0) -> bool:
+def main_func(string: str, i: int) -> bool:
+    i = 0
+    return is_palindrom(string, i)    
+    
+def is_palindrom(string: str, i) -> bool:
     if i >= len(string)-1:
         return True
     if string[i] != string[len(string)-i-1]:
@@ -7,8 +10,7 @@ def is_palindrom(string: str, i=0) -> bool:
 
     return is_palindrom(string, i+1)
 
-
-
+print(main_func('fffffjfffff', 0))
 
 
 
@@ -30,4 +32,4 @@ def is_palindrom_loop(string: str) -> bool:
             return False
     return True
 #print(is_palindrom_loop('ffgggggggsdfsdff'))
-print(is_palindrom('fffffjf'))
+#print(is_palindrom('fffffjf'))
