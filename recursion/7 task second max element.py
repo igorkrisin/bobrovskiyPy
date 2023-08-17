@@ -1,6 +1,9 @@
 def main_funct(lst: [int]) -> int:
     max_el = lst[0]
     sec_max_el = lst[1]
+    if lst[1] > max_el:
+        max_el = lst[1]
+        sec_max_el = lst[0]
     i = 2
     return second_max_el_recursion(lst, max_el, sec_max_el, i)
 
@@ -45,6 +48,9 @@ print(main_funct([8, 7, 6, 3, 6]))
 def second_max_el_loop(lst: [int]) -> int:
     max_el = lst[0]
     sec_max_el = lst[1]
+    if lst[1] > max_el:
+        max_el = lst[1]
+        sec_max_el = lst[0]
     for i in range(2, len(lst)):
         if lst[i] > max_el:
             sec_max_el = max_el
