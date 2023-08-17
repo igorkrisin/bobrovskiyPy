@@ -1,4 +1,4 @@
-def main_func(string: str, i: int) -> bool:
+def main_func(string: str) -> bool:
     i = 0
     return is_palindrom(string, i)    
     
@@ -10,7 +10,7 @@ def is_palindrom(string: str, i) -> bool:
 
     return is_palindrom(string, i+1)
 
-print(main_func('fffffjfffff', 0))
+print(main_func('fffffjfffff'))
 
 
 
