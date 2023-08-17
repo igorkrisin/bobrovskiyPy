@@ -4,7 +4,7 @@ def main_func(lst: [int]) -> None:
     
 
 
-def print_even_lists_values(lst: [int], i=0) -> None:
+def print_even_lists_values(lst: [int], i) -> None:
     if i >= len(lst):
         return
     if lst[i] % 2 == 0:
