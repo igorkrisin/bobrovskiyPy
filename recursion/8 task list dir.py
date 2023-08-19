@@ -1,26 +1,19 @@
 import os
 
-# print(os.getcwd())
 
-os.chdir('/Users/igorkrysin/Documents/dev/bobrovskiy')
-
-
-# print(os.getcwd())
-# print(os.listdir('/Users/igorkrysin/Documents/dev/bobrovskiy'))
+def main_func(path_dir: str) -> None:
+    list_name_dir = []
+    print(contains_dir(path_dir, list_name_dir))
 
 
-def contains_dir(name_dir: str) -> None:
-    list_dir_plus_file = []
-    result_list = []
-    list_dir_plus_file = os.listdir(name_dir)
-    print(list_dir_plus_file)
+def contains_dir(path_dir: str, list_name_dir: [str] ) -> [str]:
 
-    for path in os.listdir(name_dir):
-        if os.path.isfile(os.path.join(name_dir, path)):
-            result_list.append(path)
-        elif not os.path.isfile(os.path.join(name_dir, path)):
-            result_list.append(contains_dir(os.path.join(name_dir, path)))
-    print(result_list)
+    for i in os.listdir(path_dir):
+        if os.path.isdir(path_dir+'/'+i):
+            contains_dir(path_dir+'/'+i, list_name_dir)
+        if os.path.isfile(path_dir+'/'+i):
+            list_name_dir.append(i)
+    return list_name_dir
 
 
-contains_dir('/Users/igorkrysin/Documents')
+main_func('/Users/igorkrysin/Downloads')
