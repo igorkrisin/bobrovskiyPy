@@ -1,19 +1,15 @@
 import os
 
 
-def main_func(path_dir: str) -> None:
-    list_name_file = []
-    print(collection_of_filenames(path_dir, list_name_file))
-
-
-def collection_of_filenames(path_dir: str, list_name_file: [str]) -> [str]:
-
+def collection_of_filenames(path_dir: str) -> [str]:
+    result_lst = []
     for file_name in os.listdir(path_dir):
-        if os.path.isdir(path_dir+'/'+file_name):
-            collection_of_filenames(path_dir+'/'+file_name, list_name_file)
-        if os.path.isfile(path_dir+'/'+file_name):
-            list_name_file.append(file_name)
-    return list_name_file
+        if os.path.isdir(path_dir + '/' + file_name):
+            result_lst = collection_of_filenames(path_dir + '/'+file_name) + result_lst
+        if os.path.isfile(path_dir + '/' + file_name):
+            result_lst += [file_name]
+    return result_lst
 
 
-main_func('/Users/igorkrysin/Downloads')
+print(collection_of_filenames('/Users/igorkrysin/Downloads'))
+
