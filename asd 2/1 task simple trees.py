@@ -62,19 +62,11 @@ class SimpleTree:
         return summ_list_value
 
     def MoveNode(self, OriginalNode: SimpleTreeNode, NewParent: SimpleTreeNode) -> None:
-        children_nodes = OriginalNode.Children
+        for i in range(0, len(OriginalNode.Parent.Children)):
+            if OriginalNode == OriginalNode.Parent.Children[i]:
+                OriginalNode.Parent.Children.remove(OriginalNode)
         self.AddChild(NewParent, OriginalNode)
-        while len(children_nodes):
-            for i in range(0, len(children_nodes)):
-                self.AddChild(children_nodes[i], children_nodes.Children[i])
-            children_nodes = children_nodes[i].Children
 
-
-
-
-        # ваш код перемещения узла вместе с его поддеревом --
-        # в качестве дочернего для узла NewParent
-        pass
 
     def Count(self) -> int:
         return len(self.GetAllNodes())
@@ -91,24 +83,24 @@ class SimpleTree:
 
 
 
-parent_node: SimpleTreeNode = SimpleTreeNode(5, None)
-child_node: SimpleTreeNode = SimpleTreeNode(10,parent_node)
-new_child_node: SimpleTreeNode = SimpleTreeNode(5, child_node)
-new_child_node2: SimpleTreeNode = SimpleTreeNode(12, child_node)
-new_child_node3: SimpleTreeNode = SimpleTreeNode(5, child_node)
+parent_node: SimpleTreeNode = SimpleTreeNode('parent', None)
+child_node: SimpleTreeNode = SimpleTreeNode('child _node',parent_node)
+new_child_node: SimpleTreeNode = SimpleTreeNode('new_child_node', child_node)
+new_child_node2: SimpleTreeNode = SimpleTreeNode('new_child_node2', child_node)
+new_child_node3: SimpleTreeNode = SimpleTreeNode('new_child_node3', child_node)
 first_tree: SimpleTree = SimpleTree(parent_node)
 first_tree.AddChild(parent_node, child_node)
 first_tree.AddChild(child_node, new_child_node)
 first_tree.AddChild(new_child_node, new_child_node2)
 first_tree.AddChild(new_child_node, new_child_node3)
-first_tree.MoveNode(new_child_node, new_child_node3)
+first_tree.MoveNode(new_child_node, parent_node)
 #print('count leafs: ', first_tree.LeafCount())
 
 #print('count nodes: ', first_tree.Count())
 
 #print(first_tree.FindNodesByValue(5))
-#print(first_tree.GetAllNodes())
-#first_tree.DeleteNode(new_child_node2)
+print(first_tree.GetAllNodes())
+first_tree.DeleteNode(new_child_node2)
 #print(first_tree.GetAllNodes())
 print('            ')
 
