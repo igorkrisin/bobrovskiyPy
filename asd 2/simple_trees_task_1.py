@@ -26,11 +26,10 @@ class SimpleTree:
         if NodeToDelete.Parent is None:
             return None
         NodeToDelete.Parent.Children.remove(NodeToDelete)
-
         if NodeToDelete.Children:
             self.DeleteNode(NodeToDelete.Children[0])
-        NodeToDelete.Parent = None
-        NodeToDelete.NodeValue = None
+
+
 
     def GetAllNodes(self) -> [object]:
         child: SimpleTreeNode = self.Root.Children
@@ -64,8 +63,10 @@ class SimpleTree:
     def MoveNode(self, OriginalNode: SimpleTreeNode, NewParent: SimpleTreeNode) -> None:
         for i in range(0, len(OriginalNode.Parent.Children)):
             if OriginalNode == OriginalNode.Parent.Children[i]:
+                print(OriginalNode.Parent.Children[0].NodeValue)
                 OriginalNode.Parent.Children.remove(OriginalNode)
         self.AddChild(NewParent, OriginalNode)
+
 
     def Count(self) -> int:
         return len(self.GetAllNodes())
@@ -78,4 +79,15 @@ class SimpleTree:
             if not lst_nodes[i].Children:
                 count += 1
         return count
+
+    def GetAllNodesValue(self) -> [object]:
+        child: SimpleTreeNode = self.Root.Children
+        if len(child) == 0:
+            return [self.Root.NodeValue]
+        lst: [object] = [] + [self.Root.NodeValue]
+        while len(child) != 0:
+            for i in range(0, len(child)):
+                lst.append(child[i].NodeValue)
+            child = child[i].Children
+        return lst
 
