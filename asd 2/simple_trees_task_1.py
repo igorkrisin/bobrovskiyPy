@@ -20,7 +20,9 @@ class SimpleTree:
 
     def AddChild(self, ParentNode: SimpleTreeNode, NewChild: SimpleTreeNode) -> None:
         NewChild.Parent = ParentNode
+        #print('ParentChildrenBef: ', ParentNode.Children)
         ParentNode.Children.append(NewChild)
+        #print('ParentChildrenAfter: ', ParentNode.Children)
 
     def DeleteNode(self, NodeToDelete: SimpleTreeNode) -> None:
         if NodeToDelete.Parent is None:
@@ -35,11 +37,11 @@ class SimpleTree:
     def GetAllNodes(self) -> [object]:
         child: SimpleTreeNode = self.Root.Children
         if len(child) == 0:
-            return [self.Root.NodeValue]
-        lst: [object] = [] + [child[0].Parent.NodeValue]
+            return [self.Root]
+        lst: [object] = [] + [child[0].Parent]
         while len(child) != 0:
             for i in range(0, len(child)):
-                lst.append(child[i].NodeValue)
+                lst.append(child[i])
             child = child[i].Children
 
         return lst
@@ -62,14 +64,15 @@ class SimpleTree:
         return summ_list_value
 
     def MoveNode(self, OriginalNode: SimpleTreeNode, NewParent: SimpleTreeNode) -> None:
-        print(self.GetAllNodes())
-        print('NP1: ', OriginalNode.Parent)
-        print(NewParent.Children)
+        for i in range(0, len(OriginalNode.Parent.Children)):
+            if OriginalNode == OriginalNode.Parent.Children[i]:
+                print(OriginalNode.Parent.Children[0].NodeValue)
+                OriginalNode.Parent.Children.remove(OriginalNode)
         self.AddChild(NewParent, OriginalNode)
-        print('NP2: ', OriginalNode.Parent)
-        print(NewParent.Children)
-        print(self.GetAllNodes())
 
+        #self.AddChild(NewParent, OriginalNode)
+#MoveNode(new_child_node2, parent_node)
+        #self.AddChild(NewParent, OriginalNode)
 
     def Count(self) -> int:
         return len(self.GetAllNodes())
@@ -95,17 +98,21 @@ class SimpleTree:
         return lst
 
 
-parent_node: SimpleTreeNode = SimpleTreeNode('parent', None)
-child_node: SimpleTreeNode = SimpleTreeNode('child _node', parent_node)
-new_child_node: SimpleTreeNode = SimpleTreeNode('new_child_node', child_node)
-#new_child_node2: SimpleTreeNode = SimpleTreeNode('new_child_node2', child_node)
+parent_node: SimpleTreeNode = SimpleTreeNode('PARENT', None)
+child_node: SimpleTreeNode = SimpleTreeNode('CHILD_NODE', parent_node)
+new_child_node: SimpleTreeNode = SimpleTreeNode('NEW_CHILD_NODE', child_node)
+new_child_node2: SimpleTreeNode = SimpleTreeNode('NEW_CHILD_NODE2', child_node)
 #new_child_node3: SimpleTreeNode = SimpleTreeNode('new_child_node3', child_node)
 first_tree: SimpleTree = SimpleTree(parent_node)
 first_tree.AddChild(parent_node, child_node)
 first_tree.AddChild(child_node, new_child_node)
-#first_tree.AddChild(new_child_node, new_child_node2)
+first_tree.AddChild(new_child_node, new_child_node2)
 #first_tree.AddChild(new_child_node2, new_child_node3)
-first_tree.MoveNode(new_child_node, parent_node)
+
+
+print(first_tree.GetAllNodes())
+first_tree.MoveNode(new_child_node2, parent_node)
+first_tree.AddChild(parent_node, new_child_node2)
 #print('count leafs: ', first_tree.LeafCount())
 
 #print('count nodes: ', first_tree.Count())
@@ -121,6 +128,6 @@ print('            ')
 #parent_node.print_tree_nodes()
 #child_node.print_tree_nodes()
 #new_child_node.print_tree_nodes()
-#new_child_node2.print_tree_nodes()
+new_child_node2.print_tree_nodes()
 #new_child_node3.print_tree_nodes()
 

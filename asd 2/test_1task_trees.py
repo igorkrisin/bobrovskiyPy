@@ -73,7 +73,33 @@ class TestLinkedList(unittest.TestCase):
         self.tree.AddChild(self.second_child_node, self.third_child_node)
         self.assertEqual(self.tree.GetAllNodesValue(), [1, 2, 3, 4])
         self.tree.MoveNode(self.third_child_node, self.root_node)
-        self.assertEqual(self.tree.GetAllNodesValue(), [1, 4, 2, 3])
+        self.assertEqual(self.tree.GetAllNodesValue(), [1, 2, 4])
+
+    def test_count(self) -> None:
+        self.root_node: SimpleTreeNode = SimpleTreeNode(1, None)
+        self.first_child_node: SimpleTreeNode = SimpleTreeNode(2, self.root_node)
+        self.tree: SimpleTree = SimpleTree(self.root_node)
+        self.tree.AddChild(self.root_node, self.first_child_node)
+        self.second_child_node: SimpleTreeNode = SimpleTreeNode(3, self.root_node)
+        self.tree.AddChild(self.first_child_node, self.second_child_node)
+        self.third_child_node: SimpleTreeNode = SimpleTreeNode(4, self.root_node)
+        self.tree.AddChild(self.second_child_node, self.third_child_node)
+        self.assertEqual(self.tree.Count(), 4)
+
+    def test_count_leaf(self) -> None:
+        self.root_node: SimpleTreeNode = SimpleTreeNode(1, None)
+        self.first_child_node: SimpleTreeNode = SimpleTreeNode(2, self.root_node)
+        self.tree: SimpleTree = SimpleTree(self.root_node)
+        self.tree.AddChild(self.root_node, self.first_child_node)
+        self.second_child_node: SimpleTreeNode = SimpleTreeNode(3, self.root_node)
+        self.tree.AddChild(self.first_child_node, self.second_child_node)
+        self.third_child_node: SimpleTreeNode = SimpleTreeNode(4, self.root_node)
+        self.tree.AddChild(self.second_child_node, self.third_child_node)
+        self.assertEqual(self.tree.LeafCount(), 1)
+        self.fourth_child_node: SimpleTreeNode = SimpleTreeNode(5, self.root_node)
+        self.tree.AddChild(self.second_child_node, self.fourth_child_node)
+        self.assertEqual(self.tree.LeafCount(), 2)
+
 
 
 if __name__ == "__main__":
