@@ -50,11 +50,11 @@ class SimpleTree:
         child_lst: SimpleTreeNode = self.Root.Children
         summ_list_value: [object] = []
         if self.Root.NodeValue == val:
-            summ_list_value.append(self.Root.NodeValue)
+            summ_list_value.append(self.Root)
         while len(child_lst) != 0:
             for i in range(0, len(child_lst)):
                 if val == child_lst[i].NodeValue:
-                    summ_list_value.append(child_lst[i].NodeValue)
+                    summ_list_value.append(child_lst[i])
             child_lst = child_lst[i].Children
         return summ_list_value
 
