@@ -48,7 +48,7 @@ class SimpleTree:
         if len(self.Root.Children) == 0 and self.Root.NodeValue != val:
             return []
         elif len(self.Root.Children) == 0 and self.Root.NodeValue == val:
-            return [self.Root.NodeValue]
+            return [self.Root]
         child_lst: SimpleTreeNode = self.Root.Children
         summ_list_value: [object] = []
         if self.Root.NodeValue == val:
@@ -87,9 +87,23 @@ class SimpleTree:
                 lst.append(child[i].NodeValue)
             child = child[i].Children
         return lst
+
     def convert_lst_nodes_to_lst_val(self, lst: [object])->[object]:
         lst_summ = []
         for i in range(0, len(lst)):
             lst_summ.append(lst[i].NodeValue)
         return lst_summ
+
+    def add_level_for_tree(self) -> [object]:
+        level: int =0
+        child: SimpleTreeNode = self.Root.Children
+        if len(child) == 0:
+            return [self.Root.NodeValue]
+        lst: [object] = [] + [self.Root.NodeValue]
+        while len(child) != 0:
+            for i in range(0, len(child)):
+                lst.append(child[i].NodeValue)
+            lst
+            child = child[i].Children
+        return lst
 
