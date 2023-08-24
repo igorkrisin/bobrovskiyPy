@@ -33,7 +33,8 @@ class SimpleTree:
         child: SimpleTreeNode = self.Root.Children
         if len(child) == 0:
             return [self.Root]
-        lst: [object] = [] + [child[0].Parent]
+        lst: [object] = [] 
+        lst.append(self.Root)
         while len(child) != 0:
             for i in range(0, len(child)):
                 lst.append(child[i])
