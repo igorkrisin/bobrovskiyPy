@@ -29,7 +29,7 @@ class SimpleTree:
         if NodeToDelete.Children:
             self.DeleteNode(NodeToDelete.Children[0])
 
-   def GetAllNodes(self) -> [SimpleTreeNode]:
+    def GetAllNodes(self) -> [SimpleTreeNode]:
         child: SimpleTreeNode = self.Root.Children
         i = 0
         if len(child) == 0:
