@@ -39,11 +39,12 @@ class SimpleTree:
         while len(child) != 0:
             for y in range(0, len(child)):
                 lst.append(child[y])
+            if i == len(child):
+                i = 0
             child = child[i].Children
             if i < len(child):
                 i += 1
-            if i == len(child):
-                i = 0
+            
         return lst
 
     def FindNodesByValue(self, val:int) -> [object]:
