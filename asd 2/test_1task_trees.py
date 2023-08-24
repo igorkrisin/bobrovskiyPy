@@ -65,7 +65,7 @@ class TestLinkedList(unittest.TestCase):
     def test_find_nodes_by_none_root_value(self) -> None:
         self.root_node: SimpleTreeNode = SimpleTreeNode(None, None)
         self.tree: SimpleTree = SimpleTree(self.root_node)
-        self.assertEqual(self.tree.FindNodesByValue(None), [None])
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.FindNodesByValue(None)), [None])
 
     def test_moved_node(self) -> None:
         self.root_node: SimpleTreeNode = SimpleTreeNode(1, None)

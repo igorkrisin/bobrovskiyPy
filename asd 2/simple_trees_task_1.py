@@ -95,15 +95,52 @@ class SimpleTree:
         return lst_summ
 
     def add_level_for_tree(self) -> [object]:
-        level: int =0
+        level: int = 0
         child: SimpleTreeNode = self.Root.Children
         if len(child) == 0:
-            return [self.Root.NodeValue]
+            return [self.Root.NodeValue, f'level: {level}']
         lst: [object] = [] + [self.Root.NodeValue]
+        lst.append(f'level: {level}')
+        level += 1
         while len(child) != 0:
             for i in range(0, len(child)):
+                print('chld: ', child)
                 lst.append(child[i].NodeValue)
-            lst
+                lst.append(f'level: {level}')
+            level += 1
             child = child[i].Children
         return lst
 
+parent_node: SimpleTreeNode = SimpleTreeNode('PARENT', None)
+child_node: SimpleTreeNode = SimpleTreeNode('CHILD_NODE', parent_node)
+new_child_node: SimpleTreeNode = SimpleTreeNode('NEW_CHILD_NODE', child_node)
+new_child_node2: SimpleTreeNode = SimpleTreeNode('NEW_CHILD_NODE2', child_node)
+new_child_node3: SimpleTreeNode = SimpleTreeNode('new_child_node3', child_node)
+first_tree: SimpleTree = SimpleTree(parent_node)
+first_tree.AddChild(parent_node, child_node)
+first_tree.AddChild(child_node, new_child_node)
+first_tree.AddChild(child_node, new_child_node2)
+first_tree.AddChild(new_child_node2, new_child_node3)
+
+
+print(first_tree.GetAllNodes())
+print(first_tree.add_level_for_tree())
+#first_tree.MoveNode(new_child_node2, parent_node)
+#first_tree.AddChild(parent_node, new_child_node2)
+#print('count leafs: ', first_tree.LeafCount())
+
+#print('count nodes: ', first_tree.Count())
+
+#print('find: ' ,first_tree.FindNodesByValue('parent'))
+#print(first_tree.GetAllNodesValue())
+#first_tree.DeleteNode(child_node)
+#print(first_tree.GetAllNodes())
+#print(first_tree.GetAllNodes())
+print('            ')
+
+
+#parent_node.print_tree_nodes()
+#child_node.print_tree_nodes()
+#new_child_node.print_tree_nodes()
+#new_child_node2.print_tree_nodes()
+#new_child_node3.print_tree_nodes()
