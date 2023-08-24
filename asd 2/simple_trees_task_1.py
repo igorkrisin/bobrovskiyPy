@@ -29,19 +29,20 @@ class SimpleTree:
         if NodeToDelete.Children:
             self.DeleteNode(NodeToDelete.Children[0])
 
-    def GetAllNodes(self) -> [object]:
+   def GetAllNodes(self) -> [SimpleTreeNode]:
         child: SimpleTreeNode = self.Root.Children
+        i = 0
         if len(child) == 0:
             return [self.Root]
         lst: [object] = [] 
         lst.append(self.Root)
         while len(child) != 0:
-            for i in range(0, len(child)):
-                lst.append(child[i])
+            for y in range(0, len(child)):
+                lst.append(child[y])
             child = child[i].Children
-
+            if i < len(child):
+                i += 1
         return lst
-
 
     def FindNodesByValue(self, val:int) -> [object]:
         if self.Root is None:
