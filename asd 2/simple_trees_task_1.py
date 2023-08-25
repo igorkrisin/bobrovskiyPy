@@ -4,6 +4,11 @@ class SimpleTreeNode:
         self.NodeValue = val # значение в узле
         self.Parent = parent # родитель или None для корня
         self.Children = [] # список дочерних узлов
+
+    def PrintNodesField(self) -> None:
+        print('val: ', self.NodeValue)
+        print('par: ', self.Parent.NodeValue)
+        print('child: ', self.Children)
         
         
 class SimpleTree:
@@ -47,12 +52,13 @@ class SimpleTree:
         return result_lst
    
     def MoveNode(self, OriginalNode: SimpleTreeNode, NewParent: SimpleTreeNode) -> None:
-        if not self.FindNodesByValue(OriginalNode):
+        if not self.FindNodesByValue(OriginalNode.NodeValue):
             return None
-        OriginalNode.Parent.Children.remove(OriginalNode.NodeValue)
+        OriginalNode.Parent.Children.remove(OriginalNode)
+        self.AddChild(NewParent, OriginalNode)
+        #NewParent.PrintNodesField()
         
-        
-   
+
     def Count(self):
         chld_lst = self.Root
         count = 0
@@ -66,7 +72,6 @@ class SimpleTree:
             count += SimpleTree(chld).Count()
         return count
                 
-     
 
     def LeafCount(self):
         chld_lst = self.GetAllNodes()
@@ -101,6 +106,9 @@ tree.AddChild(first_node, fifth_node)
 
 print(tree.convert_lst_nodes_to_lst_val(tree.GetAllNodes()))
 #tree.DeleteNode(fifth_node)
+fourth_node.PrintNodesField()
+tree.MoveNode(fourth_node, first_node)
+fourth_node.PrintNodesField()
 print(tree.convert_lst_nodes_to_lst_val(tree.GetAllNodes()))
 print(tree.Count())
 print('leaf: ', tree.LeafCount())
