@@ -1,9 +1,9 @@
 class SimpleTreeNode:
 	
     def __init__(self, val, parent):
-        self.NodeValue = val # значение в узле
-        self.Parent = parent # родитель или None для корня
-        self.Children = [] # список дочерних узлов
+        self.NodeValue = val
+        self.Parent = parent
+        self.Children = []
 
     def PrintNodesField(self) -> None:
         print('val: ', self.NodeValue)
@@ -14,7 +14,7 @@ class SimpleTreeNode:
 class SimpleTree:
 
     def __init__(self, root) -> None:
-        self.Root = root # корень, может быть None
+        self.Root = root
 	
     def AddChild(self, ParentNode, NewChild) -> None:
         NewChild.Parent = ParentNode
@@ -56,9 +56,7 @@ class SimpleTree:
             return None
         OriginalNode.Parent.Children.remove(OriginalNode)
         self.AddChild(NewParent, OriginalNode)
-        #NewParent.PrintNodesField()
         
-
     def Count(self):
         chld_lst = self.Root
         count = 0
@@ -86,5 +84,4 @@ class SimpleTree:
         for i in range(0, len(lst)):
             lst_summ.append(lst[i].NodeValue)
         return lst_summ
-    
     
