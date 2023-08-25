@@ -62,6 +62,19 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.FindNodesByValue(3)), [3, 3])
         self.assertEqual(self.tree.FindNodesByValue(4), [])
 
+    def test_find_nodes_by_value_(self) -> None:
+        self.root_node: SimpleTreeNode = SimpleTreeNode(1, None)
+        self.first_child_node: SimpleTreeNode = SimpleTreeNode(2, self.root_node)
+        self.tree: SimpleTree = SimpleTree(self.root_node)
+        self.tree.AddChild(self.root_node, self.first_child_node)
+        self.second_child_node: SimpleTreeNode = SimpleTreeNode(3, self.root_node)
+        self.tree.AddChild(self.root_node, self.second_child_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.FindNodesByValue(3)), [3])
+        self.third_child_node: SimpleTreeNode = SimpleTreeNode(3, self.second_child_node)
+        self.tree.AddChild(self.root_node, self.third_child_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.FindNodesByValue(3)), [3, 3])
+        self.assertEqual(self.tree.FindNodesByValue(4), [])
+
     def test_find_nodes_by_none_root_value(self) -> None:
         self.root_node: SimpleTreeNode = SimpleTreeNode(None, None)
         self.tree: SimpleTree = SimpleTree(self.root_node)
