@@ -37,7 +37,7 @@ class SimpleTree:
             result_lst += SimpleTree(chld).GetAllNodes()
         return result_lst
 
-    def FindNodesByValue(self, val) -> [SimpleTreeNode]:
+    def FindNodesByValue(self, val: object) -> [SimpleTreeNode]:
         if val not in self.convert_lst_nodes_to_lst_val(self.GetAllNodes()):
             return []
         result_lst: [SimpleTreeNode] = []
@@ -46,10 +46,12 @@ class SimpleTree:
                 result_lst += [val_chld]
         return result_lst
    
-    def MoveNode(self, OriginalNode, NewParent):
-        # ваш код перемещения узла вместе с его поддеревом -- 
-        # в качестве дочернего для узла NewParent
-        pass  
+    def MoveNode(self, OriginalNode: SimpleTreeNode, NewParent: SimpleTreeNode) -> None:
+        if not self.FindNodesByValue(OriginalNode):
+            return None
+        OriginalNode.Parent.Children.remove(OriginalNode.NodeValue)
+        
+        
    
     def Count(self):
         chld_lst = self.Root
