@@ -22,7 +22,6 @@ class BST:
 
     def __init__(self, node):
         self.Root = node  # корень дерева, или None
-        self.Find = BSTFind()
 
     def FindNodeByKey(self, key: object) -> [BSTFind]:
         find_node = BSTFind().Node
@@ -67,11 +66,17 @@ class BST:
             right_child_node.Parent = current_node
             current_node.RightChild = right_child_node
 
-    def FinMinMax(self, FromNode, FindMax):
-        
-        # ищем максимальный/минимальный ключ в поддереве
-        # возвращается объект типа BSTNode
-        return None
+    def FinMinMax(self, FromNode: BSTNode, FindMax: bool):
+        if FindMax:
+            while FromNode.RightChild is not None:
+                FromNode = FromNode.RightChild
+                self.FinMinMax(FromNode, FindMax)
+            return FromNode
+        else:
+            while FromNode.LeftChild is not None:
+                FromNode = FromNode.LeftChild
+                self.FinMinMax(FromNode, FindMax)
+            return FromNode
 
     def DeleteNodeByKey(self, key):
         # удаляем узел по ключу
@@ -102,7 +107,8 @@ binary_tree.AddKeyValue(12, 1)
 binary_tree.AddKeyValue(9, 1)
 binary_tree.AddKeyValue(11, 1)
 binary_tree.AddKeyValue(8, 1)
-
+print('Root Node: ', root_node)
+print('MAX NODE: ', binary_tree.FinMinMax(root_node, False).NodeKey)
 #print(binary_tree.FindNodeByKey(-1))
 binary_tree.print_binary_tree()
 print('root: ', binary_tree.Root)
