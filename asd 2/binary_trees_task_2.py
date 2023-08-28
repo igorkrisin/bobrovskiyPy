@@ -1,27 +1,23 @@
 class BSTNode:
 
     def __init__(self, key, val, parent):
-        self.NodeKey: object = key  # ключ узла
-        self.NodeValue: object = val  # значение в узле
-        self.Parent: BSTNode = parent  # родитель или None для корня
-        self.LeftChild = None  # левый потомок
-        self.RightChild = None  # правый потомок
+        self.NodeKey: object = key  
+        self.NodeValue: object = val  
+        self.Parent: BSTNode = parent
+        self.LeftChild = None  
+        self.RightChild = None  
 
 
-class BSTFind:  # промежуточный результат поиска
+class BSTFind:  
     def __init__(self):
-        self.Node = None  # None если
-        # в дереве вообще нету узлов
-
-        self.NodeHasKey = False  # True если узел найден
-        self.ToLeft = False  # True, если родительскому узлу надо
-        # добавить новый узел левым потомком
-
+        self.Node = None  
+        self.NodeHasKey = False  
+        self.ToLeft = False  
 
 class BST:
 
     def __init__(self, node):
-        self.Root = node  # корень дерева, или None
+        self.Root = node  
 
     def FindNodeByKey(self, key: object) -> [BSTFind]:
         if key == self.Root.NodeKey:
@@ -140,10 +136,10 @@ class BST:
             self.del_one_chld(min_key_node, min_key_node.Parent)
 
     def Count(self) -> int:
-        count = 0
+        count = 1
         current_node = self.Root
         if current_node is None:
-            return 1
+            return 0
 
         
         count += BST(current_node.LeftChild).Count()
@@ -179,6 +175,7 @@ tree: BST = BST(root)
 
 tree.create_tree(node_key_store, 10, tree)
 tree.print_binary_tree()
+
 
 print('count: ', tree.Count())
 #tree.DeleteNodeByKey(2)
