@@ -24,6 +24,9 @@ class BST:
         self.Root = node  # корень дерева, или None
 
     def FindNodeByKey(self, key: object) -> [BSTFind]:
+        if key == self.Root.NodeKey:
+            return [self.Root, True, False]
+
         find_node: BSTNode = BSTFind().Node
         find_has_key: bool = BSTFind().NodeHasKey
         find_to_left: bool = BSTFind().ToLeft
@@ -31,7 +34,8 @@ class BST:
             # print('ret_start:', [find_node, find_has_key, find_to_left])
             return [find_node, find_has_key, find_to_left]
         current_node: BSTNode = self.Root
-        # print(current_node.NodeKey)
+        #print('key ', key)
+        #print('cnk: ', current_node.NodeKey)
         if key == current_node.NodeKey:
             return [current_node, True, False]
         elif key > current_node.NodeKey and current_node.RightChild:
@@ -92,22 +96,29 @@ class BST:
         if parent.LeftChild == delete_node and delete_node.LeftChild is None:
             delete_node.Parent = None
             parent.LeftChild = delete_node.RightChild
-            delete_node.RightChild.Parent = parent
+            if delete_node.RightChild is not None:
+                delete_node.RightChild.Parent = parent
 
         elif parent.LeftChild == delete_node and delete_node.RightChild is None:
             delete_node.Parent = None
             parent.LeftChild = delete_node.LeftChild
-            delete_node.LeftChild.Parent = parent
+            if delete_node.LeftChild is not None:
+                delete_node.LeftChild.Parent = parent
 
         elif parent.RightChild == delete_node and delete_node.LeftChild is None:
+            print('parent: ', parent)
+            print('dn: ', delete_node)
+            #print('drcp: ', delete_node.RightChild.Parent)
             delete_node.Parent = None
             parent.RightChild = delete_node.RightChild
-            delete_node.RightChild.Parent = parent
+            if delete_node.RightChild is not None:
+                delete_node.RightChild.Parent = parent
 
         elif parent.RightChild == delete_node and delete_node.RightChild is None:
             delete_node.Parent = None
             parent.RightChild = delete_node.LeftChild
-            delete_node.LeftChild.Parent = parent
+            if delete_node.LeftChild is not None:
+                delete_node.LeftChild.Parent = parent
 
     def DeleteNodeByKey(self, key) -> bool:
         is_key_in_tree: bool = self.FindNodeByKey(key)[1]
@@ -115,8 +126,10 @@ class BST:
             return False  # если узел не найден
         delete_node: BSTNode = self.FindNodeByKey(key)[0]
         if delete_node.RightChild is None and delete_node.LeftChild is None:
+            print(111111111)
             self.del_leaf(delete_node, delete_node.Parent)
         elif delete_node.RightChild is None or delete_node.LeftChild is None:
+            print(222222222)
             self.del_one_chld(delete_node, delete_node.Parent)
         else:
             parent_min_key_node = delete_node.RightChild
@@ -124,9 +137,14 @@ class BST:
             min_key_node = self.FinMinMax(parent_min_key_node, False)
             print(min_key_node.NodeKey)
             delete_node.NodeKey = min_key_node.NodeKey
-            self.DeleteNodeByKey(min_key_node.NodeKey)
+            self.del_one_chld(min_key_node, min_key_node.Parent)
 
     def Count(self):
+        count = 0
+        current_node = self.Root
+        if current_node is None:
+            count = 1
+        BST(current_node.)
         return 0  # количество узлов в дереве
 
     def print_binary_tree(self):
@@ -158,7 +176,7 @@ tree: BST = BST(root)
 tree.create_tree(node_key_store, 10, tree)
 tree.print_binary_tree()
 
-tree.DeleteNodeByKey(5)
+tree.DeleteNodeByKey(2)
 tree.print_binary_tree()
 
 print('root: ', tree.Root.NodeKey)
