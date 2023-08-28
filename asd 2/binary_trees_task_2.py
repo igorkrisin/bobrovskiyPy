@@ -143,13 +143,12 @@ class BST:
         count = 0
         current_node = self.Root
         if current_node is None:
-            return count
+            return 1
 
-        count += 1
-        print(count)
-        BST(current_node.LeftChild).Count()
-        BST(current_node.RightChild).Count()
-
+        
+        count += BST(current_node.LeftChild).Count()
+        count += BST(current_node.RightChild).Count()
+        return count
 
     def print_binary_tree(self):
         current_node = self.Root
@@ -167,6 +166,7 @@ class BST:
         for i in range(0, summ_node):
             trees.AddKeyValue(node_store[i], node_store[i])
         return tree
+
 
 
 
