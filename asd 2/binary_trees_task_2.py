@@ -1,23 +1,24 @@
 class BSTNode:
 
     def __init__(self, key, val, parent):
-        self.NodeKey: object = key  
-        self.NodeValue: object = val  
+        self.NodeKey: object = key
+        self.NodeValue: object = val
         self.Parent: BSTNode = parent
-        self.LeftChild = None  
-        self.RightChild = None  
+        self.LeftChild = None
+        self.RightChild = None
 
 
-class BSTFind:  
+class BSTFind:
     def __init__(self):
-        self.Node = None  
-        self.NodeHasKey = False  
-        self.ToLeft = False  
+        self.Node = None
+        self.NodeHasKey = False
+        self.ToLeft = False
+
 
 class BST:
 
     def __init__(self, node):
-        self.Root = node  
+        self.Root = node
 
     def FindNodeByKey(self, key: object) -> [BSTFind]:
         if key == self.Root.NodeKey:
@@ -74,7 +75,6 @@ class BST:
         if parent is None and delete_node.RightChild is None and delete_node.LeftChild is None:
             self.Root.NodeKey = None
             self.Root.NodeValue = None
-            self.Root = None
         elif parent.LeftChild == delete_node:
             delete_node.Parent = None
             parent.LeftChild = None
@@ -116,7 +116,7 @@ class BST:
     def DeleteNodeByKey(self, key) -> bool:
         is_key_in_tree: bool = self.FindNodeByKey(key)[1]
         if not is_key_in_tree:
-            return False 
+            return False
         delete_node: BSTNode = self.FindNodeByKey(key)[0]
         if delete_node.RightChild is None and delete_node.LeftChild is None:
             self.del_leaf(delete_node, delete_node.Parent)
@@ -132,21 +132,10 @@ class BST:
         count = 1
         current_node = self.Root
         if current_node is None:
-<<<<<<< HEAD
-            return count
-        if current_node.LeftChild is not None or current_node.RightChild is not None:
-            count += 1
-
-        BST(current_node.LeftChild).Count()
-        BST(current_node.RightChild).Count()
-
-=======
             return 0
 
-        
         count += BST(current_node.LeftChild).Count()
         count += BST(current_node.RightChild).Count()
->>>>>>> 80140af9df11366afd982aee136a9ea66d772144
         return count
 
     def print_binary_tree(self):
@@ -160,9 +149,7 @@ class BST:
         BST(current_node.RightChild).print_binary_tree()
 
     def create_tree(self, node_store: [], summ_node: int, trees):
-        for i in range(0, summ_node-1):
+        for i in range(0, summ_node - 1):
             trees.AddKeyValue(node_store[i], node_store[i])
-        return tree
-
-
+        return trees
 
