@@ -140,16 +140,17 @@ class BST:
             self.del_one_chld(min_key_node, min_key_node.Parent)
 
     def Count(self) -> int:
-        count = 0
+        count = 1
         current_node = self.Root
         if current_node is None:
             return count
+        if current_node.LeftChild is not None or current_node.RightChild is not None:
+            count += 1
 
-        count += 1
-        print(count)
         BST(current_node.LeftChild).Count()
         BST(current_node.RightChild).Count()
 
+        return count
 
     def print_binary_tree(self):
         current_node = self.Root
