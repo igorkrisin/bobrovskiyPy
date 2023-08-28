@@ -139,13 +139,17 @@ class BST:
             delete_node.NodeKey = min_key_node.NodeKey
             self.del_one_chld(min_key_node, min_key_node.Parent)
 
-    def Count(self):
+    def Count(self) -> int:
         count = 0
         current_node = self.Root
         if current_node is None:
-            count = 1
-        BST(current_node.)
-        return 0  # количество узлов в дереве
+            return count
+
+        count += 1
+        print(count)
+        BST(current_node.LeftChild).Count()
+        BST(current_node.RightChild).Count()
+
 
     def print_binary_tree(self):
         current_node = self.Root
@@ -176,8 +180,9 @@ tree: BST = BST(root)
 tree.create_tree(node_key_store, 10, tree)
 tree.print_binary_tree()
 
-tree.DeleteNodeByKey(2)
-tree.print_binary_tree()
+print('count: ', tree.Count())
+#tree.DeleteNodeByKey(2)
+#tree.print_binary_tree()
 
 print('root: ', tree.Root.NodeKey)
 print('chld_root_lft: ', root.LeftChild if root.LeftChild is None else root.LeftChild.NodeKey)
