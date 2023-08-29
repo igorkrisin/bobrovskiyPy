@@ -93,7 +93,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.tree.Count(), 1)
         self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(7)), [7, True, False])
         
-    def test_delete_last_node_with_2_chld(self) -> None:
+    def test_delete_last_node(self) -> None:
         self.root_node: BSTNode = BSTNode(7, 2, None)
         self.tree: BST = BST(self.root_node)
         self.tree.DeleteNodeByKey(7)
