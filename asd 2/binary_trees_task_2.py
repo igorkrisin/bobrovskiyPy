@@ -20,7 +20,7 @@ class BST:
     def __init__(self, node):
         self.Root = node
 
-    def FindNodeByKey(self, key: object) -> [BSTFind]:
+    def FindNodeByKey(self, key: object) -> [object]:
         if key == self.Root.NodeKey:
             return [self.Root, True, False]
 
@@ -37,6 +37,10 @@ class BST:
         elif key < current_node.NodeKey and current_node.LeftChild:
             return BST(current_node.LeftChild).FindNodeByKey(key)
         return [current_node, find_has_key, False if key > current_node.NodeKey else True]
+
+    def convert_find_node(self, lst_from_find: [object]):
+        lst_from_find[0] = lst_from_find[0].NodeKey
+        return [lst_from_find[0], lst_from_find[1], lst_from_find[2]]
 
     def AddKeyValue(self, key: object, val: object):
         is_find_node: bool = self.FindNodeByKey(key)[1]
@@ -73,8 +77,7 @@ class BST:
 
     def del_leaf(self, delete_node: BSTNode, parent: BSTNode) -> None:
         if parent is None and delete_node.RightChild is None and delete_node.LeftChild is None:
-            self.Root.NodeKey = None
-            self.Root.NodeValue = None
+            return
         elif parent.LeftChild == delete_node:
             delete_node.Parent = None
             parent.LeftChild = None
