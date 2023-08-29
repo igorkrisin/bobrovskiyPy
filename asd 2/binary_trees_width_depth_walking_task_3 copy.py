@@ -7,13 +7,11 @@ class BSTNode:
         self.LeftChild = None
         self.RightChild = None
 
-
 class BSTFind:
     def __init__(self):
         self.Node = None
         self.NodeHasKey = False
         self.ToLeft = False
-
 
 class BST:
 
@@ -185,91 +183,24 @@ class BST:
             current_node = self.Root
             if current_node is None:
                 return []
-            print(current_node.NodeKey)
-
             summ_list = [current_node]
             summ_list = BST(current_node.LeftChild).DeepAllNodes(type_deep) + summ_list
-
             summ_list += BST(current_node.RightChild).DeepAllNodes(type_deep)
-
             return summ_list
         if type_deep == 1:
             current_node = self.Root
             if current_node is None:
                 return []
-            print(current_node.NodeKey)
-
             summ_list = [current_node]
             summ_list = BST(current_node.LeftChild).DeepAllNodes(type_deep) + summ_list
-
             summ_list = BST(current_node.RightChild).DeepAllNodes(type_deep) + summ_list
-
             return summ_list
 
         if type_deep == 2:
             current_node = self.Root
             if current_node is None:
                 return []
-            print(current_node.NodeKey)
             summ_list = [current_node]
             summ_list += (BST(current_node.LeftChild).DeepAllNodes(type_deep))
             summ_list += (BST(current_node.RightChild).DeepAllNodes(type_deep))
-
             return summ_list
-
-node_key_store = [9, 10, 4, 6, 8, 3, 9, 1, 0, 34, 25, 67]
-
-root: BSTNode = BSTNode(7, 0, None)
-tree: BST = BST(root)
-
-tree.create_tree(node_key_store, 10, tree)
-tree.show_keynode_lst_from_bts_lst(tree.DeepAllNodes(0))
-# print(tree.WideAllNodes())
-# tree.show_keynode_lst_from_bts_lst(tree.WideAllNodes())
-tree.print_binary_tree()
-
-'''print('count: ', tree.Count())
-tree.DeleteNodeByKey(6)
-tree.DeleteNodeByKey(10)
-tree.DeleteNodeByKey(9)
-tree.DeleteNodeByKey(4)
-tree.DeleteNodeByKey(7)
-
-tree.print_binary_tree()
-print('count: ', tree.Count())
-
-print('root: ', tree.Root if tree.Root is None else tree.Root.NodeKey)
-print('root_parent: ', tree.Root if tree.Root is None else tree.Root.Parent)
-print('chld_root_lft: ', root.LeftChild if root.LeftChild is None else root.LeftChild.NodeKey)
-print('chld_root_rght :', root.RightChild if root.RightChild is None else root.RightChild.NodeKey)
-print('chld_key_root :', root.NodeKey)
-print('chld_val_root :', root.NodeValue)
-
-
-root_node: BSTNode = BSTNode(10, 0, None)
-binary_tree: BST = BST(root_node)
-# first_node = BSTNode(1, 1, root_node)
-binary_tree.AddKeyValue(12, 1)
-binary_tree.AddKeyValue(9, 1)
-binary_tree.AddKeyValue(11, 1)
-binary_tree.AddKeyValue(8, 1)
-# print('Root Node: ', root_node)
-# print('MAX NODE: ', binary_tree.FinMinMax(root_node, False).NodeKey)
-# print(binary_tree.FindNodeByKey(-1))
-binary_tree.print_binary_tree()
-print('+++++++++++del 9')
-binary_tree.DeleteNodeByKey(9)
-binary_tree.print_binary_tree()
-print('+++++++++++del 12')
-binary_tree.DeleteNodeByKey(12)
-binary_tree.print_binary_tree()
-print('+++++++++++del 8')
-binary_tree.DeleteNodeByKey(8)
-binary_tree.print_binary_tree()
-print('+++++++++++del 11')
-binary_tree.DeleteNodeByKey(11)
-binary_tree.print_binary_tree()
-print('root: ', binary_tree.Root)
-# binary_tree.Root.LeftChild = None
-print('chld_root_lft: ', root_node.LeftChild if root_node.LeftChild is None else root_node.LeftChild.NodeKey)
-print('chld_root_rght :', root_node.RightChild if root_node.RightChild is None else root_node.RightChild.NodeKey)'''
