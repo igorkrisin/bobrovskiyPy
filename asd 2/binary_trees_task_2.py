@@ -79,19 +79,12 @@ class BST:
         return node.NodeKey
 
     def del_leaf(self, delete_node: BSTNode, parent: BSTNode) -> bool:
-        if parent is None and delete_node.RightChild is None and delete_node.LeftChild is None:
-            print(111111111111212112)
-            return False
-        
-        elif parent.LeftChild == delete_node:
-            print('next')
+        if parent.LeftChild == delete_node:
             delete_node.Parent = None
             parent.LeftChild = None
         elif parent.RightChild == delete_node:
-            print('next')
             delete_node.Parent = None
             parent.RightChild = None
-        print('next')
 
     def del_one_chld(self, delete_node: BSTNode, parent: BSTNode) -> None:
         if parent is None and delete_node.LeftChild is not None and delete_node.RightChild is None:
@@ -165,61 +158,3 @@ class BST:
         for i in range(0, summ_node - 1):
             trees.AddKeyValue(node_store[i], node_store[i])
         return trees
-
-node_key_store = [9, 10, 4, 6, 8, 3, 9, 1, 0, 34, 25, 67]
-
-root: BSTNode = BSTNode(7, 0, None)
-tree: BST = BST(root)
-
-tree.create_tree(node_key_store, 1, tree)
-tree.print_binary_tree()
-#tree.tree_traversal_in_width()
-print('result_func delete: ', tree.DeleteNodeByKey(7))
-tree.print_binary_tree()
-
-
-'''print('count: ', tree.Count())
-tree.DeleteNodeByKey(6)
-tree.DeleteNodeByKey(10)
-tree.DeleteNodeByKey(9)
-tree.DeleteNodeByKey(4)
-tree.DeleteNodeByKey(7)
-
-tree.print_binary_tree()
-print('count: ', tree.Count())
-
-print('root: ', tree.Root if tree.Root is None else tree.Root.NodeKey)
-print('root_parent: ', tree.Root if tree.Root is None else tree.Root.Parent)
-print('chld_root_lft: ', root.LeftChild if root.LeftChild is None else root.LeftChild.NodeKey)
-print('chld_root_rght :', root.RightChild if root.RightChild is None else root.RightChild.NodeKey)
-print('chld_key_root :', root.NodeKey)
-print('chld_val_root :', root.NodeValue)
-
-
-root_node: BSTNode = BSTNode(10, 0, None)
-binary_tree: BST = BST(root_node)
-# first_node = BSTNode(1, 1, root_node)
-binary_tree.AddKeyValue(12, 1)
-binary_tree.AddKeyValue(9, 1)
-binary_tree.AddKeyValue(11, 1)
-binary_tree.AddKeyValue(8, 1)
-# print('Root Node: ', root_node)
-# print('MAX NODE: ', binary_tree.FinMinMax(root_node, False).NodeKey)
-# print(binary_tree.FindNodeByKey(-1))
-binary_tree.print_binary_tree()
-print('+++++++++++del 9')
-binary_tree.DeleteNodeByKey(9)
-binary_tree.print_binary_tree()
-print('+++++++++++del 12')
-binary_tree.DeleteNodeByKey(12)
-binary_tree.print_binary_tree()
-print('+++++++++++del 8')
-binary_tree.DeleteNodeByKey(8)
-binary_tree.print_binary_tree()
-print('+++++++++++del 11')
-binary_tree.DeleteNodeByKey(11)
-binary_tree.print_binary_tree()
-print('root: ', binary_tree.Root)
-# binary_tree.Root.LeftChild = None
-print('chld_root_lft: ', root_node.LeftChild if root_node.LeftChild is None else root_node.LeftChild.NodeKey)
-print('chld_root_rght :', root_node.RightChild if root_node.RightChild is None else root_node.RightChild.NodeKey)'''
