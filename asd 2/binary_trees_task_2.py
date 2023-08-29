@@ -122,11 +122,11 @@ class BST:
         if not is_key_in_tree:
             return False
         delete_node: BSTNode = self.FindNodeByKey(key)[0]
-        if delete_node.Parent is None and delete_node.LeftChild is None and delete_node.RightChild is None:
-            return False
-        if delete_node.RightChild is None and delete_node.LeftChild is None:
+        if delete_node.RightChild is None and delete_node.LeftChild is None and not delete_node.Parent:
+            self.Root = None
+        elif delete_node.RightChild is None and delete_node.LeftChild is None and delete_node.Parent:
             self.del_leaf(delete_node, delete_node.Parent)
-        elif delete_node.RightChild is None or delete_node.LeftChild is None:
+        elif delete_node.RightChild is None or delete_node.LeftChild is None and delete_node.Parent:
             self.del_one_chld(delete_node, delete_node.Parent)
         else:
             parent_min_key_node = delete_node.RightChild
