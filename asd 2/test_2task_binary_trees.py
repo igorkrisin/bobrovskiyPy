@@ -83,23 +83,23 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(7)), [7, True, False])
         self.tree.create_tree(self.v, 3, self.tree)
         self.assertEqual(self.tree.Count(), 3)
-        self.tree.DeleteNodeByKey(6)
+        self.assertEqual(self.tree.DeleteNodeByKey(6), None)
         self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(6)), [7, False, True])
         self.assertEqual(self.tree.Count(), 2)
         self.tree.DeleteNodeByKey(8)
         self.assertEqual(self.tree.Count(), 1)
         self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(8)), [7, False, False])
-        self.tree.DeleteNodeByKey(7)
+        self.assertEqual(self.tree.DeleteNodeByKey(7), False)
         self.assertEqual(self.tree.Count(), 1)
         self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(7)), [7, True, False])
         
-    def test_delete_last_node(self) -> None:
+    def test_delete_last_node_with_2_chld(self) -> None:
         self.root_node: BSTNode = BSTNode(7, 2, None)
         self.tree: BST = BST(self.root_node)
-        self.tree.DeleteNodeByKey(7)
+        self.assertEqual(self.tree.DeleteNodeByKey(7), False)
         self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(7)), [7, True, False])
 
-    def test_delete_node(self) -> None:
+    def test_delete_node_with_2_chld(self) -> None:
         self.root_node: BSTNode = BSTNode(7, 2, None)
         self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
         self.tree: BST = BST(self.root_node)
