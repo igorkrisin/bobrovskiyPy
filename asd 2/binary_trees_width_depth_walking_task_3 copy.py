@@ -212,8 +212,9 @@ class BST:
             if current_node is None:
                 return []
             summ_list = [current_node]
-            summ_list = BST(current_node.LeftChild).DeepAllNodes(type_deep) + summ_list
             summ_list = BST(current_node.RightChild).DeepAllNodes(type_deep) + summ_list
+            summ_list = BST(current_node.LeftChild).DeepAllNodes(type_deep) + summ_list
+            
             return summ_list
 
         if type_deep == 2:
@@ -225,7 +226,7 @@ class BST:
             summ_list += (BST(current_node.RightChild).DeepAllNodes(type_deep))
             return tuple(summ_list)
 
-    def invert_bst(self) -> object:
+    def invert_bst(self) -> BSTNode:
         current_node: BSTNode = self.Root
         if not current_node:
             return None
@@ -234,3 +235,4 @@ class BST:
         current_node.LeftChild = right_node
         current_node.RightChild = left_node
         return current_node
+    
