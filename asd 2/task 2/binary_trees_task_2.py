@@ -20,38 +20,40 @@ class BST:
     def __init__(self, node):
         self.Root = node
 
-    def FindNodeByKey(self, key: object) -> [object]:
+    def FindNodeByKey(self, key: object) -> BSTFind:
+        find = BSTFind()
         if self.Root is None:
-            return [BSTFind().Node, BSTFind().NodeHasKey, BSTFind().ToLeft]
+            return find
         if key == self.Root.NodeKey:
-            return [self.Root, True, False]
-
-        find_node: BSTNode = BSTFind().Node
-        find_has_key: bool = BSTFind().NodeHasKey
-        find_to_left: bool = BSTFind().ToLeft
-        
+            find.Node = self.Root
+            find.NodeHasKey = True
+            return find
         current_node: BSTNode = self.Root
         if key == current_node.NodeKey:
-            return [current_node, True, False]
+            find.Node = current_node
+            find.NodeHasKey = True
+            return find
         elif key > current_node.NodeKey and current_node.RightChild:
             return BST(current_node.RightChild).FindNodeByKey(key)
         elif key < current_node.NodeKey and current_node.LeftChild:
             return BST(current_node.LeftChild).FindNodeByKey(key)
-        return [current_node, find_has_key, False if key > current_node.NodeKey else True]
+        find.Node = current_node
+        find.ToLeft = False if  key > current_node.NodeKey else True
+        return find
 
-    def convert_find_node(self, lst_from_find: [object]):
-        lst_from_find[0] = lst_from_find[0].NodeKey
-        return [lst_from_find[0], lst_from_find[1], lst_from_find[2]]
+    def convert_find_node(self, obj_from_find: BSTFind) -> (BSTFind):
+        
+        return obj_from_find.Node.NodeKey, obj_from_find.NodeHasKey, obj_from_find.ToLeft
 
     def AddKeyValue(self, key: object, val: object)-> bool:
-        is_find_node: bool = self.FindNodeByKey(key)[1]
-        if self.FindNodeByKey(key)[0] is None:
+        is_find_node: bool = self.FindNodeByKey(key).NodeHasKey
+        if self.FindNodeByKey(key).Node is None:
             self.Root = BSTNode(key, val, None)
             return True
         if is_find_node:
             return False
-        current_node: BSTNode = self.FindNodeByKey(key)[0]
-        is_to_left: bool = self.FindNodeByKey(key)[2]
+        current_node: BSTNode = self.FindNodeByKey(key).Node
+        is_to_left: bool = self.FindNodeByKey(key).ToLeft
         if not is_find_node and is_to_left:
             left_child_node: BSTNode = BSTNode(key, val, current_node)
             left_child_node.NodeValue = val
@@ -66,6 +68,7 @@ class BST:
             right_child_node.Parent = current_node
             current_node.RightChild = right_child_node
             return True
+        
     def FinMinMax(self, FromNode: BSTNode, FindMax: bool) -> BSTNode:
         if FindMax:
             while FromNode.RightChild is not None:
@@ -127,10 +130,10 @@ class BST:
             return True
         
     def DeleteNodeByKey(self, key) -> bool:
-        is_key_in_tree: bool = self.FindNodeByKey(key)[1]
+        is_key_in_tree: bool = self.FindNodeByKey(key).NodeHasKey
         if not is_key_in_tree:
             return False
-        delete_node: BSTNode = self.FindNodeByKey(key)[0]
+        delete_node: BSTNode = self.FindNodeByKey(key).Node
         if delete_node.RightChild is None and delete_node.LeftChild is None and not delete_node.Parent:
             self.Root = None
             return True
