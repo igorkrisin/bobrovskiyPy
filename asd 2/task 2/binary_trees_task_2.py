@@ -42,10 +42,10 @@ class BST:
         lst_from_find[0] = lst_from_find[0].NodeKey
         return [lst_from_find[0], lst_from_find[1], lst_from_find[2]]
 
-    def AddKeyValue(self, key: object, val: object):
+    def AddKeyValue(self, key: object, val: object)-> bool:
         is_find_node: bool = self.FindNodeByKey(key)[1]
         if self.FindNodeByKey(key)[0] is None:
-            return
+            return True
         if is_find_node:
             return False
         current_node: BSTNode = self.FindNodeByKey(key)[0]
@@ -56,13 +56,14 @@ class BST:
             left_child_node.NodeKey = key
             left_child_node.Parent = current_node
             current_node.LeftChild = left_child_node
+            return True
         if not is_find_node and not is_to_left:
             right_child_node: BSTNode = BSTNode(key, val, current_node)
             right_child_node.NodeValue = val
             right_child_node.NodeKey = key
             right_child_node.Parent = current_node
             current_node.RightChild = right_child_node
-
+            return True
     def FinMinMax(self, FromNode: BSTNode, FindMax: bool) -> BSTNode:
         if FindMax:
             while FromNode.RightChild is not None:
@@ -82,41 +83,47 @@ class BST:
         if parent.LeftChild == delete_node:
             delete_node.Parent = None
             parent.LeftChild = None
+            return True
         elif parent.RightChild == delete_node:
             delete_node.Parent = None
             parent.RightChild = None
+            return True
 
-    def del_one_chld(self, delete_node: BSTNode, parent: BSTNode) -> None:
+    def del_one_chld(self, delete_node: BSTNode, parent: BSTNode) -> bool:
         if parent is None and delete_node.LeftChild is not None and delete_node.RightChild is None:
             self.Root = delete_node.LeftChild
+            return True
         elif parent is None and delete_node.RightChild is not None and delete_node.LeftChild is None:
             self.Root = delete_node.RightChild
+            return True
         elif parent is None and delete_node.RightChild is not None and delete_node.LeftChild is not None:
             self.Root = delete_node.RightChild
+            return True
         elif parent.LeftChild == delete_node and delete_node.LeftChild is None:
             delete_node.Parent = None
             parent.LeftChild = delete_node.RightChild
             if delete_node.RightChild is not None:
                 delete_node.RightChild.Parent = parent
-
+            return True
         elif parent.LeftChild == delete_node and delete_node.RightChild is None:
             delete_node.Parent = None
             parent.LeftChild = delete_node.LeftChild
             if delete_node.LeftChild is not None:
                 delete_node.LeftChild.Parent = parent
-
+            return True
         elif parent.RightChild == delete_node and delete_node.LeftChild is None:
             delete_node.Parent = None
             parent.RightChild = delete_node.RightChild
             if delete_node.RightChild is not None:
                 delete_node.RightChild.Parent = parent
-
+            return True
         elif parent.RightChild == delete_node and delete_node.RightChild is None:
             delete_node.Parent = None
             parent.RightChild = delete_node.LeftChild
             if delete_node.LeftChild is not None:
                 delete_node.LeftChild.Parent = parent
-
+            return True
+        
     def DeleteNodeByKey(self, key) -> bool:
         is_key_in_tree: bool = self.FindNodeByKey(key)[1]
         if not is_key_in_tree:
@@ -124,15 +131,19 @@ class BST:
         delete_node: BSTNode = self.FindNodeByKey(key)[0]
         if delete_node.RightChild is None and delete_node.LeftChild is None and not delete_node.Parent:
             self.Root = None
+            return True
         elif delete_node.RightChild is None and delete_node.LeftChild is None and delete_node.Parent:
             self.del_leaf(delete_node, delete_node.Parent)
+            return True
         elif delete_node.RightChild is None or delete_node.LeftChild is None and delete_node.Parent:
             self.del_one_chld(delete_node, delete_node.Parent)
+            return True
         else:
             parent_min_key_node = delete_node.RightChild
             min_key_node = self.FinMinMax(parent_min_key_node, False)
             delete_node.NodeKey = min_key_node.NodeKey
             self.del_one_chld(min_key_node, min_key_node.Parent)
+            return True
 
     def Count(self) -> int:
         count = 1
@@ -164,9 +175,11 @@ node_key_store = [9,10,4, 6, 8, 3, 9, 1, 0, 34, 25, 67]
 
 root: BSTNode = BSTNode(7, 0, None)
 tree:   BST = BST(root)
-
-tree.create_tree(node_key_store, 1, tree)
+tree.print_binary_tree()
+tree.create_tree(node_key_store, 3, tree)
 print(tree.DeleteNodeByKey(7))
+print(tree.DeleteNodeByKey(9))
+print(tree.DeleteNodeByKey(10))
 tree.print_binary_tree()
 
 '''print('count: ', tree.Count())
