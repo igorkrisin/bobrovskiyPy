@@ -21,14 +21,15 @@ class BST:
         self.Root = node
 
     def FindNodeByKey(self, key: object) -> [object]:
+        if self.Root is None:
+            return [BSTFind().Node, BSTFind().NodeHasKey, BSTFind().ToLeft]
         if key == self.Root.NodeKey:
             return [self.Root, True, False]
 
         find_node: BSTNode = BSTFind().Node
         find_has_key: bool = BSTFind().NodeHasKey
         find_to_left: bool = BSTFind().ToLeft
-        if self.Root is None:
-            return [find_node, find_has_key, find_to_left]
+        
         current_node: BSTNode = self.Root
         if key == current_node.NodeKey:
             return [current_node, True, False]
@@ -45,6 +46,7 @@ class BST:
     def AddKeyValue(self, key: object, val: object)-> bool:
         is_find_node: bool = self.FindNodeByKey(key)[1]
         if self.FindNodeByKey(key)[0] is None:
+            self.Root = BSTNode(key, val, None)
             return True
         if is_find_node:
             return False
