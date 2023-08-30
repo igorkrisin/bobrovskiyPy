@@ -176,7 +176,7 @@ class BST:
             trees.AddKeyValue(node_store[i], node_store[i])
         return trees
     
-    def WideAllNodes(self) -> [BSTNode]:
+    def WideAllNodes(self) -> (BSTNode):
         current_node: BSTNode = self.Root
         lst_vertex: [BSTNode] = [current_node]
         summ_list: [BSTNode] = []
@@ -189,15 +189,15 @@ class BST:
                 if vertex.RightChild:
                     next_lst_vertex += [vertex.RightChild]
             lst_vertex = next_lst_vertex
-        return summ_list
+        return tuple(summ_list)
 
-    def show_keynode_lst_from_bts_lst(self, bts_lst: [BSTNode]) -> None:
+    def show_keynode_lst_from_bts_lst(self, bts_lst: (BSTNode)) -> None:
         summ = []
         for node in bts_lst:
             summ += [node if not node else node.NodeKey]
-        print(summ)
+        print(tuple(summ))
 
-    def DeepAllNodes(self, type_deep: int) -> [BSTNode]:
+    def DeepAllNodes(self, type_deep: int) -> (BSTNode):
         if type_deep == 0:
             current_node: BSTNode = self.Root
             if current_node is None:
@@ -223,7 +223,7 @@ class BST:
             summ_list = [current_node]
             summ_list += (BST(current_node.LeftChild).DeepAllNodes(type_deep))
             summ_list += (BST(current_node.RightChild).DeepAllNodes(type_deep))
-            return summ_list
+            return tuple(summ_list)
 
     def invert_bst(self) -> object:
         current_node: BSTNode = self.Root
