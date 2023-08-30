@@ -154,47 +154,6 @@ class BST:
         BST(current_node.LeftChild).print_binary_tree()
         BST(current_node.RightChild).print_binary_tree()
 
-    def WideAllNodes(self) -> [BSTNode]:
-        current_node: BSTNode = self.Root
-        lst_vertex: [BSTNode] = [current_node]
-        summ_list: [BSTNode] = []
-        while lst_vertex:
-            next_lst_vertex: [BSTNode] = []
-            for vertex in lst_vertex:
-                summ_list += [vertex]
-                if vertex.LeftChild:
-                    next_lst_vertex += [vertex.LeftChild]
-                if vertex.RightChild:
-                    next_lst_vertex += [vertex.RightChild]
-            lst_vertex = next_lst_vertex
-        return summ_list
-
-    def show_keynode_lst_from_bts_lst(self, bts_lst: [BSTNode]) -> None:
-        for node in bts_lst:
-            print(node.NodeKey)
-
-    def DeepAllNodes(self, type_deep: int) -> [BSTNode]:
-        if type_deep == 1:
-            current_node = self.Root
-            if current_node is None:
-                return []
-            print(current_node.NodeKey)
-            summ_list = [current_node.LeftChild]
-            summ_list += (BST(current_node.LeftChild).DeepAllNodes(type_deep))
-
-            return summ_list
-
-        if type_deep == 2:
-            current_node = self.Root
-            if current_node is None:
-                return []
-            print(current_node.NodeKey)
-            summ_list = [current_node]
-            summ_list += (BST(current_node.LeftChild).DeepAllNodes(type_deep))
-            summ_list += (BST(current_node.RightChild).DeepAllNodes(type_deep))
-
-            return summ_list
-
 
     def create_tree(self, node_store: [], summ_node: int, trees):
         for i in range(0, summ_node - 1):
@@ -206,10 +165,8 @@ node_key_store = [9,10,4, 6, 8, 3, 9, 1, 0, 34, 25, 67]
 root: BSTNode = BSTNode(7, 0, None)
 tree:   BST = BST(root)
 
-tree.create_tree(node_key_store, 10, tree)
-print(tree.DeepAllNodes(1))
-    # print(tree.WideAllNodes())
-    # tree.show_keynode_lst_from_bts_lst(tree.WideAllNodes())
+tree.create_tree(node_key_store, 1, tree)
+print(tree.DeleteNodeByKey(7))
 tree.print_binary_tree()
 
 '''print('count: ', tree.Count())
