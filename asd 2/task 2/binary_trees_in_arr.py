@@ -16,35 +16,54 @@ class aBST:
         for node in self.Tree:
             print(node)
 
-    def FindKeyIndex(self, key) -> object:
+    def FindKeyIndex(self, key) -> int:
         current_key = self.Tree
+        if self.Tree is None:
+            return 0
         i = 0
+        print('i000: ', i)
+        if current_key[i] is None:
+            print(3423423)
+            return -i
         depth = 0
-        if not current_key[i]:
-            return i
-        if key > current_key[i] and current_key:
-            i = i*2+1
-            return aBST(depth+1).FindKeyIndex(current_key[i])
-        if key < current_key[i] and current_key:
-            i = i*2-1
-            return aBST(depth+1).FindKeyIndex(current_key[i])
+        print('i: ', i)
+        if current_key[i] == 0 and key == 0 and self.Tree:
+            return i*2+2    #add right node
+        if current_key[i] is not None and key > current_key[i]:
+            print('key>curr: ', i)
+            return self.FindKeyIndex(current_key[i*2+2])
+        if current_key[i] is not None and key < current_key[i]:
+            print('key<curr: ', i)
+            return self.FindKeyIndex(current_key[i*2+1])
+        print(00000000000000)
         return None
 
-
-
-
-        return None  # не найден
-
     def AddKey(self, key):
-        # добавляем ключ в массив
-        return -1;
-        # индекс добавленного/существующего ключа или -1 если не удалось
+        find = self.FindKeyIndex(key)
+        print('find: ', find)
+        if find is None:
+            return -1
+        if find <= 0:
+            self.Tree[-find] = key
+            return -find
+        if find > 0 and self.Tree:
+            return -1
+
+
+
 
 
 arr_tree = aBST(4)
 
 #arr_tree.print_arr()
-print(arr_tree.FindKeyIndex(4))
+#print(arr_tree.FindKeyIndex(4))
+arr_tree.AddKey(50)
+
+
+arr_tree.print_arr()
+arr_tree.AddKey(25)
+print('++++++++++++')
+arr_tree.print_arr()
 
 
 
