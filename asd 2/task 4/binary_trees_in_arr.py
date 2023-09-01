@@ -6,13 +6,14 @@ class aBST:
 
     def size_depth(self, depth) -> int:
         if depth == 0:
-            return 0
-        if depth == 1:
             return 1
+        if depth == 1:
+            return 3
         return self.size_depth(depth - 1) * 2 + 1
 
     def print_arr(self) -> None:
-        print(self.Tree)
+
+        print('len: ', len(self.Tree), self.Tree)
 
     def FindKeyIndex(self, key) -> int:
         if key == 0 and self.Tree[0] is None:
@@ -42,3 +43,4 @@ class aBST:
     def create_arr_tree(self, arr: []):
         for i in range(0, len(arr)):
             self.AddKey(arr[i])
+
