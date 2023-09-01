@@ -16,14 +16,14 @@ class aBST:
         print('len: ', len(self.Tree), self.Tree)
 
     def FindKeyIndex(self, key) -> int:
-        if key == 0 and self.Tree[0] is None:
+        if self.Tree[0] is None:
             return 0
         i = 0
         while i < len(self.Tree):
             if self.Tree[i] is None:
                 return -i
-            if key == 0 and self.Tree[i] == 0:
-                return -i
+            if key == self.Tree[i]:
+                return i
             if key > self.Tree[i]:
                 i = i * 2 + 2
             elif key < self.Tree[i]:
@@ -34,7 +34,14 @@ class aBST:
         find = self.FindKeyIndex(key)
         if find is None:
             return -1
-        if find <= 0:
+        if find == 0 and self.Tree[0] == 0:
+            return -1
+        if find == 0 and self.Tree[0] is None:
+            self.Tree[find] = key
+            return find
+        if find == 0 and self.Tree[0] is not None:
+            return -1
+        if find < 0:
             self.Tree[-find] = key
             return -find
         if find > 0 and self.Tree:
@@ -43,4 +50,3 @@ class aBST:
     def create_arr_tree(self, arr: []):
         for i in range(0, len(arr)):
             self.AddKey(arr[i])
-
