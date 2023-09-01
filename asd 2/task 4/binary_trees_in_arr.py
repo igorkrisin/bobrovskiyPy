@@ -12,7 +12,6 @@ class aBST:
         return self.size_depth(depth - 1) * 2 + 1
 
     def print_arr(self) -> None:
-
         print(self.Tree)
 
     def FindKeyIndex(self, key) -> int:
@@ -28,7 +27,6 @@ class aBST:
                 i = i * 2 + 2
             elif key < self.Tree[i]:
                 i = i * 2 + 1
-                print('none')
         return None
 
     def AddKey(self, key) -> int:
