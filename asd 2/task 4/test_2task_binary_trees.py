@@ -33,6 +33,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.tree.FindKeyIndex(0), 7)
         self.assertEqual(self.tree.FindKeyIndex(17), None)
         self.assertEqual(self.tree.AddKey(18), 8)
+        self.assertEqual(self.tree.AddKey(50), 0)
 
 
     def test_find_by_key(self) -> None:

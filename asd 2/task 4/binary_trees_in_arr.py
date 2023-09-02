@@ -34,13 +34,11 @@ class aBST:
         find = self.FindKeyIndex(key)
         if find is None:
             return -1
-        if find == 0 and self.Tree[0] == 0:
-            return 0
         if find == 0 and self.Tree[0] is None:
             self.Tree[find] = key
             return find
         if find == 0 and self.Tree[0] is not None:
-            return -1
+            return find
         if find < 0:
             self.Tree[-find] = key
             return -find
