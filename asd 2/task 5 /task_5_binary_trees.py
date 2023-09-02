@@ -1,6 +1,6 @@
 arr = [50, 25, 75, 13, 35, 65, 85, 0, 18, 30, 45, 60, 70, 80, 90]
 
-def GenerateBBSTArray(a: []) -> []:
+'''def GenerateBBSTArray(a: []) -> []:
     if not a:
         return []
     a.sort()
@@ -16,7 +16,7 @@ def GenerateBBSTArray(a: []) -> []:
         left_index = len(a[:index_center])//2
         print('li: ', left_index)
         final_arr[i * 2 + 1] = a.pop(left_index)
-        right_index = len(a[1+index_center:])
+        right_index = (len(a[index_center:])//2) + index_center
         print('iii: ', i * 2 + 2)
         print('ri: ', right_index)
         final_arr[i * 2 + 2] = a.pop(right_index)
@@ -24,19 +24,43 @@ def GenerateBBSTArray(a: []) -> []:
         print('i:', i)
         i += 1
 
-    return final_arr
+    return final_arr'''
 
 
 '''def GenerateBBSTArray(a: []) -> []:
-    if start_ind >= end_index == 0:
+
+    length = len(a)
+    summ_arr = [None]*length
+    if length > 1:
+
+        i = 0
+        print(i)
+        summ_arr[i] = a[length//2]
+        summ_arr[i * 2 + 1] = GenerateBBSTArray(a[:length//2])
+        summ_arr[i * 2 + 2] = GenerateBBSTArray(a[1+(length//2) :])
+        
+        return summ_arr
+    elif length == 1:
+        return summ_arr.append(a[0])
+
+    return None'''
+
+def GenerateBBSTArray(a: []) -> []:
+    summ_arr = [None]*len(a)
+    start_ind = 0
+
+    print('start_ind*2+1: ', start_ind * 2 + 2)
+    if not a:
         return []
-    else:
+    summ_arr[start_ind] = a[len(a)//2]
+    print(len(a) // 2)
+    summ_arr[start_ind*2+1] = GenerateBBSTArray(a[:len(a)//2])
+    summ_arr[start_ind * 2 + 2] = GenerateBBSTArray(a[1+len(a)//2:])
+    return summ_arr
 
-    print(summ_arr)
-    summ_arr[] += GenerateBBSTArray(a[start_ind:midd_index-1])
-    summ_arr += GenerateBBSTArray(a[midd_index+1:end_index])
 
-    return summ_arr'''
+
+
 
 
 # print(arr)
