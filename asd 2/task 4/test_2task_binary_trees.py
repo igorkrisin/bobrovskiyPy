@@ -25,13 +25,14 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.tree.AddKey(70), 12)
         self.assertEqual(self.tree.AddKey(80), 13)
         self.assertEqual(self.tree.AddKey(90), 14)
-        self.assertEqual(self.tree.AddKey(80), -1)
+        self.assertEqual(self.tree.AddKey(80), 13)
         self.assertEqual(self.tree.AddKey(100), -1)
         self.assertEqual(self.tree.AddKey(-100), -1)
         self.assertEqual(self.tree.FindKeyIndex(100), None)
         self.assertEqual(self.tree.FindKeyIndex(80), 13)
         self.assertEqual(self.tree.FindKeyIndex(0), 7)
         self.assertEqual(self.tree.FindKeyIndex(17), None)
+        self.assertEqual(self.tree.AddKey(18), 8)
 
 
     def test_find_by_key(self) -> None:

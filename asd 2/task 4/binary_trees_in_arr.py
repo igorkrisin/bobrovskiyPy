@@ -45,8 +45,10 @@ class aBST:
             self.Tree[-find] = key
             return -find
         if find > 0 and self.Tree:
-            return -1
+            return find
 
     def create_arr_tree(self, arr: []):
         for i in range(0, len(arr)):
             self.AddKey(arr[i])
+
+
