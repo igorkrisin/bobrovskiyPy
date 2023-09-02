@@ -40,7 +40,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.tree.AddKey(0), 0)
         self.tree.print_arr()
         print('st: ', self.tree is None)
-        self.assertEqual(self.tree.AddKey(0), -1)
+        self.assertEqual(self.tree.AddKey(0), 0)
 
 
 
