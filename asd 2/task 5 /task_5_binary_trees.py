@@ -7,19 +7,19 @@ arr = [50, 25, 75, 13, 35, 65, 85, 0, 18, 30, 45, 60, 70, 80, 90]
     print('a before: ', a)
     final_arr = [None] * len(a)
     index_center = (len(a) // 2)
-    final_arr[0] = a.pop(index_center)
+    final_arr[0] = a[index_center]
     i = 0
     while a:
         print('a: ', a)
         print('len: ', len(a))
         print('final arr: ', final_arr)
-        left_index = len(a[:index_center])//2
+        left_index = len(a[:index_center])//2 - i
         print('li: ', left_index)
-        final_arr[i * 2 + 1] = a.pop(left_index)
-        right_index = (len(a[index_center:])//2) + index_center
+        final_arr[i * 2 + 1] = a[left_index]
+        right_index = (len(a[index_center:])//2) + index_center + i
         print('iii: ', i * 2 + 2)
         print('ri: ', right_index)
-        final_arr[i * 2 + 2] = a.pop(right_index)
+        final_arr[i * 2 + 2] = a[right_index]
 
         print('i:', i)
         i += 1
@@ -68,21 +68,27 @@ arr = [50, 25, 75, 13, 35, 65, 85, 0, 18, 30, 45, 60, 70, 80, 90]
     return None'''
 
 
-def GenerateBBSTArray(arr: [int]) -> [int]:
+'''def GenerateBBSTArray(arr: [int]) -> [int]:
+
+
     if not arr:
         return [] #null
+    node = []
     mid = len(arr) // 2
-    print(mid)
-    print('arr: ', arr)
-    node = [arr[mid], None, None]
-    if len(arr) > 1:
-        print(GenerateBBSTArray(arr[:mid]))
-        node[1] = GenerateBBSTArray(arr[:mid])
-        node[2] = GenerateBBSTArray(arr[mid+1:])
-    if len(arr) == 1:
-        print('==1')
-        return arr[:1]
-    return node
+    root = [arr[mid]]
+    #print(mid)
+    #print('arr: ', arr)
+    #print('arr[mid]', arr[mid])
+
+    #print('GEner:' ,GenerateBBSTArray(arr[:mid]))
+    right = GenerateBBSTArray(arr[mid + 1:])
+    left = GenerateBBSTArray(arr[:mid])
+
+    #elif len(arr) == 1:
+        #print('n1: ', node[:1])
+       # return arr
+    node = root + left + right
+    return node'''
 
 '''def bstlist(arr, st, end):
     newlst = []
@@ -101,11 +107,35 @@ def GenerateBBSTArray(arr: [int]) -> [int]:
 
     return node'''
 
-arr.sort()
+
+'''def bstlist(arr,start,end):
+    if start > end:
+        return [] #null
+    mid = start + (end - start) // 2
+    root = [arr[mid]]
+    return root + bstlist(arr, start, mid - 1) + bstlist(arr, mid + 1, end)'''
+
+def GenerateBBSTArray(a: [int]) -> [int]:
+    i: int = 0
+    a.sort()
+    summ_arr: [int] = [None]*len(a)
+    def recurGenerateBBSTArrayFunc(arr: [int], i: int, summ_arr) -> [int]:
+        if not arr:
+            return summ_arr
+        mid: int = len(arr)//2
+        summ_arr[i] = arr[mid]
+        summ_arr = recurGenerateBBSTArrayFunc(arr[:mid], i*2+1, summ_arr)
+        summ_arr = recurGenerateBBSTArrayFunc(arr[mid + 1:], i*2+2, summ_arr)
+        return summ_arr
+    return recurGenerateBBSTArrayFunc(a, i, summ_arr)
+
+
+#arr.sort()
+#print(GenerateBBSTArray(arr))
 print(GenerateBBSTArray(arr))
 
 
-# print(arr)
+#print(arr)
 
 
 #print(arr)
