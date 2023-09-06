@@ -16,16 +16,17 @@ class BalancedBST:
 
     def GenerateTree(self, a: [int]) -> None:
         a.sort()
-        self.Root = self.create_tree(a, self.Root)
+        self.Root = self.create_tree(a, self.Root, 0)
         
 
-    def create_tree(self, arr: [int], parent: BSTNode) -> BSTNode:
+    def create_tree(self, arr: [int], parent: BSTNode, level: BSTNode) -> BSTNode:
         if not arr:
             return None
         mid: int = len(arr) // 2
         node: BSTNode = BSTNode(arr[mid], parent)
-        node.LeftChild = self.create_tree(arr[:mid], node)
-        node.RightChild = self.create_tree(arr[mid + 1:], node)
+        node.Level = level
+        node.LeftChild = self.create_tree(arr[:mid], node, level+1)
+        node.RightChild = self.create_tree(arr[mid + 1:], node, level+1)
         return node
 
 
@@ -35,10 +36,10 @@ class BalancedBST:
         if current_node is None:
             return None
         if current_node.Parent is None:
-            print('root: ', current_node.NodeKey)
-        print('nk: ', current_node.NodeKey, '|RTCHL: ', current_node.RightChild if current_node.RightChild is None
-        else current_node.RightChild.NodeKey, '|LFCHL: ', current_node.LeftChild if current_node.LeftChild is None
-              else current_node.LeftChild.NodeKey)
+            print('root: ', current_node.NodeKey, 'level: ', current_node.Level)
+        print('nk: ', current_node.NodeKey, '|LFCHL: ', current_node.LeftChild if current_node.LeftChild is None
+              else current_node.LeftChild.NodeKey, '|RTCHL: ', current_node.RightChild if current_node.RightChild is None
+        else current_node.RightChild.NodeKey, 'level: ', current_node.Level)
         BalancedBST().print_binary_tree(current_node.RightChild)
         BalancedBST().print_binary_tree(current_node.LeftChild)
        
@@ -61,6 +62,6 @@ tree: BalancedBST = BalancedBST()
 # node.LeftChild = node2
 # tree.Root = node
 tree.GenerateTree(arr)
-print('tree_root: ', tree.Root.LeftChild.LeftChild.LeftChild.NodeKey)
+#print('tree_root: ', tree.Root.LeftChild.LeftChild.LeftChild.NodeKey)
 tree.print_binary_tree(tree.Root)
 #tree.print_binary_tree()
