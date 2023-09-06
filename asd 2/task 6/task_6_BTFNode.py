@@ -15,7 +15,8 @@ class BalancedBST:
 
     def GenerateTree(self, a: [int]) -> None:
         a.sort()
-        print(self.create_tree(a, self.Root))
+        b = self.create_tree(a, self.Root)
+        print(b.LeftChild.LeftChild.NodeKey)
         self.print_binary_tree()
 
     def create_tree(self, arr: [int], parent: BSTNode) -> BSTNode:
@@ -30,7 +31,7 @@ class BalancedBST:
 
 
     def print_binary_tree(self):
-        print('pbt: ', self.Root)
+        #print('pbt: ', self.Root)
         current_node: BalancedBST = self.Root
         if current_node is None:
             return
@@ -48,13 +49,14 @@ class BalancedBST:
 arr = [50, 25, 75, 13, 35, 65, 85, 0, 18, 30, 45, 60, 70, 80, 90]
 
 tree: BalancedBST = BalancedBST()
+#tree.print_binary_tree()
 
-#node = BSTNode(10, None)
+# node = BSTNode(10, None)
 # node1 = BSTNode(15, node)
 # node2 = BSTNode(25, node)
 # node.RightChild = node1
 # node.LeftChild = node2
 # tree.Root = node
-tree.GenerateTree(arr)
-tree.print_binary_tree()
+print(tree.GenerateTree(arr))
+#tree.print_binary_tree()
 
