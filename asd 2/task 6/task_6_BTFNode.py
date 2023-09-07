@@ -1,21 +1,24 @@
 class BSTNode:
 
     def __init__(self, key, parent):
-        self.NodeKey = key
-        self.Parent = parent
-        self.LeftChild = None
-        self.RightChild = None
-        self.Level = 0
+        self.NodeKey = key  # ключ узла
+        self.Parent = parent  # родитель или None для корня
+        self.LeftChild = None  # левый потомок
+        self.RightChild = None  # правый потомок
+        self.Level = 0  # уровень узла
 
 
 class BalancedBST:
 
     def __init__(self):
-        self.Root = None
+        self.Root = None  # корень дерева
 
     def GenerateTree(self, a: [int]) -> None:
         a.sort()
-        self.Root: BSTNode = self.create_tree(a, self.Root, 0)
+        self.Root = self.create_tree(a, self.Root, 0)
+
+    def GenerateTreeReturn(self, a: [int]) -> None:
+        return self.GenerateTree(a)
 
     def create_tree(self, arr: [int], parent: BSTNode, level: int) -> BSTNode:
         if not arr:
@@ -27,10 +30,10 @@ class BalancedBST:
         node.RightChild = self.create_tree(arr[mid + 1:], node, level + 1)
         return node
 
-    def print_binary_tree(self, current_node: BSTNode) -> None:
+    def print_binary_tree(self, current_node) -> None:
         if current_node is None:
             return None
-        # print('current_node: ', current_node.NodeKey)
+        print('current_node: ', current_node.NodeKey)
         if current_node.Parent is None:
             print('root: ', current_node.NodeKey, 'level: ', current_node.Level)
         print('nk: ', current_node.NodeKey, '|LFCHL: ', current_node.LeftChild if current_node.LeftChild is None
@@ -45,14 +48,45 @@ class BalancedBST:
         # print('current_node: ', root_node.NodeKey)
         if root_node is None:
             return True
-        # print('current_node: ', root_node.NodeKey)
-        # print(root_node.Level, root_node.Level)
+        left_max_level = self.max_node_level(root_node.LeftChild)
+        right_max_level = self.max_node_level(root_node.RightChild)
+        # print('lml: ', left_max_level)
+        # print('rml: ', right_max_level)
+        if abs(left_max_level - right_max_level) <= 1 and self.IsBalanced(root_node.RightChild) is True \
+                and self.IsBalanced(root_node.LeftChild) is True:
+            return True
+        return False
 
-        left_lev: int = BalancedBST().IsBalanced(root_node.LeftChild) + 1
-        right_lev: int = BalancedBST().IsBalanced(root_node.RightChild) + 1
-        if abs(left_lev - right_lev) > 1:
-            return False
-        # print('ll: ', left_lev)
-        # print('rl: ', right_lev)
+    def max_node_level(self, node: BSTNode) -> int:
+        if node is None:
+            return 0
 
-        return True
+        return max(self.max_node_level(node.RightChild), self.max_node_level(node.LeftChild)) + 1
+
+#
+# arr = [50, 3, 1, 0, 2, 4, 5, 6, 7]
+#
+tree: BalancedBST = BalancedBST()
+#
+# # tree.print_binary_tree()
+#
+#
+# tree.GenerateTree(arr)
+# tree.print_binary_tree(tree.Root)
+# print(tree.IsBalanced(tree.Root))
+
+node = BSTNode(10, None)
+tree.Root = node
+node1 = BSTNode(15, node)
+node2 = BSTNode(25, node)
+node3 = BSTNode(35, node2)
+node4 = BSTNode(45, node3)
+node.RightChild = node1
+node.LeftChild = node2
+node2.RightChild = node3
+node3.RightChild = node4
+#
+tree.print_binary_tree(tree.Root)
+print(tree.IsBalanced(tree.Root))
+
+# print(tree.IsBalanced(tree.Root))
