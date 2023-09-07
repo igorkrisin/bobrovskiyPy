@@ -11,14 +11,11 @@ class BSTNode:
 class BalancedBST:
 
     def __init__(self):
-        self.Root = None  
+        self.Root = None
 
     def GenerateTree(self, a: [int]) -> None:
         a.sort()
-        self.Root = self.create_tree(a, self.Root, 0)
-
-    def GenerateTreeReturn(self, a: [int]) -> None:
-        return self.GenerateTree(a)
+        self.Root: BSTNode = self.create_tree(a, self.Root, 0)
 
     def create_tree(self, arr: [int], parent: BSTNode, level: int) -> BSTNode:
         if not arr:
@@ -30,7 +27,7 @@ class BalancedBST:
         node.RightChild = self.create_tree(arr[mid + 1:], node, level + 1)
         return node
 
-    def print_binary_tree(self, current_node) -> None:
+    def print_binary_tree(self, current_node: BSTNode) -> None:
         if current_node is None:
             return None
         # print('current_node: ', current_node.NodeKey)
@@ -59,34 +56,3 @@ class BalancedBST:
         # print('rl: ', right_lev)
 
         return True
-        # return False  # сбалансировано ли дерево с корнем root_node
-
-
-arr1 = [50, 22, 22, 22, 22, 22, 22, 22, 22, 23, 43, 54, 65, 77]
-
-tree: BalancedBST = BalancedBST()
-
-# tree.print_binary_tree()
-
-
-# tree.Root = node
-tree.GenerateTree(arr1)
-# print('tree_root: ', tree.Root.LeftChild.LeftChild.LeftChild.NodeKey)
-tree.print_binary_tree(tree.Root)
-print('is_bal: ', tree.IsBalanced(tree.Root))
-# tree.print_binary_tree()
-
-# node = BSTNode(10, None)
-# tree.Root = node
-# node1 = BSTNode(15, node)
-# node2 = BSTNode(25, node)
-# node3 = BSTNode(35, node2)
-# node4 = BSTNode(45, node3)
-# node.RightChild = node1
-# node.LeftChild = node2
-# node2.RightChild = node3
-# node3.RightChild = node4
-
-# tree.print_binary_tree(tree.Root)
-
-# print(tree.IsBalanced(tree.Root))
