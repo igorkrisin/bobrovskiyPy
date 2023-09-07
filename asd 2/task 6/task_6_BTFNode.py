@@ -1,17 +1,17 @@
 class BSTNode:
 
     def __init__(self, key, parent):
-        self.NodeKey = key  # ключ узла
-        self.Parent = parent  # родитель или None для корня
-        self.LeftChild = None  # левый потомок
-        self.RightChild = None  # правый потомок
-        self.Level = 0  # уровень узла
+        self.NodeKey = key
+        self.Parent = parent
+        self.LeftChild = None
+        self.RightChild = None
+        self.Level = 0
 
 
 class BalancedBST:
 
     def __init__(self):
-        self.Root = None  # корень дерева
+        self.Root = None
 
     def GenerateTree(self, a: [int]) -> None:
         a.sort()
@@ -45,13 +45,10 @@ class BalancedBST:
         return None
 
     def IsBalanced(self, root_node: BSTNode) -> bool:
-        # print('current_node: ', root_node.NodeKey)
         if root_node is None:
             return True
         left_max_level = self.max_node_level(root_node.LeftChild)
         right_max_level = self.max_node_level(root_node.RightChild)
-        # print('lml: ', left_max_level)
-        # print('rml: ', right_max_level)
         if abs(left_max_level - right_max_level) <= 1 and self.IsBalanced(root_node.RightChild) is True \
                 and self.IsBalanced(root_node.LeftChild) is True:
             return True
@@ -60,33 +57,4 @@ class BalancedBST:
     def max_node_level(self, node: BSTNode) -> int:
         if node is None:
             return 0
-
         return max(self.max_node_level(node.RightChild), self.max_node_level(node.LeftChild)) + 1
-
-#
-# arr = [50, 3, 1, 0, 2, 4, 5, 6, 7]
-#
-tree: BalancedBST = BalancedBST()
-#
-# # tree.print_binary_tree()
-#
-#
-# tree.GenerateTree(arr)
-# tree.print_binary_tree(tree.Root)
-# print(tree.IsBalanced(tree.Root))
-
-node = BSTNode(10, None)
-tree.Root = node
-node1 = BSTNode(15, node)
-node2 = BSTNode(25, node)
-node3 = BSTNode(35, node2)
-node4 = BSTNode(45, node3)
-node.RightChild = node1
-node.LeftChild = node2
-node2.RightChild = node3
-node3.RightChild = node4
-#
-tree.print_binary_tree(tree.Root)
-print(tree.IsBalanced(tree.Root))
-
-# print(tree.IsBalanced(tree.Root))
