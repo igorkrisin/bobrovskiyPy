@@ -3,19 +3,40 @@ class Heap:
     def __init__(self):
         self.HeapArray = []  # хранит неотрицательные числа-ключи
 
-    def MakeHeap(self, a: [int], depth: int) -> [int]:
-        pass
-        # создаём массив кучи HeapArray из заданного
-        # размер массива выбираем на основе глубины depth
-
-    def make_heap_recur(self, a: [int], ):
-
     def size_depth(self, depth) -> int:
         if depth == 0:
             return 1
         if depth == 1:
             return 3
         return self.size_depth(depth - 1) * 2 + 1
+
+    def MakeHeap(self, a: [int], depth: int) -> [int]:
+        a = [None] * self.size_depth(depth)
+        size_heap = self.size_depth(depth)
+        start_index = 0
+        print(a)
+        self.HeapArray = self.make_heap_recur(a, len(self.HeapArray), start_index)
+        print('SH: ', self.HeapArray)
+        # создаём массив кучи HeapArray из заданного
+        # размер массива выбираем на основе глубины depth
+
+    def make_heap_recur(self, arr: [int], size_heap: int, i: int):
+        max_el = i
+        #print(arr)
+        #print('arr[max_El]: ', arr[max_el])
+        #print(max_el)
+        #print('sh: ', size_heap)
+        left_node = 2 * i + 1
+        right_node = 2 * i + 2
+        if left_node < size_heap and arr[left_node] > arr[max_el]:
+            max_el = left_node
+        if right_node < size_heap and arr[right_node] > arr[max_el]:
+            max_el = right_node
+        if max_el != i:
+            arr[i], arr[max_el] = arr[max_el], arr[i]
+
+            self.make_heap_recur(arr, size_heap, max_el)
+        #return arr
 
     def GetMax(self):
         # вернуть значение корня и перестроить кучу
@@ -24,30 +45,16 @@ class Heap:
     def Add(self, key: int) -> bool:
         if None not in self.HeapArray:
             return False  # если куча вся заполнена
-        # self.HeapArray = self.add_recur(key, 0, self.HeapArray)
-
-    # def add_recur(self, key, i: int, arr: [int]) -> [int]:
-    #     max_ind: int = i
-    #     left_prnt_ind: int = 2*i+1
-    #     right_prnt_ind: int = 2*i+2
-    #     while arr[i] is not None:
-    #         i += 1
-    #     print('i: ', i)
-    #     print('mi',max_ind)
-    #     print('li', left_prnt_ind)
-    #
-    #     arr[i] = key
-    #     if left_prnt_ind < len(arr) and arr[left_prnt_ind] > arr[max_ind]:
-    #         max_ind = left_prnt_ind
-    #         print(max_ind)
-    #         return
-
 
     def print_heap(self):
         print(self.HeapArray)
 
 
 heap = Heap()
-heap.HeapArray = [1, 4, 3, 4, 6, 6, 7, 8, 10]
+heap.HeapArray = [1, 2, 3, 4, 5, 6, 7, 8, 10]
+heap.MakeHeap(heap.HeapArray, 3)
+
+#print(heap.make_heap_recur(heap.HeapArray, heap.size_depth(3), 0))
 heap.print_heap()
-print(heap.Add(14))
+
+# print(heap.Add(14))
