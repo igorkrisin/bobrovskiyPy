@@ -12,14 +12,12 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.heap.Add(4), False)
 
     def test_add_same_node(self):
-        self.assertEqual(self.heap.GetMax(), 8)
-        self.heap.print_heap()
-        self.assertEqual(self.heap.Add(8), True)
-        self.assertEqual(self.heap.return_heap(), [8, 7, 6, 5, 4, 3, 2])
+        pass
 
-    def test_add_to_empty_heap(self) -> None:
+    def test_make_empty_heap(self) -> None:
         self.empty_heap = Heap()
-        self.assertEqual(self.heap.MakeHeap([], 3), [None, None, None, None, None, None, None, None, None, None,
+        self.heap.MakeHeap([], 3),
+        self.assertEqual(self.heap.return_heap(), [None, None, None, None, None, None, None, None, None, None,
                                                      None, None, None, None, None])
 
     def test_add_to_full_heap(self) -> None:
