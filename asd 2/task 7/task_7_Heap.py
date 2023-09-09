@@ -13,7 +13,7 @@ class Heap:
     def MakeHeap(self, a: [int], depth: int) -> [int]:
         self.HeapArray = [None] * self.size_depth(depth)
 
-        if len(a) > len(self.HeapArray):
+        if len(a) >= len(self.HeapArray):
             a = a[:len(self.HeapArray)]
             print('a:',  a)
             a.sort(reverse=True)
@@ -32,49 +32,52 @@ class Heap:
         # вернуть значение корня и перестроить кучу
         return -1  # если куча пуста
 
-    def Add(self, key):
-        if None not in self.HeapArray:
-            return False
-        if self.HeapArray[0] is None:
-            self.HeapArray[0] = key
-            return True
-        y = 0
-        while self.HeapArray[y] is not None:
-            y += 1
-        self.HeapArray[y] = key
-        i = y
-        while self.HeapArray[i] is not None and i > 0 and self.HeapArray[i//2] < key:
-            self.HeapArray[i] = self.HeapArray[i//2]
-            i //= 2
-            self.HeapArray[i] = key
-        return True
-    #     # добавляем новый элемент key в кучу и перестраиваем её
-
-    # def Add(self, key: int) -> bool:
+    # def Add(self, key):
     #     if None not in self.HeapArray:
     #         return False
     #     if self.HeapArray[0] is None:
     #         self.HeapArray[0] = key
     #         return True
-    #     i = 0
-    #     while self.HeapArray[i] is not None:
-    #         i += 1
-    #     self.HeapArray[i] = key
-    #     par_for_right_chl = (i - 2) // 2
-    #     par_for_left_chl = (i - 1) // 2
-    #     if i % 2 == 0:
-    #         while i != 0 and self.HeapArray[i] >= self.HeapArray[par_for_right_chl]:
-    #             self.HeapArray[i], self.HeapArray[par_for_right_chl] = self.HeapArray[par_for_right_chl], \
-    #                 self.HeapArray[i]
-    #             i = par_for_right_chl
-    #             par_for_right_chl = (i - 2) // 2
-    #     if i % 2 == 1:
-    #         while i != 0 and self.HeapArray[i] >= self.HeapArray[par_for_left_chl]:
-    #             self.HeapArray[i], self.HeapArray[par_for_left_chl] = self.HeapArray[par_for_left_chl], \
-    #                 self.HeapArray[i]
-    #             i = par_for_left_chl
-    #             par_for_left_chl = (i - 1) // 2
+    #     y = 0
+    #     while self.HeapArray[y] is not None:
+    #         y += 1
+    #     self.HeapArray[y] = key
+    #     i = y
+    #     while self.HeapArray[i] is not None and i > 0 and self.HeapArray[i//2] < key:
+    #         self.HeapArray[i] = self.HeapArray[i//2]
+    #         i //= 2
+    #         self.HeapArray[i] = key
     #     return True
+    #     # добавляем новый элемент key в кучу и перестраиваем её
+
+    def Add(self, key: int) -> bool:
+        print(self.HeapArray)
+        if None not in self.HeapArray:
+            return False
+        if self.HeapArray[0] is None:
+            self.HeapArray[0] = key
+            return True
+        i = 0
+        while self.HeapArray[i] is not None:
+            i += 1
+        self.HeapArray[i] = key
+        par_for_right_chl = (i - 2) // 2
+        par_for_left_chl = (i - 1) // 2
+        if i % 2 == 0:
+            while i != 0 and self.HeapArray[par_for_right_chl] is not None \
+                    and self.HeapArray[i] >= self.HeapArray[par_for_right_chl]:
+                self.HeapArray[i], self.HeapArray[par_for_right_chl] = self.HeapArray[par_for_right_chl], \
+                    self.HeapArray[i]
+                i = par_for_right_chl
+                par_for_right_chl = (i - 2) // 2
+        if i % 2 == 1:
+            while i != 0 and self.HeapArray[par_for_left_chl] is not None \
+                    and self.HeapArray[i] >= self.HeapArray[par_for_left_chl]:
+                self.HeapArray[i], self.HeapArray[par_for_left_chl] = self.HeapArray[par_for_left_chl], \
+                    self.HeapArray[i]
+                i = par_for_left_chl
+                par_for_left_chl = (i - 1) // 2
+        return True
     def print_heap(self):
         print(self.HeapArray)
 
@@ -83,14 +86,13 @@ class Heap:
 
 
 heap = Heap()
-arr = []
+arr = [1,2,3,4,5]
 print('MakeHeapA: ', heap.MakeHeap(arr, 2))
 heap.print_heap()
-print(heap.Add(25))
-heap.Add(30)
-heap.Add(50)
-heap.Add(60)
-heap.Add(40)
+print(heap.Add(3))
+
+
+
 
 
 
