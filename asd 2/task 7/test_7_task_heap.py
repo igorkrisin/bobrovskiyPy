@@ -72,6 +72,41 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.heap_one_node.GetMax(), 0)
         self.assertEqual(self.heap_one_node.return_heap(), [None, None, None, None, None, None, None])
 
+    def test_get_all_node_from_full_heap_and_add_to_full_heap(self):
+        self.full_heap = Heap()
+        self.full_heap.MakeHeap([22, 46, 78, 109, 2, 5, 67], 2)
+        self.assertEqual(self.full_heap.return_heap(), [109, 78, 67, 46, 22, 5, 2])
+        self.assertEqual(self.full_heap.GetMax(), 109)
+        self.assertEqual(self.full_heap.return_heap(), [78, 67, 46, 2, 22, 5, None])
+        self.assertEqual(self.full_heap.GetMax(), 78)
+        self.assertEqual(self.full_heap.return_heap(), [67, 46, 5, 2, 22, None, None])
+        self.assertEqual(self.full_heap.GetMax(), 67)
+        self.assertEqual(self.full_heap.return_heap(), [46, 22, 5, 2, None, None, None])
+        self.assertEqual(self.full_heap.GetMax(), 46)
+        self.assertEqual(self.full_heap.return_heap(), [22, 2, 5, None, None, None, None])
+        self.assertEqual(self.full_heap.GetMax(), 22)
+        self.assertEqual(self.full_heap.return_heap(), [5, 2, None, None, None, None, None])
+        self.assertEqual(self.full_heap.GetMax(), 5)
+        self.assertEqual(self.full_heap.return_heap(), [2, None, None, None, None, None, None])
+        self.assertEqual(self.full_heap.GetMax(), 2)
+        self.assertEqual(self.full_heap.return_heap(), [None, None, None, None, None, None, None])
+        self.assertEqual(self.full_heap.GetMax(), -1)
+        self.assertEqual(self.full_heap.return_heap(), [None, None, None, None, None, None, None])
+        self.assertEqual(self.full_heap.Add(34), True)
+        self.assertEqual(self.full_heap.return_heap(), [34, None, None, None, None, None, None])
+        self.assertEqual(self.full_heap.Add(42), True)
+        self.assertEqual(self.full_heap.Add(54), True)
+        self.assertEqual(self.full_heap.Add(2), True)
+        self.assertEqual(self.full_heap.return_heap(), [54, 34, 42, 2, None, None, None])
+        self.assertEqual(self.full_heap.Add(50), True)
+        self.assertEqual(self.full_heap.Add(100), True)
+        self.assertEqual(self.full_heap.Add(40), True)
+        self.assertEqual(self.full_heap.return_heap(), [100, 50, 54, 2, 34, 42, 40])
+        self.assertEqual(self.full_heap.Add(34), False)
+
+
+
+
 
 if __name__ == "__main__":
     unittest.main()

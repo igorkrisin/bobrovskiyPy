@@ -1,7 +1,7 @@
 class Heap:
 
     def __init__(self):
-        self.HeapArray = []  # хранит неотрицательные числа-ключи
+        self.HeapArray = []
 
     def size_depth(self, depth) -> int:
         if depth == 0:
@@ -15,7 +15,6 @@ class Heap:
 
         if len(a) >= len(self.HeapArray):
             a = a[:len(self.HeapArray)]
-            print('a:',  a)
             a.sort(reverse=True)
             for i in range(0, len(self.HeapArray)):
                 self.HeapArray[i] = a[i]
@@ -24,18 +23,13 @@ class Heap:
             for i in range(0, len(a)):
                 self.HeapArray[i] = a[i]
 
-        # создаём массив кучи HeapArray из заданного
-        # размер массива выбираем на основе глубины depth
-
     def GetMax(self) -> int:
         print(self.HeapArray)
         if not self.HeapArray:
-            return -1  # если куча пуста
+            return -1
         if self.HeapArray[0] is None:
-            print(111111)
             return -1
         if self.HeapArray[1] is None:
-            print(22222)
             get_return = self.HeapArray[0]
             self.HeapArray[0] = None
             return get_return
@@ -49,31 +43,23 @@ class Heap:
         i = 0
         left_child = i * 2 + 1
         right_child = i * 2 + 2
-        print('i: ', i)
-        print('right_child: ', right_child)
-        while right_child < len_arr\
-                and i < len_arr\
-                and self.HeapArray[right_child] is not None\
+        while right_child < len_arr \
+                and i < len_arr \
+                and self.HeapArray[right_child] is not None and self.HeapArray[i] is not None and self.HeapArray[
+            left_child] is not None \
                 and self.HeapArray[i] < max(self.HeapArray[left_child], self.HeapArray[right_child]):
-            print('SHA: ', self.HeapArray)
             if self.HeapArray[left_child] > self.HeapArray[right_child]:
-                print('self.HeapArray[right_child]L: ', self.HeapArray[right_child])
                 self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
                 i = left_child
                 left_child = i * 2 + 1
             else:
-                print('self.HeapArray[right_child]R: ', self.HeapArray[right_child])
                 self.HeapArray[i], self.HeapArray[right_child] = self.HeapArray[right_child], self.HeapArray[i]
                 i = right_child
                 right_child = i * 2 + 2
-        print('i*2+2: ', i*2+2)
-        print('y- 1: ', y - 1)
-
-        if self.HeapArray[i*2+2] is None and self.HeapArray[i] < self.HeapArray[left_child]:
-            print(123123123312)
+        if self.HeapArray[i * 2 + 2] is None and self.HeapArray[i] is not None \
+                and self.HeapArray[left_child] is not None and self.HeapArray[i] < self.HeapArray[left_child]:
             self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
         return get_node
-
 
     def Add(self, key: int) -> bool:
         print(self.HeapArray)
@@ -103,6 +89,7 @@ class Heap:
                 i = par_for_left_chl
                 par_for_left_chl = (i - 1) // 2
         return True
+
     def print_heap(self):
         print(self.HeapArray)
 
@@ -114,15 +101,11 @@ heap = Heap()
 arr = [10, ]
 print('MakeHeapA: ', heap.MakeHeap(arr, 2))
 heap.print_heap()
-#print(heap.Add(3))
-
-
-
-
+# print(heap.Add(3))
 
 
 print(heap.GetMax())
-#print(heap.GetMax())
+# print(heap.GetMax())
 
 # heap.Add(25)
 # print(heap.Add(25))
@@ -131,69 +114,69 @@ print(heap.GetMax())
 print('HA: ', heap.HeapArray)
 
 # print(heap.Add(14))
-#def GetMax(self) -> int:
-    #     if not self.HeapArray:
-    #         return -1  # если куча пуста
-    #     if self.HeapArray[0] is None:
-    #         return -1
-    #     i = 0
-    #     len_arr = len(self.HeapArray)
-    #     while i < len_arr and self.HeapArray[i] is not None:
-    #         i += 1
-    #     get_node = self.HeapArray[0]
-    #     self.HeapArray[0] = self.HeapArray[i - 1]
-    #     self.HeapArray[i - 1] = None
-    #     i = 0
-    #     left_child = i * 2 + 1
-    #     right_child = i * 2 + 2
-    #     is_none_arr_i = self.HeapArray[i] is None
-    #     is_none_arr_lft_chld = self.HeapArray[left_child] is None
-    #     is_none_arr_rgh_chld = self.HeapArray[right_child] is None
-    #     while i < len_arr and left_child < len_arr and right_child < len_arr\
-    #             and self.HeapArray[i] is not None and self.HeapArray[left_child] is not None and  self.HeapArray[right_child] is not None\
-    #             and self.HeapArray[i] < self.HeapArray[left_child] and self.HeapArray[i] < self.HeapArray[right_child]:
-    #         print('self.HeapArray: ', self.HeapArray)
-    #         if self.HeapArray[i] < self.HeapArray[left_child]:
-    #             print('iL: ', i)
-    #             print('left_child: ', left_child)
-    #             self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
-    #             i = left_child
-    #             left_child = i * 2 + 1
-    #         if self.HeapArray[i] < self.HeapArray[right_child]:
-    #             print('iR: ', i)
-    #             print('right_child: ', right_child)
-    #             self.HeapArray[i], self.HeapArray[right_child] = self.HeapArray[right_child], self.HeapArray[i]
-    #             i = right_child
-    #             right_child = i * 2 + 2
-    #         # print('self.HeapArray[i]: ',self.HeapArray[i])
-    #         # print('self.HeapArray[left_child]: ', self.HeapArray[left_child])
-    #         # print('self.HeapArray[rght_chlld]: ', self.HeapArray[right_child])
-    #     return get_node
-    #
-    # def Add(self, key: int) -> bool:
-    #     if None not in self.HeapArray:
-    #         return False
-    #     if self.HeapArray[0] is None:
-    #         self.HeapArray[0] = key
-    #     i = 0
-    #     while self.HeapArray[i] is not None:
-    #         i += 1
-    #     self.HeapArray[i] = key
-    #     par_for_right_chl = (i - 2) // 2
-    #     par_for_left_chl = (i - 1) // 2
-    #     if i % 2 == 0:
-    #         while i != 0 and self.HeapArray[i] >= self.HeapArray[par_for_right_chl]:
-    #             self.HeapArray[i], self.HeapArray[par_for_right_chl] = self.HeapArray[par_for_right_chl], \
-    #                 self.HeapArray[i]
-    #             i = par_for_right_chl
-    #             par_for_right_chl = (i - 2) // 2
-    #     if i % 2 == 1:
-    #         while i != 0 and self.HeapArray[i] >= self.HeapArray[par_for_left_chl]:
-    #             self.HeapArray[i], self.HeapArray[par_for_left_chl] = self.HeapArray[par_for_left_chl], \
-    #                 self.HeapArray[i]
-    #             i = par_for_left_chl
-    #             par_for_left_chl = (i - 1) // 2
-    #     return True
+# def GetMax(self) -> int:
+#     if not self.HeapArray:
+#         return -1  # если куча пуста
+#     if self.HeapArray[0] is None:
+#         return -1
+#     i = 0
+#     len_arr = len(self.HeapArray)
+#     while i < len_arr and self.HeapArray[i] is not None:
+#         i += 1
+#     get_node = self.HeapArray[0]
+#     self.HeapArray[0] = self.HeapArray[i - 1]
+#     self.HeapArray[i - 1] = None
+#     i = 0
+#     left_child = i * 2 + 1
+#     right_child = i * 2 + 2
+#     is_none_arr_i = self.HeapArray[i] is None
+#     is_none_arr_lft_chld = self.HeapArray[left_child] is None
+#     is_none_arr_rgh_chld = self.HeapArray[right_child] is None
+#     while i < len_arr and left_child < len_arr and right_child < len_arr\
+#             and self.HeapArray[i] is not None and self.HeapArray[left_child] is not None and  self.HeapArray[right_child] is not None\
+#             and self.HeapArray[i] < self.HeapArray[left_child] and self.HeapArray[i] < self.HeapArray[right_child]:
+#         print('self.HeapArray: ', self.HeapArray)
+#         if self.HeapArray[i] < self.HeapArray[left_child]:
+#             print('iL: ', i)
+#             print('left_child: ', left_child)
+#             self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
+#             i = left_child
+#             left_child = i * 2 + 1
+#         if self.HeapArray[i] < self.HeapArray[right_child]:
+#             print('iR: ', i)
+#             print('right_child: ', right_child)
+#             self.HeapArray[i], self.HeapArray[right_child] = self.HeapArray[right_child], self.HeapArray[i]
+#             i = right_child
+#             right_child = i * 2 + 2
+#         # print('self.HeapArray[i]: ',self.HeapArray[i])
+#         # print('self.HeapArray[left_child]: ', self.HeapArray[left_child])
+#         # print('self.HeapArray[rght_chlld]: ', self.HeapArray[right_child])
+#     return get_node
+#
+# def Add(self, key: int) -> bool:
+#     if None not in self.HeapArray:
+#         return False
+#     if self.HeapArray[0] is None:
+#         self.HeapArray[0] = key
+#     i = 0
+#     while self.HeapArray[i] is not None:
+#         i += 1
+#     self.HeapArray[i] = key
+#     par_for_right_chl = (i - 2) // 2
+#     par_for_left_chl = (i - 1) // 2
+#     if i % 2 == 0:
+#         while i != 0 and self.HeapArray[i] >= self.HeapArray[par_for_right_chl]:
+#             self.HeapArray[i], self.HeapArray[par_for_right_chl] = self.HeapArray[par_for_right_chl], \
+#                 self.HeapArray[i]
+#             i = par_for_right_chl
+#             par_for_right_chl = (i - 2) // 2
+#     if i % 2 == 1:
+#         while i != 0 and self.HeapArray[i] >= self.HeapArray[par_for_left_chl]:
+#             self.HeapArray[i], self.HeapArray[par_for_left_chl] = self.HeapArray[par_for_left_chl], \
+#                 self.HeapArray[i]
+#             i = par_for_left_chl
+#             par_for_left_chl = (i - 1) // 2
+#     return True
 
 
 # def Add(self, key):
