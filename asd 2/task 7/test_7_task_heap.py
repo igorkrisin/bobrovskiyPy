@@ -23,9 +23,9 @@ class TestLinkedList(unittest.TestCase):
     def test_add_same_node(self):
         self.heap3 = Heap()
         self.heap3.MakeHeap([20, 2, 44, 5, 66, 7], 2)
-        self.assertEqual(self.heap3.return_heap(), [66, 44, 20, 7, 5, 2, None])
+        self.assertEqual(self.heap3.return_heap(), [66, 44, 20, 7, 2, 5, None])
         self.assertEqual(self.heap3.Add(44), True)
-        self.assertEqual(self.heap3.return_heap(), [66, 44, 44, 7, 5, 2, 20])
+        self.assertEqual(self.heap3.return_heap(), [66, 44, 44, 7, 2, 5, 20])
 
     def test_make_empty_heap(self) -> None:
         self.empty_heap = Heap()
@@ -86,9 +86,9 @@ class TestLinkedList(unittest.TestCase):
     def test_get_all_node_from_full_heap_and_add_to_full_heap(self):
         self.full_heap = Heap()
         self.full_heap.MakeHeap([22, 46, 78, 109, 2, 5, 67], 2)
-        self.assertEqual(self.full_heap.return_heap(), [109, 78, 67, 46, 22, 5, 2])
+        self.assertEqual(self.full_heap.return_heap(), [109, 78, 46, 5, 67, 2, 22])
         self.assertEqual(self.full_heap.GetMax(), 109)
-        self.assertEqual(self.full_heap.return_heap(), [78, 67, 46, 2, 22, 5, None])
+        self.assertEqual(self.full_heap.return_heap(), [78, 67, 46, 5, 22, 2, None])
         self.assertEqual(self.full_heap.GetMax(), 78)
         self.assertEqual(self.full_heap.return_heap(), [67, 46, 5, 2, 22, None, None])
         self.assertEqual(self.full_heap.GetMax(), 67)

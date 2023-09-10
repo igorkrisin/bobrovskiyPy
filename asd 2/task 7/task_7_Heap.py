@@ -11,18 +11,11 @@ class Heap:
         return self.size_depth(depth - 1) * 2 + 1
 
     def MakeHeap(self, a: [int], depth: int) -> None:
-        self.HeapArray = [None] * self.size_depth(depth)
-
-        if len(a) >= len(self.HeapArray):
-            a = a[:len(self.HeapArray)]
-            print('a:', a)
-            a.sort(reverse=True)
-            for i in range(0, len(self.HeapArray)):
-                self.HeapArray[i] = a[i]
-        if len(a) < len(self.HeapArray):
-            a.sort(reverse=True)
-            for i in range(0, len(a)):
-                self.HeapArray[i] = a[i]
+        len_heap = self.size_depth(depth)
+        self.HeapArray = [None] * len_heap
+        start_ind = len_heap // 2
+        for i in range(len(a) - 1, -1, -1):
+            self.Add(a[i])
 
     def GetMax(self) -> int:
         print(self.HeapArray)
@@ -100,12 +93,13 @@ class Heap:
 
     def return_heap(self):
         return self.HeapArray
-
-
-heap = Heap()
-arr = [1]
-print('MakeHeapA: ', heap.MakeHeap(arr, 0))
-heap.print_heap()
+#
+#
+# heap = Heap()
+# arr = [11, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+# print('MakeHeapA: ', heap.MakeHeap(arr, 3))
+# heap.print_heap()
+# print('len_heap: ', len(heap.return_heap()))
 # print(heap.Add(3))
 
 
@@ -115,10 +109,10 @@ heap.print_heap()
 # heap.Add(25)
 # print(heap.Add(25))
 # heap.print_heap()
-print(heap.GetMax())
-print('HA: ', heap.HeapArray)
-
-print(heap.Add(14))
+# print(heap.GetMax())
+# print('HA: ', heap.HeapArray)
+#
+# print(heap.Add(14))
 # def GetMax(self) -> int:
 #     if not self.HeapArray:
 #         return -1  # если куча пуста
