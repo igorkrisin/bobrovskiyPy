@@ -8,6 +8,15 @@ class TestLinkedList(unittest.TestCase):
         self.heap = Heap()
         self.heap.MakeHeap([1, 2, 3, 4, 5, 6, 7, 8], 2)
 
+    def test_make_heap(self):
+        self.main_heap = Heap()
+        self.main_heap.MakeHeap([], 1)
+        self.assertEqual(self.main_heap.return_heap(), [None, None, None])
+        self.main_heap.MakeHeap([], 0)
+        self.assertEqual(self.main_heap.return_heap(), [None])
+        self.main_heap.MakeHeap([], 2)
+        self.assertEqual(self.main_heap.return_heap(), [None, None, None, None, None, None, None])
+
     def test_add_same_node_in_full_heap(self):
         self.assertEqual(self.heap.Add(4), False)
 
@@ -23,6 +32,8 @@ class TestLinkedList(unittest.TestCase):
         self.heap.MakeHeap([], 3),
         self.assertEqual(self.heap.return_heap(), [None, None, None, None, None, None, None, None, None, None,
                                                    None, None, None, None, None])
+
+
 
     def test_add_to_full_heap(self) -> None:
         self.full_heap = Heap()
@@ -103,9 +114,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.full_heap.Add(40), True)
         self.assertEqual(self.full_heap.return_heap(), [100, 50, 54, 2, 34, 42, 40])
         self.assertEqual(self.full_heap.Add(34), False)
-
-
-
 
 
 if __name__ == "__main__":
