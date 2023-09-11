@@ -37,24 +37,24 @@ class Heap:
         self.HeapArray[0] = self.HeapArray[y - 1]
         self.HeapArray[y - 1] = None
         i = 0
-        left_child = i * 2 + 1
-        right_child = i * 2 + 2
-        while right_child < len_arr \
+        while i * 2 + 2 < len_arr \
                 and i < len_arr \
-                and self.HeapArray[right_child] is not None and self.HeapArray[i] is not None\
-                and self.HeapArray[left_child] is not None \
-                and self.HeapArray[i] < max(self.HeapArray[left_child], self.HeapArray[right_child]):
-            if self.HeapArray[left_child] > self.HeapArray[right_child]:
-                self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
-                i = left_child
-                left_child = i * 2 + 1
+                and self.HeapArray[i * 2 + 2] is not None and self.HeapArray[i] is not None \
+                and self.HeapArray[i * 2 + 1] is not None \
+                and self.HeapArray[i] < max(self.HeapArray[i * 2 + 1], self.HeapArray[i * 2 + 2]):
+            if self.HeapArray[i * 2 + 1] > self.HeapArray[i * 2 + 2]:
+                # print('SHA1: ', self.HeapArray)
+                self.HeapArray[i], self.HeapArray[i * 2 + 1] = self.HeapArray[i * 2 + 1], self.HeapArray[i]
+                # print('SHA1.2: ', self.HeapArray)
+                i = i * 2 + 1
             else:
-                self.HeapArray[i], self.HeapArray[right_child] = self.HeapArray[right_child], self.HeapArray[i]
-                i = right_child
-                right_child = i * 2 + 2
-        if self.HeapArray[i * 2 + 2] is None and self.HeapArray[i] is not None \
-                and self.HeapArray[left_child] is not None and self.HeapArray[i] < self.HeapArray[left_child]:
-            self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
+                # print('SHA2: ', self.HeapArray)
+                self.HeapArray[i], self.HeapArray[i * 2 + 2] = self.HeapArray[i * 2 + 2], self.HeapArray[i]
+                # print('SHA2.2: ', self.HeapArray)
+                i = i * 2 + 2
+        if i * 2 + 2 < len(self.HeapArray) and self.HeapArray[i * 2 + 1] is not None \
+                and self.HeapArray[i * 2 + 2] is None and self.HeapArray[i] < self.HeapArray[i * 2 + 1]:
+            self.HeapArray[i], self.HeapArray[i * 2 + 1] = self.HeapArray[i * 2 + 1], self.HeapArray[i]
         return get_node
 
     def Add(self, key: int) -> bool:
@@ -91,6 +91,3 @@ class Heap:
     def return_heap(self):
         return self.HeapArray
 
-
-heap = Heap()
-print(heap.GetMax())
