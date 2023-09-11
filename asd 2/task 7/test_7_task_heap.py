@@ -6,6 +6,7 @@ class TestLinkedList(unittest.TestCase):
 
     def setUp(self) -> None:
         self.heap = Heap()
+        self.assertEqual(self.heap.GetMax(), -1)
         self.heap.MakeHeap([1, 2, 3, 4, 5, 6, 7, 8], 2)
 
     def test_make_heap(self):
@@ -115,6 +116,20 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.full_heap.Add(40), True)
         self.assertEqual(self.full_heap.return_heap(), [100, 50, 54, 2, 34, 42, 40])
         self.assertEqual(self.full_heap.Add(34), False)
+
+    def test_get_when_key_equal_each_other(self):
+        self.full_heap3 = Heap()
+        self.full_heap3.MakeHeap([22, 22], 1)
+        self.assertEqual(self.full_heap3.GetMax(), 22)
+        self.assertEqual(self.full_heap3.return_heap(), [22, None, None])
+        self.assertEqual(self.full_heap3.GetMax(), 22)
+        self.assertEqual(self.full_heap3.GetMax(), -1)
+        self.full_heap3 = Heap()
+        self.full_heap3.MakeHeap([0, 0], 1)
+        self.assertEqual(self.full_heap3.GetMax(), 0)
+        self.assertEqual(self.full_heap3.return_heap(), [0, None, None])
+        self.assertEqual(self.full_heap3.GetMax(), 0)
+        self.assertEqual(self.full_heap3.GetMax(), -1)
 
 
 if __name__ == "__main__":

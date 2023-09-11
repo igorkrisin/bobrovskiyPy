@@ -37,4 +37,3 @@ class SimpleGraph:
         pass
 
 
-    

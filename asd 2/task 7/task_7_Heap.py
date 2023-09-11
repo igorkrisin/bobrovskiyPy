@@ -41,8 +41,8 @@ class Heap:
         right_child = i * 2 + 2
         while right_child < len_arr \
                 and i < len_arr \
-                and self.HeapArray[right_child] is not None and self.HeapArray[i] is not None and self.HeapArray[
-            left_child] is not None \
+                and self.HeapArray[right_child] is not None and self.HeapArray[i] is not None\
+                and self.HeapArray[left_child] is not None \
                 and self.HeapArray[i] < max(self.HeapArray[left_child], self.HeapArray[right_child]):
             if self.HeapArray[left_child] > self.HeapArray[right_child]:
                 self.HeapArray[i], self.HeapArray[left_child] = self.HeapArray[left_child], self.HeapArray[i]
@@ -90,3 +90,7 @@ class Heap:
 
     def return_heap(self):
         return self.HeapArray
+
+
+heap = Heap()
+print(heap.GetMax())
