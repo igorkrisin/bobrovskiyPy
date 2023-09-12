@@ -17,14 +17,6 @@ class SimpleGraph:
                 vert = Vertex(v)
                 self.vertex[i] = vert
                 break
-
-        # ваш код добавления новой вершины
-        # с значением value
-        # в свободное место массива vertex
-
-        # здесь и далее, параметры v -- индекс вершины
-
-    # в списке  vertex
     def RemoveVertex(self, v: int) -> None:
         self.vertex[v] = None
         for i in range(0, len(self.m_adjacency)):
@@ -49,7 +41,6 @@ class SimpleGraph:
                         self.m_adjacency[j][i] = 1
 
 
-    # добавление ребра между вершинами v1 и v2
 
     def RemoveEdge(self, v1: int, v2: int) -> None:
         if self.m_adjacency[v1][v2] == 1:
@@ -79,21 +70,4 @@ class SimpleGraph:
                 result += [vertex.Value]
 
         return result
-
-
-graph: SimpleGraph = SimpleGraph(3)
-graph.print_graph()
-graph.AddVertex(10)
-graph.AddVertex(10)
-graph.AddVertex(10)
-graph.AddEdge(0, 0)
-graph.AddEdge(0, 1)
-graph.AddEdge(1, 2)
-graph.AddEdge(1, 1)
-graph.AddEdge(2, 2)
-graph.RemoveVertex(0)
-
-
-graph.print_graph()
-graph.print_vert()
 
