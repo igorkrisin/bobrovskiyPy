@@ -41,11 +41,12 @@ class SimpleGraph:
 
 
     def AddEdge(self, v1: int, v2: int) -> None:
-        for i in range(0, len(self.m_adjacency)):
-            for j in range(0, len(self.m_adjacency[i])):
-                if i == v1 and j == v2:
-                    self.m_adjacency[i][j] = 1
-                    self.m_adjacency[j][i] = 1
+        if v1 < len(self.m_adjacency[0]) and v2 < len(self.m_adjacency[0]):
+            for i in range(0, len(self.m_adjacency)):
+                for j in range(0, len(self.m_adjacency[i])):
+                    if i == v1 and j == v2:
+                        self.m_adjacency[i][j] = 1
+                        self.m_adjacency[j][i] = 1
 
 
     # добавление ребра между вершинами v1 и v2
@@ -67,7 +68,17 @@ class SimpleGraph:
         print("]")
 
     def return_graph(self):
-        return
+        return self.m_adjacency
+
+    def return_vertex(self):
+        result = []
+        for vertex in self.vertex:
+            if not vertex:
+                result += [None]
+            else:
+                result += [vertex.Value]
+
+        return result
 
 
 graph: SimpleGraph = SimpleGraph(3)
