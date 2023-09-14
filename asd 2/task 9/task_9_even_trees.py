@@ -1,9 +1,9 @@
 class SimpleTreeNode:
 
     def __init__(self, val, parent):
-        self.NodeValue = val  # значение в узле
-        self.Parent = parent  # родитель или None для корня
-        self.Children = []  # список дочерних узлов
+        self.NodeValue = val
+        self.Parent = parent
+        self.Children = []
 
     def PrintNodesField(self) -> None:
         print('val: ', self.NodeValue)
@@ -14,7 +14,7 @@ class SimpleTreeNode:
 class SimpleTree:
 
     def __init__(self, root) -> None:
-        self.Root = root  # корень, может быть None
+        self.Root = root
 
     def AddChild(self, ParentNode, NewChild) -> None:
         NewChild.Parent = ParentNode
@@ -100,86 +100,6 @@ class SimpleTree:
             result_lst += SimpleTree(chld).GetAllNodes() + [f'level: {level}']
         return result_lst
 
-    def EvenTreesLoop(self) -> [SimpleTreeNode]:
-        result_lst: [SimpleTreeNode] = []
-        chld_lst: SimpleTreeNode = self.Root
-        # print(SimpleTree(chld_lst).Count() + 1)
-        for chld in chld_lst.Children:
-            print(SimpleTree(chld).Count() + 1)
-            if (SimpleTree(chld).Count() + 1) % 2 == 0:
-                print(1111111)
-                result_lst.append(chld.Parent)
-                result_lst.append(chld)
-        return result_lst
-
-    def EvenTrees2(self) -> [SimpleTreeNode]:
-        result_lst: [SimpleTreeNode] = []
-        chld_lst: SimpleTreeNode = self.Root
-        # print(SimpleTree(chld_lst).Count() + 1)
-        if chld_lst == []:
-            return result_lst
-        for chld in chld_lst.Children:
-            print(SimpleTree(chld).Count() + 1)
-            if (SimpleTree(chld).Count() + 1) % 2 == 0:
-                print(1111111)
-                result_lst.append(chld.Parent)
-                result_lst.append(chld)
-            print(result_lst)
-        result_lst += SimpleTree(chld_lst.Children).EvenTrees()
-        return result_lst
-
-    def EvenTrees3(self) -> [SimpleTreeNode]:
-        result_lst: [SimpleTreeNode] = []
-        chld_lst: SimpleTreeNode = self.Root
-        # print(SimpleTree(chld_lst).Count() + 1)
-        i = 0
-        while chld_lst:
-
-            if not chld_lst.Children:
-                return result_lst
-            if i >= len(chld_lst.Children) and chld_lst.Children:
-                i = 0
-                chld_lst = chld_lst.Children[i]
-
-
-            elif i < len(chld_lst.Children) and chld_lst.Parent and SimpleTree(chld_lst.Children[i]).Count() + 1 % 2 == 0:
-                print('i :', i)
-                print('PAr: ', chld_lst.Parent)
-                print('chl_l: ', chld_lst)
-                result_lst.append(chld_lst)
-                result_lst.append(chld_lst.Parent)
-            elif i < len(chld_lst.Children):
-                print('ch[i]: ', chld_lst.Children[i].NodeValue)
-            i += 1
-
-    def EvenTrees4(self) -> [SimpleTreeNode]:
-        result_lst: [SimpleTreeNode] = []
-        chld_lst: SimpleTreeNode = self.Root
-        # print(SimpleTree(chld_lst).Count() + 1)
-        i = 0
-        while SimpleTree(chld_lst).GetAllNodes():
-            # print(chld_lst.Children[i].Children[1].NodeValue)
-            print('chlstCH: ', chld_lst.Children)
-            # print('len: ', len(SimpleTree(chld_lst).GetAllNodes()))
-            # return (SimpleTree(chld_lst).GetAllNodes())
-            print('i: ', i)
-            if i < len(SimpleTree(chld_lst.Children[i]).GetAllNodes()) and len(SimpleTree(chld_lst.Children[i]).GetAllNodes()) % 2 + 1 == 0:
-                print(11111)
-                result_lst.append(chld_lst.Parent)
-                result_lst.append(chld_lst)
-            if i >= len(SimpleTree(chld_lst.Children[i]).GetAllNodes()) and chld_lst.Children:
-                i = 0
-
-                chld_lst = chld_lst.Children[i]
-
-                # print()
-                print('Cc2: ', chld_lst.Children if not chld_lst.Children else chld_lst.Children[i].NodeValue)
-                continue
-            i += 1
-
-        return result_lst
-
-
     def EvenTrees(self) -> [SimpleTreeNode]:
         chld_lst = self.Root
         result_lst = []
@@ -188,8 +108,8 @@ class SimpleTree:
         if not chld_lst.Children:
             return result_lst
         for chld in chld_lst.Children:
-            print(chld.NodeValue)
-            print(chld.Children)
+            # print(chld.NodeValue)
+            # print(chld.Children)
             if chld_lst and SimpleTree(chld).Count() % 2:
                 result_lst.append(chld.Parent)
                 result_lst.append(chld)
@@ -234,13 +154,13 @@ class SimpleTree:
 # print(tree.add_level_for_tree())
 # print('findByV: ',tree.convert_lst_nodes_to_lst_val(tree.FindNodesByValue(3)))
 
-
-'''for i in range(0, len(chld.Children)):
-            if i == len(chld.Children)-1:
-                print(1)
-                result_lst += (SimpleTree(chld[i].Children).GetAllNodes())
-            else:
-                result_lst += chld'''
+#
+# for i in range(0, len(chld.Children)):
+#             if i == len(chld.Children)-1:
+#                 print(1)
+#                 result_lst += (SimpleTree(chld[i].Children).GetAllNodes())
+#             else:
+#                 result_lst += chld
 # if not chld_lst.Children:
 #     print('\n')
 #     print(11111111)
