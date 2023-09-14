@@ -189,7 +189,7 @@ class SimpleTree:
             return result_lst
         for chld in chld_lst.Children:
             print(chld.NodeValue)
-            print(chld_lst.Children)
+            print(chld.Children)
             if chld_lst and SimpleTree(chld).Count() + 1 % 2:
                 result_lst.append(chld.Parent)
                 result_lst.append(chld)
@@ -198,24 +198,30 @@ class SimpleTree:
         return result_lst
 
 
-root_node: SimpleTreeNode = SimpleTreeNode(0, None)
-first_node: SimpleTreeNode = SimpleTreeNode(1, root_node)
-second_node: SimpleTreeNode = SimpleTreeNode(2, first_node)
-third_node: SimpleTreeNode = SimpleTreeNode(3, first_node)
-fourth_node: SimpleTreeNode = SimpleTreeNode(4, second_node)
+root_node: SimpleTreeNode = SimpleTreeNode(1, None)
+second_node: SimpleTreeNode = SimpleTreeNode(2, root_node)
+third_node: SimpleTreeNode = SimpleTreeNode(3, root_node)
+fourth_node: SimpleTreeNode = SimpleTreeNode(4, third_node)
 fifth_node: SimpleTreeNode = SimpleTreeNode(5, second_node)
-sixth_node: SimpleTreeNode = SimpleTreeNode(6, first_node)
-seventh_node: SimpleTreeNode = SimpleTreeNode(7, fifth_node)
+sixth_node: SimpleTreeNode = SimpleTreeNode(6, root_node)
+seventh_node: SimpleTreeNode = SimpleTreeNode(7, second_node)
+eight_node: SimpleTreeNode = SimpleTreeNode(8, sixth_node)
+ninth_node: SimpleTreeNode = SimpleTreeNode(9, eight_node)
+tenth_node: SimpleTreeNode = SimpleTreeNode(10, eight_node)
+
 
 tree: SimpleTree = SimpleTree(root_node)
 
-tree.AddChild(root_node, first_node)
+tree.AddChild(root_node, second_node)
 tree.AddChild(root_node, second_node)
 tree.AddChild(second_node, third_node)
 tree.AddChild(first_node, fourth_node)
-tree.AddChild(first_node, fifth_node)
+tree.AddChild(root_node, fifth_node)
 tree.AddChild(first_node, sixth_node)
+tree.AddChild(first_node, eight_node)
+tree.AddChild(first_node, ninth_node)
 tree.AddChild(first_node, seventh_node)
+
 print(tree.convert_lst_nodes_to_lst_val(tree.EvenTrees()))
 print(tree.convert_lst_nodes_to_lst_val(tree.GetAllNodes()))
 # tree.DeleteNode(fifth_node)
