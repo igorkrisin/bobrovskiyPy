@@ -197,34 +197,34 @@ class SimpleTree:
             SimpleTree(chld).EvenTrees()
         return result_lst
 
-
-root_node: SimpleTreeNode = SimpleTreeNode(1, None)
-second_node: SimpleTreeNode = SimpleTreeNode(2, root_node)
-third_node: SimpleTreeNode = SimpleTreeNode(3, root_node)
-fourth_node: SimpleTreeNode = SimpleTreeNode(4, third_node)
-fifth_node: SimpleTreeNode = SimpleTreeNode(5, second_node)
-sixth_node: SimpleTreeNode = SimpleTreeNode(6, root_node)
-seventh_node: SimpleTreeNode = SimpleTreeNode(7, second_node)
-eight_node: SimpleTreeNode = SimpleTreeNode(8, sixth_node)
-ninth_node: SimpleTreeNode = SimpleTreeNode(9, eight_node)
-tenth_node: SimpleTreeNode = SimpleTreeNode(10, eight_node)
-
-
-tree: SimpleTree = SimpleTree(root_node)
-
-tree.AddChild(root_node, second_node)
-tree.AddChild(root_node, third_node)
-tree.AddChild(root_node, sixth_node)
-tree.AddChild(sixth_node, eight_node)
-tree.AddChild(eight_node, ninth_node)
-tree.AddChild(eight_node, tenth_node)
-tree.AddChild(third_node, fourth_node)
-tree.AddChild(second_node, seventh_node)
-tree.AddChild(second_node, fifth_node)
-
-print(tree.convert_lst_nodes_to_lst_val(tree.EvenTrees()))
-print(tree.convert_lst_nodes_to_lst_val(tree.GetAllNodes()))
-# tree.DeleteNode(fifth_node)
+#
+# root_node: SimpleTreeNode = SimpleTreeNode(1, None)
+# second_node: SimpleTreeNode = SimpleTreeNode(2, root_node)
+# third_node: SimpleTreeNode = SimpleTreeNode(3, root_node)
+# fourth_node: SimpleTreeNode = SimpleTreeNode(4, third_node)
+# fifth_node: SimpleTreeNode = SimpleTreeNode(5, second_node)
+# sixth_node: SimpleTreeNode = SimpleTreeNode(6, root_node)
+# seventh_node: SimpleTreeNode = SimpleTreeNode(7, second_node)
+# eight_node: SimpleTreeNode = SimpleTreeNode(8, sixth_node)
+# ninth_node: SimpleTreeNode = SimpleTreeNode(9, eight_node)
+# tenth_node: SimpleTreeNode = SimpleTreeNode(10, eight_node)
+#
+#
+# tree: SimpleTree = SimpleTree(root_node)
+#
+# tree.AddChild(root_node, second_node)
+# tree.AddChild(root_node, third_node)
+# tree.AddChild(root_node, sixth_node)
+# tree.AddChild(sixth_node, eight_node)
+# tree.AddChild(eight_node, ninth_node)
+# tree.AddChild(eight_node, tenth_node)
+# tree.AddChild(third_node, fourth_node)
+# tree.AddChild(second_node, seventh_node)
+# tree.AddChild(second_node, fifth_node)
+#
+# print(tree.convert_lst_nodes_to_lst_val(tree.EvenTrees()))
+# print(tree.convert_lst_nodes_to_lst_val(tree.GetAllNodes()))
+# # tree.DeleteNode(fifth_node)
 # fourth_node.PrintNodesField()
 # tree.MoveNode(fourth_node, first_node)
 # fourth_node.PrintNodesField()

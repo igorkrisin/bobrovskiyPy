@@ -1,120 +1,59 @@
 import unittest
-from binary_trees_task_2 import BST
-from binary_trees_task_2 import BSTNode
-from binary_trees_task_2 import BSTFind
+from task_9_even_trees import SimpleTree
+from task_9_even_trees import SimpleTreeNode
 
 
 class TestLinkedList(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.root_node: BSTNode = BSTNode(0, 2, None)
-        self.tree: BST = BST(self.root_node)
+        self.root_node: SimpleTreeNode = SimpleTreeNode(1, None)
+        self.second_node: SimpleTreeNode = SimpleTreeNode(2, self.root_node)
+        self.third_node: SimpleTreeNode = SimpleTreeNode(3, self.root_node)
+        self.fourth_node: SimpleTreeNode = SimpleTreeNode(4, self.third_node)
+        self.fifth_node: SimpleTreeNode = SimpleTreeNode(5, self.second_node)
+        self.sixth_node: SimpleTreeNode = SimpleTreeNode(6, self.root_node)
+        self.seventh_node: SimpleTreeNode = SimpleTreeNode(7, self.second_node)
+        self.eight_node: SimpleTreeNode = SimpleTreeNode(8, self.sixth_node)
+        self.ninth_node: SimpleTreeNode = SimpleTreeNode(9, self.eight_node)
+        self.tenth_node: SimpleTreeNode = SimpleTreeNode(10, self.eight_node)
 
-    def test_find_by_key(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 10, self.tree)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(5)), [5, True, False])
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(12)), [11, False, False])
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(1)), [3, False, True])
-        self.root_node2: BSTNode = BSTNode(7, 2, None)
-        self.tree2: BST = BST(self.root_node2)
-        self.tree2.create_tree(self.v, 1, self.tree)
-        self.assertEqual(self.tree2.convert_find_node(self.tree2.FindNodeByKey(12)), [7, False, False])
-        self.root_node3: BSTNode = BSTNode(7, 2, None)
-        self.tree3: BST = BST(self.root_node3)
-        self.tree3.create_tree(self.v, 0, self.tree)
-        self.assertEqual(self.tree3.convert_find_node(self.tree3.FindNodeByKey(12)), [7, False, False])
+        self.tree: SimpleTree = SimpleTree(self.root_node)
 
-    def test_add_node(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 10, self.tree)
-        self.assertEqual(self.tree.AddKeyValue(5, 0), False)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(4)), [3, False, False])
-        self.tree.AddKeyValue(4, 4)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(4)), [4, True, False])
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(12)), [11, False, False])
-        self.tree.AddKeyValue(12, 4)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(12)), [12, True, False])
-        self.assertEqual(self.tree.Count(), 12)
-        self.tree.AddKeyValue(23, 0)
-        self.assertEqual(self.tree.Count(), 12)
+        self.tree.AddChild(self.root_node, self.second_node)
+        self.tree.AddChild(self.root_node, self.third_node)
+        self.tree.AddChild(self.root_node, self.sixth_node)
+        self.tree.AddChild(self.sixth_node, self.eight_node)
+        self.tree.AddChild(self.eight_node, self.ninth_node)
+        self.tree.AddChild(self.eight_node, self.tenth_node)
+        self.tree.AddChild(self.third_node, self.fourth_node)
+        self.tree.AddChild(self.second_node, self.seventh_node)
+        self.tree.AddChild(self.second_node, self.fifth_node)
 
-    def test_find_min(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        #self.tree.print_binary_tree()
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 11, self.tree)
-        self.assertEqual(self.tree.convert_min_max_result(self.tree.FinMinMax(self.root_node, False)), 2)
+    def test_check_tree(self):
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.GetAllNodes()),
+                         [1, 2, 7, 5, 3, 4, 6, 8, 9, 10])
 
-    def test_find_min_for_last_node(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        #self.tree.print_binary_tree()
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 0, self.tree)
-        self.assertEqual(self.tree.convert_min_max_result(self.tree.FinMinMax(self.root_node, False)), 7)
-
-    def test_find_max(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        #self.tree.print_binary_tree()
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 11, self.tree)
-        self.assertEqual(self.tree.convert_min_max_result(self.tree.FinMinMax(self.root_node, True)), 44)
-
-    def test_find_max_for_last_node(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        #self.tree.print_binary_tree()
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 0, self.tree)
-        self.assertEqual(self.tree.convert_min_max_result(self.tree.FinMinMax(self.root_node, True)), 7)
-
-    def test_delete_node(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        self.tree: BST = BST(self.root_node)
-
-        self.tree.create_tree(self.v, 3, self.tree)
-        self.tree.DeleteNodeByKey(7)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(7)), [6, False, False])
-        self.assertEqual(self.tree.Count(), 2)
-        self.assertEqual(self.tree.DeleteNodeByKey(6), None)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(6)), [8, False, True])
-        self.assertEqual(self.tree.Count(), 1)
-        self.assertEqual(self.tree.DeleteNodeByKey(8), None)
-        self.assertEqual(self.tree.Count(), 0)
+    def test_even_tree_check_return_value(self):
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.EvenTrees()), [1, 3, 1, 6])
+        self.eleventh_node = SimpleTreeNode(11, self.seventh_node)
+        self.tree.AddChild(self.seventh_node, self.eleventh_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.EvenTrees()), [1, 2, 1, 3, 1, 6])
+        self.twelth_node = SimpleTreeNode(12, self.fourth_node)
+        self.tree.AddChild(self.fourth_node, self.twelth_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.EvenTrees()), [1, 2, 1, 6])
+        self.tree.DeleteNode(self.twelth_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.EvenTrees()), [1, 2, 1, 3, 1, 6])
+        self.tree.DeleteNode(self.second_node)
+        self.tree.DeleteNode(self.third_node)
+        self.tree.DeleteNode(self.sixth_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.GetAllNodes()),
+                         [1])
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.EvenTrees()), [])
+        self.tree.DeleteNode(self.root_node)
+        self.assertEqual(self.tree.convert_lst_nodes_to_lst_val(self.tree.GetAllNodes()),
+                         [1])
 
 
-
-    def test_delete_last_node(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.tree: BST = BST(self.root_node)
-        self.assertEqual(self.tree.DeleteNodeByKey(7), None)
-        self.assertEqual(self.tree.Count(), 0)
-        self.assertEqual(self.tree.Root, None)
-
-    def test_delete_node_with_2_chld(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 10, self.tree)
-        self.assertEqual(self.tree.DeleteNodeByKey(23), None)
-        self.assertEqual(self.tree.convert_find_node(self.tree.FindNodeByKey(23)), [11, False, False])
-
-    def test_delete_missing_node(self) -> None:
-        self.root_node: BSTNode = BSTNode(7, 2, None)
-        self.v = [6, 8, 5, 9, 10, 23, 44, 11, 3, 2]
-        self.tree: BST = BST(self.root_node)
-        self.tree.create_tree(self.v, 10, self.tree)
-        #self.tree.print_binary_tree()
-        self.assertEqual(self.tree.DeleteNodeByKey(225), False)
-        #print('+++++++++')
 
 
 if __name__ == "__main__":
