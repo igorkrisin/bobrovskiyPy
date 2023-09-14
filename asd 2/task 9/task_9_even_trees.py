@@ -190,7 +190,7 @@ class SimpleTree:
         for chld in chld_lst.Children:
             print(chld.NodeValue)
             print(chld.Children)
-            if chld_lst and SimpleTree(chld).Count() + 1 % 2:
+            if chld_lst and SimpleTree(chld).Count() % 2:
                 result_lst.append(chld.Parent)
                 result_lst.append(chld)
 
@@ -213,14 +213,14 @@ tenth_node: SimpleTreeNode = SimpleTreeNode(10, eight_node)
 tree: SimpleTree = SimpleTree(root_node)
 
 tree.AddChild(root_node, second_node)
-tree.AddChild(root_node, second_node)
-tree.AddChild(second_node, third_node)
-tree.AddChild(first_node, fourth_node)
-tree.AddChild(root_node, fifth_node)
-tree.AddChild(first_node, sixth_node)
-tree.AddChild(first_node, eight_node)
-tree.AddChild(first_node, ninth_node)
-tree.AddChild(first_node, seventh_node)
+tree.AddChild(root_node, third_node)
+tree.AddChild(root_node, sixth_node)
+tree.AddChild(sixth_node, eight_node)
+tree.AddChild(eight_node, ninth_node)
+tree.AddChild(eight_node, tenth_node)
+tree.AddChild(third_node, fourth_node)
+tree.AddChild(second_node, seventh_node)
+tree.AddChild(second_node, fifth_node)
 
 print(tree.convert_lst_nodes_to_lst_val(tree.EvenTrees()))
 print(tree.convert_lst_nodes_to_lst_val(tree.GetAllNodes()))
