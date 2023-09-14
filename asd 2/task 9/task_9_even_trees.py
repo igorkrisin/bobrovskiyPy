@@ -152,7 +152,7 @@ class SimpleTree:
                 print('ch[i]: ', chld_lst.Children[i].NodeValue)
             i += 1
 
-    def EvenTrees(self) -> [SimpleTreeNode]:
+    def EvenTrees4(self) -> [SimpleTreeNode]:
         result_lst: [SimpleTreeNode] = []
         chld_lst: SimpleTreeNode = self.Root
         # print(SimpleTree(chld_lst).Count() + 1)
@@ -173,12 +173,29 @@ class SimpleTree:
                 chld_lst = chld_lst.Children[i]
 
                 # print()
-                print(chld_lst.Children[i].NodeValue)
+                print('Cc2: ', chld_lst.Children if not chld_lst.Children else chld_lst.Children[i].NodeValue)
                 continue
             i += 1
 
         return result_lst
 
+
+    def EvenTrees(self) -> [SimpleTreeNode]:
+        chld_lst = self.Root
+        result_lst = []
+        # if chld_lst.Parent is None:
+        #     result_lst += [self.Root]
+        if not chld_lst.Children:
+            return result_lst
+        for chld in chld_lst.Children:
+            print(chld.NodeValue)
+            print(chld_lst.Children)
+            if chld_lst and SimpleTree(chld).Count() + 1 % 2:
+                result_lst.append(chld.Parent)
+                result_lst.append(chld)
+
+            SimpleTree(chld).EvenTrees()
+        return result_lst
 
 
 root_node: SimpleTreeNode = SimpleTreeNode(0, None)
