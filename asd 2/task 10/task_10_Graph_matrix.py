@@ -46,6 +46,12 @@ class SimpleGraph:
             self.m_adjacency[v1][v2] = 0
 
     def print_graph(self) -> None:
+        arr = []
+        for i in range(0, len(self.m_adjacency)):
+            arr.append(i)
+        # print(arr, end=' ')
+        print(f'\033[2;0;43m{arr}\033[0;0m')
+
         for i in range(0, len(self.m_adjacency)):
             print(self.m_adjacency[i])
         print('----------')
@@ -77,8 +83,6 @@ class SimpleGraph:
 
         return result
 
-
-
     def return_vertex_hit(self) -> [Vertex]:
         result = []
         for vertex in self.vertex:
@@ -89,16 +93,55 @@ class SimpleGraph:
 
         return result
 
-    def DepthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
-        pass
-
     def switching_visit_vertex_for_true(self) -> None:
         for vertex in self.vertex:
             vertex.Hit = False
 
+    def convert_vert_list_to_value_list(self, vert_list: [Vertex]) -> None:
+        if vert_list:
+            for vert in vert_list:
+                print(vert.Value, end=' ')
+        else:
+            print('vert is None')
+
+    def dfs(self, stack: [Vertex], VFrom: int, VTo: int) -> [Vertex]:
+        start_vert: int = VFrom
+        next_ver: int = VFrom + 1
+        # print('sV: :', start_vert)
+        # print('nV: ', next_ver)
+        self.vertex[VFrom].Hit = True
+        # self.print_vert_hit()
+        stack.append(self.vertex[VFrom])  # убрать поле Value!!!!!!!
+        # print(stack)
+        
+        if self.m_adjacency[start_vert][next_ver] == 1 and not self.vertex[next_ver].Hit and next_ver == VTo:
+            # print(1111)
+            return stack.append(self.vertex[next_ver])
+        if self.m_adjacency[start_vert][next_ver] == 1 and not self.vertex[next_ver].Hit and next_ver != VTo:
+
+            self.dfs(stack, next_ver, VTo)
+        elif self.m_adjacency[start_vert][next_ver] == 1 and self.vertex[next_ver].Hit and next_ver != VTo:
+            # print('stack: ', self.convert_vert_list_to_value_list(stack))
+
+            print('pop: ', stack.pop(len(stack) - 1).Value)
+            if not stack:
+                return []
+            #print(self.vertex.index(stack[len(stack) -1]))
+            start_vert = self.vertex.index(stack[len(stack) -1])
+            self.vertex[start_vert].Hit = True
+            self.dfs(stack, start_vert, VTo)
+
+        return stack
+
+
+    def DepthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
+        self.switching_visit_vertex_for_true()
+        simple_stack: [Vertex] = []
+        return self.dfs(simple_stack, VFrom, VTo)
+
 
 graph: SimpleGraph = SimpleGraph(7)
-graph.print_graph()
+# graph.print_graph()
 graph.AddVertex(0)
 graph.AddVertex(1)
 graph.AddVertex(2)
@@ -115,9 +158,10 @@ graph.AddEdge(3, 4)
 graph.AddEdge(4, 5)
 graph.AddEdge(5, 6)
 graph.AddEdge(6, 0)
-#graph.RemoveVertex(0)
+# graph.RemoveVertex(0)
 
-graph.print_graph()
-graph.print_vert()
-graph.print_vert_hit()
+# graph.print_graph()
+#graph.print_vert()
+# graph.print_vert_hit()
 
+graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(0,4))
