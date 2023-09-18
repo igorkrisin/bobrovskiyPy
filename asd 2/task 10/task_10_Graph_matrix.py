@@ -93,7 +93,7 @@ class SimpleGraph:
 
         return result
 
-    def switching_visit_vertex_for_true(self) -> None:
+    def switching_visit_vertex_for_false(self) -> None:
         for vertex in self.vertex:
             vertex.Hit = False
 
@@ -139,28 +139,42 @@ class SimpleGraph:
     #
     #     return stack
 
-    def dfs(self, stack: [Vertex], VFrom: int, VTo: int) -> [Vertex]:
-        start_vert: int = VFrom
-        #next_ver: int = VFrom + 1
-        # print('sV: :', start_vert)
-        # print('nV: ', next_ver)
-        self.vertex[VFrom].Hit = True
-        # self.print_vert_hit()
-        stack.append(self.vertex[VFrom])  # убрать поле Value!!!!!!!
-        # print(stack)
-        i: int = 0
-        while stack:
-            if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value == VTo:
-                    # print(1111)
-                    stack.append(self.vertex[i])
-                    return stack
-            print('search_ind: ', self.search_index_not_visited_node(self.m_adjacency[start_vert]))
-            i += 1
+    # def dfs(self, stack: [Vertex], VFrom: int, VTo: int) -> [Vertex]:
+    #     start_vert: int = VFrom
+    #     #next_ver: int = VFrom + 1
+    #     # print('sV: :', start_vert)
+    #     # print('nV: ', next_ver)
+    #     self.vertex[VFrom].Hit = True
+    #     # self.print_vert_hit()
+    #     stack.append(self.vertex[VFrom])  # убрать поле Value!!!!!!!
+    #     # print(stack)
+    #     i: int = 0
+    #     while stack:
+    #         if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value == VTo:
+    #                 # print(1111)
+    #                 stack.append(self.vertex[i])
+    #                 return stack
+    #         #print('search_ind: ', self.search_index_not_visited_node(self.m_adjacency[start_vert]))
+    #         i += 1
+    #
+    # def search_index_not_visited_node(self, vert: int):
+    #     for i in range(0, len(self.m_adjacency[0])):
+    #         if self.m_adjacency[vert][i] == 1:
+    #             pass
 
 
-   
+    def dfs(self, v: int, arr: [int]) -> [int]:
+        self.vertex[v].Hit = True
+        for i in range(0, len(self.vertex)):
+            if self.m_adjacency[v][i] == 1 and not self.vertex[i].Hit:
+                arr.append(self.vertex[i].Value)
+                #print('vertex: ', arr)
+                self.dfs(i, arr)
+        return arr
+
+
     def DepthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
-        self.switching_visit_vertex_for_true()
+        self.switching_visit_vertex_for_false()
         simple_stack: [Vertex] = []
         return self.dfs(simple_stack, VFrom, VTo)
 
@@ -184,12 +198,12 @@ graph.AddEdge(4, 5)
 graph.AddEdge(5, 6)
 graph.AddEdge(6, 0)
 # graph.RemoveVertex(0)
-
+print(graph.dfs(3, []))
 # graph.print_graph()
 #graph.print_vert()
 # graph.print_vert_hit()
 
-graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(0,4))
+#graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(0,4))
 
 # for i in range(0, len(self.m_adjacency)):
 #     if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
