@@ -183,6 +183,11 @@ class SimpleGraph:
             if self.vertex[v_to] == self.get_all_not_visited_neighbors(v_from)[i]:
                 return self.vertex.index(self.vertex[v_to])
 
+    def get_index_vertex(self, vert: Vertex):
+        for i in range(0, len(self.vertex)):
+            if vert == self.vertex[i]:
+                return i
+
 
     def dfs(self,   stack: [int], VFrom: int, VTo: int, ) -> [Vertex]:
         if VFrom < 0 or VFrom > len(self.vertex)-1 or VTo < 0 or VTo > len(self.vertex)-1:
@@ -193,24 +198,34 @@ class SimpleGraph:
         for i in range(0, len(self.vertex)):
             #self.print_vert_hit()
             #self.print_vert()
-            if self.is_neighbours_equal_v_to(VFrom, VTo):
+            print('vFrom2: ', self.vertex[VFrom].Value)
+            print('VTo: ', self.vertex[VTo].Value)
+            print('self.is_neighbours_equal_v_to(VFrom, VTo): ', self.is_neighbours_equal_v_to(VFrom, VTo))
+            if self.vertex[VFrom] == self.vertex[VTo]:
+                return stack
+            elif self.is_neighbours_equal_v_to(VFrom, VTo):
                 print('self.get_index_neighbours_equal_v_to(VFrom, VTo): ', self.get_index_neighbours_equal_v_to(VFrom, VTo))
+                self.vertex[i].Hit = True
                 stack.append(self.vertex[self.get_index_neighbours_equal_v_to(VFrom, VTo)])
                 return stack
 
-            if self.m_adjacency[VFrom][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
+            elif self.vertex[i] in self.get_all_not_visited_neighbors(VFrom):
                 print('i: ', i)
                 VFrom = i
                 print('vFrom:', self.vertex[VFrom].Value)
-                self.dfs(stack, i, VTo)
-            if self.m_adjacency[VFrom][i] == 1 and self.vertex[i].Hit:
+                self.dfs(stack, VFrom, VTo)
+            elif self.m_adjacency[VFrom][i] == 1 and self.vertex[i].Hit:
                 #print('stack: ', self.convert_vert_list_to_value_list(stack))
                 stack.pop()
-                #print('stack2: ', self.convert_vert_list_to_value_list(stack))
+                print('stack2: ', end=' ')
+                self.convert_vert_list_to_value_list(stack)
+                print('\n')
                 if not stack:
                     return []
-                VFrom = stack.index(stack[-1])
-                #print('vFrom:', self.vertex[VFrom].Value )
+                print('sv: ', stack[-1].Value)
+                ind = self.get_index_vertex(stack[-1])
+                VFrom = ind
+                print('vFrom:', self.vertex[VFrom].Value )
                 self.vertex[VFrom].Hit = True
 
                 #self.dfs(stack, VFrom, VTo)
@@ -248,7 +263,7 @@ graph.AddEdge(6, 0)
 #graph.print_vert()
 # graph.print_vert_hit()
 
-graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(2,6))
+graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(1 ,6))
 
 # for i in range(0, len(self.m_adjacency)):
 #     if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
