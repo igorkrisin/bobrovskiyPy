@@ -218,3 +218,48 @@ class SimpleGraph:
         self.switching_visit_vertex_for_false()
         simple_stack: [Vertex] = []
         return self.dfs(simple_stack, VFrom, VTo)
+
+#
+# graph: SimpleGraph = SimpleGraph(7)
+# # graph.print_graph()
+# graph.AddVertex(0)
+# graph.AddVertex(1)
+# graph.AddVertex(2)
+# graph.AddVertex(3)
+# graph.AddVertex(4)
+# graph.AddVertex(5)
+# graph.AddVertex(6)
+# graph.AddEdge(0, 1)
+# graph.AddEdge(0, 4)
+# graph.AddEdge(1, 2)
+# graph.AddEdge(1, 3)
+# graph.AddEdge(2, 3)
+# graph.AddEdge(3, 4)
+# graph.AddEdge(4, 5)
+# graph.AddEdge(5, 6)
+# graph.AddEdge(6, 0)
+# # graph.RemoveVertex(0)
+# #print(graph.dfs([], 3, 0))
+# # graph.print_graph()
+# #graph.print_vert()
+# # graph.print_vert_hit()
+# print('finish: ')
+# graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(4, 6))
+#
+# # for i in range(0, len(self.m_adjacency)):
+# #     if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
+# #         print('i: ', i)
+# #         self.dfs(stack, i, VTo)
+# # for i in range(0, len(self.m_adjacency)):
+# #
+# #     if self.m_adjacency[start_vert][i] == 1 and self.vertex[i].Hit and self.vertex[i].Value != VTo:
+# #         # print('stack: ', self.convert_vert_list_to_value_list(stack))
+# #         print('i2: ', i)
+# #         print('pop: ', stack.pop(len(stack) - 1).Value)
+# #         if not stack:
+# #             return []
+# #             # print(self.vertex.index(stack[len(stack) -1]))
+# #         start_vert = self.vertex.index(stack[len(stack) - 1])
+# #         print('SV: ', start_vert)
+# #         self.vertex[start_vert].Hit = True
+# #         self.dfs(stack, start_vert, VTo)
