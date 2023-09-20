@@ -3,6 +3,7 @@ class Vertex:
     def __init__(self, val):
         self.Value = val
         self.Hit = False
+        self.Parent = None
 
 
 class SimpleGraph:
@@ -11,6 +12,7 @@ class SimpleGraph:
         self.max_vertex = size
         self.m_adjacency = [[0] * size for _ in range(size)]
         self.vertex = [None] * size
+        #self.parent: [Vertex] = [None]*size
 
     def AddVertex(self, v: int) -> None:
         for i in range(0, len(self.vertex)):
@@ -148,50 +150,134 @@ class SimpleGraph:
         return stack
 
 
+
+
+
+
+    def print_parent(self):
+        result = []
+        for i in range(0, len(self.vertex)):
+            result += [self.vertex[i].Parent if not self.vertex[i].Parent else self.vertex[i].Parent.Value]
+        print(result)
+
+    def get_one_neighbor_not_visited_vertex(self, VTo: int):
+        for i in range(0, len(self.vertex)):
+            if self.IsEdge(VTo, i) and not self.vertex[i].Hit:
+                return self.vertex[i]
+
+    def is_have_not_visited_neighbors(self):
+        result = []
+        for vert in self.vertex:
+            if not vert.Hit:
+                result += [vert]
+        return result
+
+
+    def add_parent(self, parent: Vertex, children: Vertex) -> None:
+        pass
+
+
+
+
+    def bild_path(self, finish_vert: int, start_vert: int) -> [Vertex]:
+        print('fv:: ', finish_vert)
+        print('start_vert: ', start_vert)
+        parent = self.vertex[finish_vert].Parent
+        print('parent: ', parent.Value)
+        print('self.vertex[start_vert]: ', self.vertex[start_vert].Value)
+        result = []
+        result.append(self.vertex[finish_vert])
+
+        print('par app2: ', self.vertex[finish_vert].Value)
+        while parent and self.vertex[start_vert] != parent:
+            result.append(parent)
+            print('prent app: ', self.convert_vert_list_to_value_list(result))
+            parent = parent.Parent
+
+        print('self.vertex[start_vert]: ', self.vertex[start_vert].Value)
+        print('parent: ', (self.vertex[finish_vert].Value))
+        if self.vertex[start_vert] == parent:
+            print(1213)
+            result = [parent] + result
+            return result
+        return result
+
+
+
     def DepthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
         self.switching_visit_vertex_for_false()
         simple_stack: [Vertex] = []
-        return self.dfs(simple_stack, VFrom, VTo)
+        return self.bfs(simple_stack, VFrom, VTo)
 
-    def bfs(self, q: [Vertex], path: [Vertex], VFrom: int, VTo: int):
-        pass
+    def bfs(self, q: [Vertex], VFrom: int, VTo: int):
+        start_vert: Vertex = self.vertex[VFrom]
+        start_vert.Hit = True
+        finish_vert = VFrom
+        #q.append(start_vert)
+        while self.is_have_not_visited_neighbors():
+
+            list_all_neighbors = self.get_all_not_visited_neighbors(finish_vert)
+            for vert in list_all_neighbors:
+                q.append(vert)
+                vert.Hit = True
+                if vert == self.vertex[VTo]:
+                    vert.Parent = self.vertex[finish_vert]
+                    print("VFrom: ", VFrom)
+                    print("VTo: ", VTo)
+                    print('QQQ: ', self.convert_vert_list_to_value_list(q))
+                    return self.bild_path(VTo, VFrom)
+            print(self.convert_vert_list_to_value_list(q))
+            if q:
+                finish_vert = self.get_index_vertex(q.pop(0))
+            else:
+                return []
+
+
+
+
 
 
     def BreadthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
         self.switching_visit_vertex_for_false()
         q: [Vertex] = []
         path: [Vertex] = []
-        return self.bfs(q, path, VFrom, VTo)
+        return self.bfs(q, VFrom, VTo)
         # узлы задаются позициями в списке vertex
         # возвращается список узлов -- путь из VFrom в VTo
         # или [] если пути нету
 
 #
-# graph: SimpleGraph = SimpleGraph(7)
-# # graph.print_graph()
-# graph.AddVertex(0)
-# graph.AddVertex(1)
-# graph.AddVertex(2)
-# graph.AddVertex(3)
-# graph.AddVertex(4)
-# graph.AddVertex(5)
-# graph.AddVertex(6)
-# graph.AddEdge(0, 1)
-# graph.AddEdge(0, 4)
-# graph.AddEdge(1, 2)
-# graph.AddEdge(1, 3)
-# graph.AddEdge(2, 3)
-# graph.AddEdge(3, 4)
-# graph.AddEdge(4, 5)
-# graph.AddEdge(5, 6)
-# graph.AddEdge(6, 0)
-# # graph.RemoveVertex(0)
-# #print(graph.dfs([], 3, 0))
-# # graph.print_graph()
-# #graph.print_vert()
-# # graph.print_vert_hit()
-# print('finish: ')
-# graph.convert_vert_list_to_value_list(graph.DepthFirstSearch(4, 6))
+graph: SimpleGraph = SimpleGraph(7)
+# graph.print_graph()
+graph.AddVertex(0)
+graph.AddVertex(1)
+graph.AddVertex(2)
+graph.AddVertex(3)
+graph.AddVertex(4)
+graph.AddVertex(5)
+graph.AddVertex(6)
+graph.AddEdge(0, 1)
+graph.AddEdge(0, 4)
+graph.AddEdge(1, 2)
+graph.AddEdge(1, 3)
+graph.AddEdge(2, 3)
+graph.AddEdge(3, 4)
+graph.AddEdge(4, 5)
+graph.AddEdge(5, 6)
+graph.AddEdge(6, 0)
+# graph.vertex[0].Hit = True
+# graph.RemoveVertex(0)
+#print(graph.dfs([], 3, 0))
+# graph.print_graph()
+#graph.print_vert()
+# graph.print_vert_hit()
+# print(graph.get_one_neighbor_not_visited_vertex(6).Value)
+#graph.add_parent()
+graph.print_parent()
+#graph.vertex[0].Hit = True
+print(graph.convert_vert_list_to_value_list(graph.is_have_not_visited_neighbors()))
+#print(graph.bild_path(0, 3))
+print('list path: ', graph.convert_vert_list_to_value_list(graph.BreadthFirstSearch(0, 2)))
 #
 # # for i in range(0, len(self.m_adjacency)):
 # #     if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
