@@ -29,9 +29,7 @@ class SimpleGraph:
 
     # v1 - begin, v2 - end
     def IsEdge(self, v1: int, v2: int) -> bool:
-        if self.m_adjacency[v1][v2] == 1:
-            return True
-        return False
+        return self.m_adjacency[v1][v2] == 1
 
     def AddEdge(self, v1: int, v2: int) -> None:
         if v1 < len(self.m_adjacency[0]) and v2 < len(self.m_adjacency[0]):

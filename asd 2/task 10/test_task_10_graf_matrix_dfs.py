@@ -1,6 +1,6 @@
 import unittest
-from task_10_Graph_matrix import Vertex
-from task_10_Graph_matrix import SimpleGraph
+from task_10_Graph_matrix_dfs import Vertex
+from task_10_Graph_matrix_dfs import SimpleGraph
 
 
 class TestLinkedList(unittest.TestCase):

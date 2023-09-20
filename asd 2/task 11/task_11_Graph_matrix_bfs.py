@@ -29,9 +29,8 @@ class SimpleGraph:
 
     # v1 - begin, v2 - end
     def IsEdge(self, v1: int, v2: int) -> bool:
-        if self.m_adjacency[v1][v2] == 1:
-            return True
-        return False
+        return self.m_adjacency[v1][v2] == 1
+
 
     def AddEdge(self, v1: int, v2: int) -> None:
         if v1 < len(self.m_adjacency[0]) and v2 < len(self.m_adjacency[0]):
@@ -100,64 +99,6 @@ class SimpleGraph:
     def convert_vert_list_to_value_list(self, vert_list: [Vertex]) -> None:
         return [vertex.Value for vertex in vert_list]
 
-    # def dfs2(self, stack: [Vertex], VFrom: int, VTo: int) -> [Vertex]:
-    #     start_vert: int = VFrom
-    #     #next_ver: int = VFrom + 1
-    #     # print('sV: :', start_vert)
-    #     # print('nV: ', next_ver)
-    #     self.vertex[VFrom].Hit = True
-    #     # self.print_vert_hit()
-    #     stack.append(self.vertex[VFrom])  # убрать поле Value!!!!!!!
-    #     # print(stack)
-    #     for i in range(0, len(self.m_adjacency)):
-    #         #print('self.vertex[i]: ', self.vertex[i].Value)
-    #         if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value == VTo:
-    #             # print(1111)
-    #             stack.append(self.vertex[i])
-    #             return stack
-    #     for i in range(0, len(self.m_adjacency)):
-    #         if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
-    #             print('i: ', i)
-    #             self.dfs(stack, i, VTo)
-    #     for i in range(0, len(self.m_adjacency)):
-    #
-    #         if self.m_adjacency[start_vert][i] == 1 and self.vertex[i].Hit and self.vertex[i].Value != VTo:
-    #                 # print('stack: ', self.convert_vert_list_to_value_list(stack))
-    #             print('i2: ', i)
-    #             print('pop: ', stack.pop(len(stack) - 1).Value)
-    #             if not stack:
-    #                 return []
-    #                 #print(self.vertex.index(stack[len(stack) -1]))
-    #             start_vert = self.vertex.index(stack[len(stack) -1])
-    #             print('SV: ', start_vert)
-    #             self.vertex[start_vert].Hit = True
-    #             self.dfs(stack, start_vert, VTo)
-    #
-    #     return stack
-
-    # def dfs(self, stack: [Vertex], VFrom: int, VTo: int) -> [Vertex]:
-    #     start_vert: int = VFrom
-    #     #next_ver: int = VFrom + 1
-    #     # print('sV: :', start_vert)
-    #     # print('nV: ', next_ver)
-    #     self.vertex[VFrom].Hit = True
-    #     # self.print_vert_hit()
-    #     stack.append(self.vertex[VFrom])  # убрать поле Value!!!!!!!
-    #     # print(stack)
-    #     i: int = 0
-    #     while stack:
-    #         if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value == VTo:
-    #                 # print(1111)
-    #                 stack.append(self.vertex[i])
-    #                 return stack
-    #         #print('search_ind: ', self.search_index_not_visited_node(self.m_adjacency[start_vert]))
-    #         i += 1
-    #
-    # def search_index_not_visited_node(self, vert: int):
-    #     for i in range(0, len(self.m_adjacency[0])):
-    #         if self.m_adjacency[vert][i] == 1:
-    #             pass
-
     def get_all_not_visited_neighbors(self, v_from: int) -> [Vertex]:
         result = []
         if v_from < 0 or v_from > len(self.vertex):
@@ -189,22 +130,14 @@ class SimpleGraph:
         start_vert = VFrom
         self.vertex[start_vert].Hit = True
         stack.append(self.vertex[start_vert])
-
         if self.is_neighbours_not_visited_equal_v_to_(VFrom, VTo):
             stack.append(self.vertex[self.get_index_neighbours_equal_v_to(VFrom, VTo)])
-            # print(stack)
             return stack
         for i in range(0, len(self.get_all_not_visited_neighbors(start_vert))):
             if stack[-1] == self.vertex[VTo]:
-                # print(213213213)
                 return stack
             if self.get_all_not_visited_neighbors(start_vert):
-                # print('len: ', len(self.get_all_not_visited_neighbors(start_vert)))
-                # print(self.convert_vert_list_to_value_list(self.get_all_not_visited_neighbors(start_vert)))
-                #
-                # print('i: ', i)
                 start_vert = self.vertex.index(self.get_all_not_visited_neighbors(start_vert)[0])
-                # print('sv: ', start_vert)
                 self.dfs(stack, start_vert, VTo)
             if not self.get_all_not_visited_neighbors(start_vert):
                 stack.pop()
@@ -214,10 +147,24 @@ class SimpleGraph:
                 self.vertex[start_vert].Hit = True
         return stack
 
+
     def DepthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
         self.switching_visit_vertex_for_false()
         simple_stack: [Vertex] = []
         return self.dfs(simple_stack, VFrom, VTo)
+
+    def bfs(self, q: [Vertex], path: [Vertex], VFrom: int, VTo: int):
+        pass
+
+
+    def BreadthFirstSearch(self, VFrom: int, VTo: int) -> [Vertex]:
+        self.switching_visit_vertex_for_false()
+        q: [Vertex] = []
+        path: [Vertex] = []
+        return self.bfs(q, path, VFrom, VTo)
+        # узлы задаются позициями в списке vertex
+        # возвращается список узлов -- путь из VFrom в VTo
+        # или [] если пути нету
 
 #
 # graph: SimpleGraph = SimpleGraph(7)
