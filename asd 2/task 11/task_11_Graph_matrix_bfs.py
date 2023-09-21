@@ -152,6 +152,14 @@ class SimpleGraph:
         self.switching_visit_vertex_for_false()
         simple_stack: [Vertex] = []
         return self.bfs(simple_stack, VFrom, VTo)
+    
+    
+    ########################################################### BFS #######################################################
+    
+    
+    
+    
+    
 
     def print_parent(self):
         result = []
@@ -184,10 +192,11 @@ class SimpleGraph:
         result = []
         result.append(self.vertex[finish_vert])
         if self.vertex[finish_vert].Parent == self.vertex[start_vert]:
+            print(11111111)
             result = [self.vertex[start_vert]] + result
             return result
         print('par app2: ', self.vertex[finish_vert].Value)
-        while parent and self.get_index_vertex(self.vertex[start_vert]) == start_vert:
+        while parent:
             result = [parent] + result
             # print('prent app: ', self.convert_vert_list_to_value_list(result))
             print('par3: ', parent.Value)
@@ -195,10 +204,7 @@ class SimpleGraph:
 
         # print('self.vertex[start_vert]: ', self.vertex[start_vert].Value)
         # print('parent: ', (self.vertex[finish_vert].Value))
-        if self.get_index_vertex(self.vertex[start_vert]) == start_vert:
-            # print(1213)
-            result = [self.vertex[start_vert]] + result
-            return result
+        
         return result
 
     def bfs(self, q: [Vertex], VFrom: int, VTo: int):
@@ -234,14 +240,8 @@ class SimpleGraph:
         q: [Vertex] = []
         path: [Vertex] = []
         return self.bfs(q, VFrom, VTo)
-        # узлы задаются позициями в списке vertex
-        # возвращается список узлов -- путь из VFrom в VTo
-        # или [] если пути нету
 
-
-#
 graph: SimpleGraph = SimpleGraph(7)
-# graph.print_graph()
 graph.AddVertex(0)
 graph.AddVertex(1)
 graph.AddVertex(2)
@@ -258,19 +258,12 @@ graph.AddEdge(3, 4)
 graph.AddEdge(4, 5)
 graph.AddEdge(5, 6)
 graph.AddEdge(6, 0)
-# graph.vertex[0].Hit = True
-# graph.RemoveVertex(0)
-# print(graph.dfs([], 3, 0))
-# graph.print_graph()
-# graph.print_vert()
-# graph.print_vert_hit()
-# print(graph.get_one_neighbor_not_visited_vertex(6).Value)
-# graph.add_parent()
 graph.print_parent()
+graph.RemoveEdge(6, 0)
 # graph.vertex[0].Hit = True
 print(graph.convert_vert_list_to_value_list(graph.is_have_not_visited_neighbors()))
 # print(graph.bild_path(0, 3))
-print('list path: ', graph.convert_vert_list_to_value_list(graph.BreadthFirstSearch(5, 1)))
+print('list path: ', graph.convert_vert_list_to_value_list(graph.BreadthFirstSearch(6, 1)))
 #
 # # for i in range(0, len(self.m_adjacency)):
 # #     if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
