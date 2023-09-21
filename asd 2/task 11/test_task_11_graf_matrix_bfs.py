@@ -1,6 +1,6 @@
 import unittest
-from task_10_Graph_matrix import Vertex
-from task_10_Graph_matrix import SimpleGraph
+from task_11_Graph_matrix_bfs import Vertex
+from task_11_Graph_matrix_bfs import SimpleGraph
 
 
 class TestLinkedList(unittest.TestCase):
@@ -26,12 +26,13 @@ class TestLinkedList(unittest.TestCase):
 
     def test_search_path_for_vert(self):
         self.assertEqual(self.graph.return_vertex(), [0, 1, 2, 3, 4, 5, 6])
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(0, 4)), [0, 4])
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(2, 6)), [2, 1, 0, 6])
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(1, 5)), [1, 0, 4, 5])
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(3, 0)), [3, 1, 0])
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(5, 2)), [5, 4, 0, 1, 2])
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(6, 3)), [6, 0, 1, 3])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(0, 4)), [0, 4])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(1, 5)), [1, 0, 4, 5])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(2, 6)), [2, 1, 0, 6])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(1, 5)), [1, 0, 4, 5])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(3, 0)), [3, 1, 0])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(5, 2)), [5, 4, 3, 2])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.BreadthFirstSearch(6, 3)), [6, 0, 1, 3])
 
     def test_not_has_vert(self):
         self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.DepthFirstSearch(0, 28)), [])

@@ -1,5 +1,5 @@
 import unittest
-from task_10_Graph_matrix_dfs import Vertex
+from ta import Vertex
 from task_10_Graph_matrix_dfs import SimpleGraph
 
 
