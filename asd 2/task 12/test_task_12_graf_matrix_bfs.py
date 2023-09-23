@@ -35,10 +35,26 @@ class TestLinkedList(unittest.TestCase):
 
     def test_remove_edge_end_find_not_triangle_vert(self):
         self.graph.RemoveEdge(2, 3)
-        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.WeakVertices()), [0, 1, 2, 4])
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.WeakVertices()), [0, 1, 2, 3, 4])
+        self.graph.RemoveEdge(7, 5)
+        self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph.WeakVertices()),
+                         [0, 1, 2, 3, 4, 5, 6, 7, 8])
+
     def test_empty_graf(self):
         self.graph2: SimpleGraph = SimpleGraph(0)
         self.assertEqual(self.graph.convert_vert_list_to_value_list(self.graph2.WeakVertices()), [])
+
+    def test_graf_with_one_vertex(self):
+        self.graph3: SimpleGraph = SimpleGraph(2)
+        self.graph3.AddVertex(0)
+        self.graph3.AddVertex(1)
+        self.assertEqual(self.graph3.convert_vert_list_to_value_list(self.graph3.WeakVertices()), [0, 1])
+        self.graph3.RemoveVertex(1)
+        self.graph3.AddVertex(3)
+        # self.graph3.print_graph()
+        self.assertEqual(self.graph3.convert_vert_list_to_value_list(self.graph3.WeakVertices()), [0, 3])
+        self.graph3.AddVertex(4)
+
 
 if __name__ == "__main__":
     unittest.main()

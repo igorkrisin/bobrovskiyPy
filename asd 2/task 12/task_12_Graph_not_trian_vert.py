@@ -41,8 +41,12 @@ class SimpleGraph:
                         self.m_adjacency[j][i] = 1
 
     def RemoveEdge(self, v1: int, v2: int) -> None:
+        # print('self.m_adjacency[v1][v2]: ', self.m_adjacency[v1][v2])
         if self.m_adjacency[v1][v2] == 1:
             self.m_adjacency[v1][v2] = 0
+        if self.m_adjacency[v2][v1] == 1:
+            self.m_adjacency[v2][v1] = 0
+            # print('self.m_adjacency[v1][v2]2: ', self.m_adjacency[v1][v2])
 
     def print_graph(self) -> None:
         arr = []
@@ -273,7 +277,7 @@ class SimpleGraph:
 
 
 
-    #TODO соствить тесты по картинке из задания 
+    #TODO проверить корректность удаления, после удаления некорректный граф
 
     #проверить есть ли ребра среди ее соседей, если есть хотя бы у одного
     #бeрeм следующую непосещунную верщину. помечаем ее посешенной и смотрим ребра ее соседей
@@ -282,6 +286,9 @@ class SimpleGraph:
 
 
     def WeakVertices(self) -> [Vertex]:
+        #self.switch_all_not_visited()
+        #self.switching_visit_vertex_for_false()
+        #self.switch_all_parent_is_none()
         result: [Vertex] = []
         for vert in self.vertex:
             if self.is_edge_only_one(self.get_index_vertex(vert)):
@@ -291,9 +298,9 @@ class SimpleGraph:
         return result
 
 
-# graph: SimpleGraph = SimpleGraph(9)
-# graph.AddVertex(0)
-# graph.AddVertex(1)
+graph: SimpleGraph = SimpleGraph(2)
+graph.AddVertex(0)
+graph.AddVertex(1)
 # graph.AddVertex(2)
 # graph.AddVertex(3)
 # graph.AddVertex(4)
@@ -313,8 +320,12 @@ class SimpleGraph:
 # graph.AddEdge(7, 5)
 # graph.AddEdge(5, 6)
 # graph.AddEdge(6, 7)
+graph.print_graph()
+# graph.RemoveEdge(0, 1)
+#graph.RemoveEdge(7, 5)
+# graph.RemoveEdge(2, 3)
 # graph.print_graph()
-# print(graph.convert_vert_list_to_value_list(graph.WeakVertices()))
+print(graph.convert_vert_list_to_value_list(graph.WeakVertices()))
 # #
 # graph: SimpleGraph = SimpleGraph(7)
 # graph.AddVertex(0)
