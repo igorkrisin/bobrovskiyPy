@@ -260,35 +260,38 @@ class SimpleGraph:
             return False
         return True
 
+    def check_all_neighbors_have_edge(self, list_neighbors: [Vertex]):
+        for i in range(0, len(list_neighbors)):
+            for y in range(i, len(list_neighbors)):
+                if list_neighbors[i] != list_neighbors[y]:
+                    # print('neighI: ', list_neighbors[i].Value, 'neighY: ', self.get_index_vertex(list_neighbors[y]))
+                    if self.IsEdge(self.get_index_vertex(list_neighbors[i]),
+                                   self.get_index_vertex(list_neighbors[y])):
+                        return True
+        return False
+
     def is_vertex_neighbors_not_connect(self, vert: Vertex) -> bool:
         # print('vert: ', vert.Value)
         list_neighbor: [Vertex] = self.get_all_vert_neighbors(self.get_index_vertex(vert))
         # print('list_neighbor: ', self.convert_vert_list_to_value_list(list_neighbor))
         for i in range(0, len(list_neighbor)):
             # print('list_neighbor[i]: ', list_neighbor[i].Value)
-            if i+1 >= len(list_neighbor):
+            if i + 1 >= len(list_neighbor):
                 # print('break: ')
                 break
-            if self.IsEdge(self.get_index_vertex(list_neighbor[i]), self.get_index_vertex(list_neighbor[i+1])):
-                # print('neighb1: ', list_neighbor[i].Value, 'neighb2: ', list_neighbor[i+1].Value)
-                return False
+            # print('is_EDGE?: ',
+            #       self.IsEdge(self.get_index_vertex(list_neighbor[i]), self.get_index_vertex(list_neighbor[i + 1])))
+            # print('neighb1: ', list_neighbor[i].Value, 'neighb2: ', list_neighbor[i + 1].Value)
+        if self.check_all_neighbors_have_edge(list_neighbor):
+            # print('neighb1: ', list_neighbor[i].Value, 'neighb2: ', list_neighbor[i + 1].Value)
+            return False
         # print('True')
         return True
 
-
-
-    #TODO проверить корректность удаления, после удаления некорректный граф
-
-    #проверить есть ли ребра среди ее соседей, если есть хотя бы у одного
-    #бeрeм следующую непосещунную верщину. помечаем ее посешенной и смотрим ребра ее соседей
-    #если ребра нет -  добавдяем в список элемент
-    #и так пока все вершины не будут посещены
-
-
     def WeakVertices(self) -> [Vertex]:
-        #self.switch_all_not_visited()
-        #self.switching_visit_vertex_for_false()
-        #self.switch_all_parent_is_none()
+        # self.switch_all_not_visited()
+        # self.switching_visit_vertex_for_false()
+        # self.switch_all_parent_is_none()
         result: [Vertex] = []
         for vert in self.vertex:
             if self.is_edge_only_one(self.get_index_vertex(vert)):
@@ -298,34 +301,7 @@ class SimpleGraph:
         return result
 
 
-graph: SimpleGraph = SimpleGraph(2)
-graph.AddVertex(0)
-graph.AddVertex(1)
-# graph.AddVertex(2)
-# graph.AddVertex(3)
-# graph.AddVertex(4)
-# graph.AddVertex(5)
-# graph.AddVertex(6)
-# graph.AddVertex(7)
-# graph.AddVertex(8)
-# graph.AddEdge(0, 1)
-# graph.AddEdge(1, 2)
-# graph.AddEdge(1, 3)
-# graph.AddEdge(2, 3)
-# graph.AddEdge(3, 4)
-# graph.AddEdge(3, 5)
-# graph.AddEdge(4, 8)
-# graph.AddEdge(8, 5)
-# graph.AddEdge(8, 7)
-# graph.AddEdge(7, 5)
-# graph.AddEdge(5, 6)
-# graph.AddEdge(6, 7)
-graph.print_graph()
-# graph.RemoveEdge(0, 1)
-#graph.RemoveEdge(7, 5)
-# graph.RemoveEdge(2, 3)
-# graph.print_graph()
-print(graph.convert_vert_list_to_value_list(graph.WeakVertices()))
+#
 # #
 # graph: SimpleGraph = SimpleGraph(7)
 # graph.AddVertex(0)
@@ -344,16 +320,17 @@ print(graph.convert_vert_list_to_value_list(graph.WeakVertices()))
 # graph.AddEdge(4, 5)
 # graph.AddEdge(5, 6)
 # graph.AddEdge(6, 0)
-#
-# #graph.print_parent()
+# graph.AddEdge(6, 1)
+# print('WeakVertices: ', graph.convert_vert_list_to_value_list(graph.WeakVertices()))
+# graph.check_all_neighbors_have_edge(graph.get_all_vert_neighbors(0))
+# graph.print_parent()
 # graph.RemoveEdge(6, 0)
 # print('neighb: ', graph.convert_vert_list_to_value_list(graph.get_all_vert_neighbors(2)))
 # print('only_one_neighb: ', graph.is_edge_only_one(6))
-# print('WeakVertices: ', graph.convert_vert_list_to_value_list(graph.WeakVertices()))
 # # graph.vertex[0].Hit = True
-#print(graph.convert_vert_list_to_value_list(graph.is_have_not_visited_neighbors()))
+# print(graph.convert_vert_list_to_value_list(graph.is_have_not_visited_neighbors()))
 # print(graph.bild_path(0, 3))
-#print('list path: ', graph.convert_vert_list_to_value_list(graph.BreadthFirstSearch(1, 5)))
+# print('list path: ', graph.convert_vert_list_to_value_list(graph.BreadthFirstSearch(1, 5)))
 #
 # for i in range(0, len(self.m_adjacency)):
 #     if self.m_adjacency[start_vert][i] == 1 and not self.vertex[i].Hit and self.vertex[i].Value != VTo:
@@ -372,3 +349,32 @@ print(graph.convert_vert_list_to_value_list(graph.WeakVertices()))
 #         print('SV: ', start_vert)
 #         self.vertex[start_vert].Hit = True
 #         self.dfs(stack, start_vert, VTo)
+
+graph: SimpleGraph = SimpleGraph(2)
+# graph.AddVertex(0)
+# graph.AddVertex(1)
+# # graph.AddVertex(2)
+# # graph.AddVertex(3)
+# # graph.AddVertex(4)
+# # graph.AddVertex(5)
+# # graph.AddVertex(6)
+# # graph.AddVertex(7)
+# # graph.AddVertex(8)
+# # graph.AddEdge(0, 1)
+# # graph.AddEdge(1, 2)
+# # graph.AddEdge(1, 3)
+# # graph.AddEdge(2, 3)
+# # graph.AddEdge(3, 4)
+# # graph.AddEdge(3, 5)
+# # graph.AddEdge(4, 8)
+# # graph.AddEdge(8, 5)
+# # graph.AddEdge(8, 7)
+# # graph.AddEdge(7, 5)
+# # graph.AddEdge(5, 6)
+# # graph.AddEdge(6, 7)
+# graph.print_graph()
+# # graph.RemoveEdge(0, 1)
+# #graph.RemoveEdge(7, 5)
+# # graph.RemoveEdge(2, 3)
+# # graph.print_graph()
+# print(graph.convert_vert_list_to_value_list(graph.WeakVertices()))
