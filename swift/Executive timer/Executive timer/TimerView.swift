@@ -8,7 +8,7 @@ import AVFoundation
 
 var defaultTime: CGFloat = 10
 
-struct ContentView: View {
+struct TimerView: View {
     var strokeStyle = StrokeStyle(lineWidth: 15, lineCap: .round)
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var player: AVAudioPlayer!
@@ -27,16 +27,8 @@ struct ContentView: View {
             }
         }
     }
+    
     var body: some View {
-        TabView() {
-            ViewA()
-                .padding()
-                .tabItem {
-                    Label("View A", systemImage: "a.square")
-                }
-                .tag(1)
-           
-        }
        
         let buttonIcon = timerRunning ? "pause.rectangle.fill" : "play.rectangle.fill"
         let countdownColor: Color = {
@@ -47,24 +39,29 @@ struct ContentView: View {
             default: return Color.red
             }
         }()
-        HStack{
-            TextField("start time  ..", value: $newTime, formatter: NumberFormatter()).textFieldStyle(PlainTextFieldStyle())
+        
+        VStack{
+            HStack{
+                TextField("start time  ..", value: $newTime, formatter: NumberFormatter()).textFieldStyle(PlainTextFieldStyle())
                 
-                .padding()
-            Button(action:  {
-                //print("Hello")
+                    .padding()
                 
-                self.countdownTime = self.newTime
-                defaultTime = self.newTime
-                self.newTime = 0
-                //print(self.$countdownTime)
-                
-            }) {
-                Image(systemName: "text.badge.plus")
-                    .symbolRenderingMode(.multicolor)
-                    .foregroundColor(.gray)
+                Button(action:  {
+                    //print("Hello")
+                    
+                    self.countdownTime = self.newTime
+                    defaultTime = self.newTime
+                    self.newTime = 0
+                    //print(self.$countdownTime)
+                    
+                }) {
+                    Image(systemName: "text.badge.plus")
+                        .symbolRenderingMode(.multicolor)
+                        .foregroundColor(.gray)
+                        .padding()
+                }
             }
-        }.padding()
+        
         ZStack {
             Circle()
                 .stroke(Color.gray.opacity(0.2), style: strokeStyle)
@@ -103,9 +100,8 @@ struct ContentView: View {
                 playAlarmSound()
             }
         })
-        
+        }.padding()
     }
-    
 }
 
 
@@ -113,5 +109,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    TimerView()
 }

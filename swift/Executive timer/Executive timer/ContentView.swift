@@ -7,12 +7,27 @@
 
 import SwiftUI
 
-struct ViewA: View {
+struct ContentView: View {
     var body: some View {
-        Text("Hello, I'm view A!")
+        TabView {
+            TimerView()
+                .padding()
+                .tabItem {
+                    Image(systemName: "timer")
+                    Text("Timer")
+                }
+                .tag("Timer")
+            TimerSettingView()
+                .padding()
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+                .tag("Settings")
+        }
     }
 }
 
 #Preview {
-    ViewA()
+    ContentView()
 }
