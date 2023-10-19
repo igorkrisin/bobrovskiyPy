@@ -230,3 +230,28 @@ func registerUser() -> Bool{
 }
 
 print(registerUser())
+
+
+
+
+
+
+
+
+
+
+
+
+struct ContentViev: View {
+    var body: some View {
+        HStack{
+            Text("i'm button: ")
+            Image(systemName: "text.badge.plus")
+                .symbolRenderingMode(.multicolor)
+                .foregroundColor(.gray)
+                .padding()
+        }.padding()
+    }
+}
+
+PlaygroundPage.current.setLiveView(ContentViev())
