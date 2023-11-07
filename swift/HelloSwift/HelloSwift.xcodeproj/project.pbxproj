@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5377D092AE99C6400D92665 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5377D082AE99C6400D92665 /* TableView.swift */; };
+		C5377D0B2AEA323900D92665 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5377D0A2AEA323900D92665 /* SettingView.swift */; };
 		C56D29522AC93FD4006BDB82 /* HelloSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56D29512AC93FD4006BDB82 /* HelloSwiftApp.swift */; };
 		C56D29542AC93FD4006BDB82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56D29532AC93FD4006BDB82 /* ContentView.swift */; };
 		C56D29562AC93FD6006BDB82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56D29552AC93FD6006BDB82 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5377D082AE99C6400D92665 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		C5377D0A2AEA323900D92665 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C56D294E2AC93FD4006BDB82 /* HelloSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56D29512AC93FD4006BDB82 /* HelloSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloSwiftApp.swift; sourceTree = "<group>"; };
 		C56D29532AC93FD4006BDB82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			children = (
 				C56D29512AC93FD4006BDB82 /* HelloSwiftApp.swift */,
 				C56D29532AC93FD4006BDB82 /* ContentView.swift */,
+				C5377D0A2AEA323900D92665 /* SettingView.swift */,
+				C5377D082AE99C6400D92665 /* TableView.swift */,
 				C56D29552AC93FD6006BDB82 /* Assets.xcassets */,
 				C56D29572AC93FD6006BDB82 /* HelloSwift.entitlements */,
 				C56D29582AC93FD6006BDB82 /* Preview Content */,
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56D29542AC93FD4006BDB82 /* ContentView.swift in Sources */,
+				C5377D0B2AEA323900D92665 /* SettingView.swift in Sources */,
+				C5377D092AE99C6400D92665 /* TableView.swift in Sources */,
 				C56D29522AC93FD4006BDB82 /* HelloSwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
