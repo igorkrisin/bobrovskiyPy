@@ -126,7 +126,7 @@ for (nameStudent, noteStudent) in journal {
     
 }
 
-// образение к единичному студента
+// обраъщение к единичному студента
 if let noteStudent = journal["Иванов"] {
     if(noteStudent >= 3) {
         print("congratulation")
@@ -147,17 +147,24 @@ journal["Филимонов"] = 4
 
 journal["Петров"] = nil
 
-journal
-//Посчитай средний балл всей группы по итогам экзамена.
-var summNoteStudents: Int = 0
 
-for noteStudent in journal.values {
-    summNoteStudents += noteStudent
+//Посчитай средний балл всей группы по итогам экзамена.
+
+func arrangeNoteForStudents( _ journal: [String:Int]) {
+    var summNoteStudents: Int = 0
+    
+    for noteStudent in journal.values {
+        summNoteStudents += noteStudent
+    }
+    
+    let arrangeNote: Float = Float(summNoteStudents) / Float(journal.count)//можно без этой константы обойтись создал для наглядности и читаемости кода
+    
+    print("arange value note for everyone students: \(arrangeNote)")
 }
 
+arrangeNoteForStudents(journal)
 
-let arrangeNote: Float = Float(summNoteStudents) / Float(journal.count)
-print("arange value note for everyone students: \(arrangeNote)")
+
 
 
 
