@@ -49,7 +49,7 @@ for (month, day) in monthTuplesInArray {
 //сделай тоже самое, только выведи дни в обратном порядке (порядок в исходном массиве не меняется):
 print("\n///////  Reverse day for month:  //////////\n")
 for i in 0..<dayOnMonths.count {
-   
+    
     print(monthInYear[i], dayOnMonths[dayOnMonths.count - i - 1])
 }
 
@@ -63,45 +63,52 @@ func howManyDayToEndYear( _ monthName: String, _ dayInMonth: Int) -> String {
     let dayOnMonths: [Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     let monthInYear: [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
     
-    if !monthInYear.contains(monthName) {
+    if !monthInYear.contains(monthName) { //поверка правильности ввода месяца
         return "name month is wrong, please try again"
-    
+        
     }
     
     var numberMonthOnArray: Int = 0
-    var howManyDay: Int = 0
-
     
-    for i in 0..<monthInYear.count {
+    
+    for i in 0..<monthInYear.count { // вычисляем какой по счету элемент массива данный месяц (стандартный метод знаю что есть, решил через for)
         if monthInYear[i] == monthName {
             numberMonthOnArray = i
         }
     }
     
-    if dayInMonth < 0 || dayInMonth > dayOnMonths[numberMonthOnArray] {
+    if dayInMonth < 0 || dayInMonth > dayOnMonths[numberMonthOnArray] { //проверка что день введен верно
         return "number day in month is wrong, please try again"
     }
     
-    var countWholeMonth: Int = 0
+    var countWholeMonth: Int = 0 // количество полныъ месяцев (без остатка)
     
     if numberMonthOnArray < 12 {
         countWholeMonth = numberMonthOnArray + 1
-    } else if  numberMonthOnArray == 12 {
+    } else if  numberMonthOnArray == 12 { // если декабрь, то ничего не прибавляем что бы не вылететь за границы
         countWholeMonth = numberMonthOnArray
     } else {
         print("error in numberMonthOnArray")
     }
     
-    for i in countWholeMonth..<dayOnMonths.count {
-        howManyDay += dayOnMonths[i]
-    }
+ 
+
+    var howManyDay = dayOnMonths[countWholeMonth..<dayOnMonths.count].reduce(0, +) // попробовал, как работает reduce
+    //    for i in countWholeMonth..<dayOnMonths.count {
+    //        howManyDay += dayOnMonths[i]
+    //    }
     
-    let recentOfMonth = dayOnMonths[numberMonthOnArray] - dayInMonth
+    let recentOfMonth = dayOnMonths[numberMonthOnArray] - dayInMonth //вычисляем остаток дней в месяце от указаной даты
     
     return String(howManyDay + recentOfMonth)
 }
 
-print(howManyDayToEndYear("January", 1))
+//TODO: реализовать проще - умножить на дни количесво месяцев и вычесть остаток от дней???
+
+
+print("day to be year's end: ",howManyDayToEndYear("January", 1))
+
+print("\n///////  task 3:  //////////\n")
 
 //3 Создай словарь, как журнал студентов, где имя и фамилия студента это ключ, а оценка за экзамен — значение.
 
@@ -133,8 +140,8 @@ if let noteStudent = journal["Иванов"] {
     } else {
         print("let's go to exam again")
     }
-        }
- 
+}
+
 
 
 
@@ -148,7 +155,7 @@ journal["Филимонов"] = 4
 journal["Петров"] = nil
 
 
-//Посчитай средний балл всей группы по итогам экзамена.
+//Посчитай средний балл всей группы по итогам экзамена. рещил через функцию реализовать
 
 func arrangeNoteForStudents( _ journal: [String:Int]) {
     var summNoteStudents: Int = 0
