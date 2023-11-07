@@ -3,7 +3,6 @@ import UIKit
 
 //1Создай кортеж для двух человек с одинаковыми типами данных и параметрами.
 //При том одни значения доставай по индексу, а другие — по параметру.
-//Пример (для демонстрации задачи, чтобы было понимание, что надо делать):
 
 let petr = (age: 18, name: "Petr", secondName: "Fedorov")
 let fedor = (age: 28, name: "Fedor", secondName: "Petrov")
@@ -29,7 +28,7 @@ for numberDay in dayOnMonths {
 //используй еще один массив с именами месяцев чтобы вывести название месяца + количество дней:
 let monthInYear: [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
 
-print("\n///////  InArray:  //////////\n")
+print("\n///////  InArray:  //////////\n")//данные принты только для понятного вывода в консоль результатов
 
 for i in 0..<dayOnMonths.count {
     print(monthInYear[i], dayOnMonths[i])
@@ -143,8 +142,6 @@ if let noteStudent = journal["Иванов"] {
 }
 
 
-
-
 //Добавь еще несколько студентов — это будут новые одногруппники!
 
 journal["Леонов"] = 3
@@ -156,6 +153,7 @@ journal["Петров"] = nil
 
 
 //Посчитай средний балл всей группы по итогам экзамена. рещил через функцию реализовать
+print("\n///////  func arrangeNoteForStudents:  //////////\n")
 
 func arrangeNoteForStudents( _ journal: [String:Int]) {
     var summNoteStudents: Int = 0
