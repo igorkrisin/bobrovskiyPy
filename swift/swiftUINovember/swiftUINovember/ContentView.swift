@@ -339,7 +339,7 @@ import Foundation
 //        
 //        TabView (selection: $selected){
 //            Text("First page") // отображается на странице
-//                .tabItem { // элемент управления перехода между страницами (мождификатор)
+//                .tabItem { // элемент управления перехода между страницами (модификатор)
 //                    Image(systemName: "1.circle") //то как будет выглядеть элемент
 //                    Text("first") //то как будет подписан элемент
 //                } .tag(1) // теги что бы отслеживать какое окно из Item активно
@@ -357,7 +357,7 @@ import Foundation
 //    }
 //    
 //}
-//
+
 //
 //#Preview {
 //    ContentView()
@@ -732,21 +732,21 @@ import Foundation
 
 // переход между view при помощи Sheet - sheet закрывается оттягиванием вниз и по кнопке
 
-struct DetailView: View {
-    
-    @Environment (\.presentationMode) var presentanionMode//добавляем перемнную с propertyWrap Environmment
-    
-    var body: some View {
-        VStack {
-            Text("Detail")
-            Button("Back") {
-                self.presentanionMode.wrappedValue.dismiss()//добавляем кнопку скрытия обращаемся к переменной и освобождаем модальное окно 
-            }
-        }
-        
-       
-    }
-}
+//struct DetailView: View {
+//    
+//    @Environment (\.presentationMode) var presentanionMode//добавляем перемнную с propertyWrap Environmment
+//    
+//    var body: some View {
+//        VStack {
+//            Text("Detail")
+//            Button("Back") {
+//                self.presentanionMode.wrappedValue.dismiss()//добавляем кнопку скрытия обращаемся к переменной и освобождаем модальное окно 
+//            }
+//        }
+//        
+//       
+//    }
+//}
 
 
 //struct ContentView: View {
@@ -805,32 +805,32 @@ struct DetailView: View {
 //Хранение данных UserDefaults после кодировки в Json
 //Работа с более сложными типами данных
 
-struct User: Codable { // подписываем двнные на Codable, что бы заархивировать их
-    var firstName: String
-    var secondName: String
-}
-
-struct ContentView: View {
-    //создаем объект User и делаем его наблюдаемым
-    @State private var user = User(firstName: "Ivan", secondName: "Petrov")
-    
-    var body: some View {
-        VStack {
-            Button("save user") {
-                let encoder = JSONEncoder()
-                
-                if let data = try? encoder.encode(self.user) {
-                    UserDefaults.standard.setValue(data, forKey: "UserData")
-                }
-            }
-        }
-    }
-}
-
-
-
-
-
-#Preview {
-    ContentView()
-}
+//struct User: Codable { // подписываем двнные на Codable, что бы заархивировать их
+//    var firstName: String
+//    var secondName: String
+//}
+//
+//struct ContentView: View {
+//    //создаем объект User и делаем его наблюдаемым
+//    @State private var user = User(firstName: "Ivan", secondName: "Petrov")
+//    
+//    var body: some View {
+//        VStack {
+//            Button("save user") {
+//                let encoder = JSONEncoder()
+//                
+//                if let data = try? encoder.encode(self.user) {
+//                    UserDefaults.standard.setValue(data, forKey: "UserData")
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//
+//
+//
+//
+//#Preview {
+//    ContentView()
+//}
