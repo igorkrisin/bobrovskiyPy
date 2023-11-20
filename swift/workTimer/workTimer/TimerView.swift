@@ -6,17 +6,16 @@ import AVFoundation
 
 
 
-var defaultTime: CGFloat = 0
 
 struct TimerView: View {
     var strokeStyle = StrokeStyle(lineWidth: 15, lineCap: .round)
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var player: AVAudioPlayer!
-    @State private var currentTime = ""
-    @State private var newWork = ""
+    @State var newWork = ""
     @State private var timerRunning: Bool = false
-    @State private var countdownTime: CGFloat = defaultTime
-    @State var currentWork = ""
+    @State private var countdownTime: CGFloat = 0
+    @Binding var currWork: String
+    @Binding var navi: Bool
     
     func playAlarmSound() {
         if let soundURL = Bundle.main.url(forResource: "alarm", withExtension: "mp3") {
@@ -30,22 +29,25 @@ struct TimerView: View {
     }
     
     var body: some View {
-       
+        
         let buttonIcon = timerRunning ? "pause.rectangle.fill" : "play.rectangle.fill"
+        
         
         
         VStack{
             HStack{
-                TextField("enter new work  ...", value: $newWork, formatter: NumberFormatter()).textFieldStyle(PlainTextFieldStyle())
+                TextField("enter work's name ", text: $newWork)
                 
                     .padding()
                 
                 Button(action:  {
-                    //print("Hello")
+                    guard newWork != "" else { return }
                     
-                    currentWork = self.newWork
-                    print(currentWork)
-                    
+                    self.currWork = self.newWork
+                    self.newWork = ""
+                    print("currWork: \(currWork)")
+                    timerRunning = true
+                    navi = true
                     
                 }) {
                     Image(systemName: "text.badge.plus")
@@ -72,6 +74,7 @@ struct TimerView: View {
                     .font(.system(size: 30))
                     .onTapGesture(perform: {
                         timerRunning = false
+                        countdownTime = 0
                         
                     })
             }
@@ -83,7 +86,7 @@ struct TimerView: View {
                 countdownTime += 1
             } else {
                 timerRunning = false
-                countdownTime = defaultTime
+                countdownTime = 0
                 playAlarmSound()
             }
             
@@ -94,10 +97,3 @@ struct TimerView: View {
     
 }
 
-
-
-
-
-#Preview {
-    TimerView()
-}

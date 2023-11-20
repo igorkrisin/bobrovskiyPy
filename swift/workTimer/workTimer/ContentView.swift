@@ -9,38 +9,61 @@ import AVFoundation
 struct ItemWorking: Identifiable, Codable {
     var id: UUID = UUID()
     var nameWork: String
-    
-    
-    
+}
+
+struct WorkRow: View {
+    var itemWork: ItemWorking
+    var body: some View {
+        Text(itemWork.nameWork)
+    }
 }
 
 struct ContentView: View {
+    @State var tabSelection = 0
+    
+    @State private var navigateToAnotherView = false
+
+    
+    @State var currentWork = ""
+    
+    //@State var listWorks : [ItemWorking] = []
+   
+    
+    
     var body: some View {
+        
         TabView {
-            // Первая вкладка
+            var first = ItemWorking(nameWork: currentWork)
+            let listWorks : [ItemWorking] = []
+            //let list = listWorks.append(first)
             NavigationView {
-                Text("Первая вкладка")
+                List(listWorks) { item in
+                    NavigationLink(destination: TimerView(currWork: $currentWork, navi: $navigateToAnotherView)) {
+                        WorkRow(itemWork: item)
+                    }
+                }
+                Text("text: \(currentWork)")
                     .navigationBarTitle("Tab 1", displayMode: .inline)
-            }
+               
+            }.navigationDestination(isPresented: $navigateToAnotherView, destination: {
+                ContentView()
+            })
             .tabItem {
-                Image(systemName: "1.circle.fill")
-                Text("Tab 1")
-            }
+                Image(systemName: "list.bullet")
+                Text("List work")
+            }.tag(0)
             
             // Вторая вкладка
-            NavigationView {
-                NavigationLink(destination: TimerView()) {
-                    Text("Вторая вкладка")
-                }
-                .navigationBarTitle("Tab 2", displayMode: .inline)
-            }
+            TimerView(currWork: $currentWork, navi: $navigateToAnotherView)
             .tabItem {
-                Image(systemName: "2.circle.fill")
-                Text("Tab 2")
+                Image(systemName: "clock.fill")
+                Text("Setting")
                 
-            }
+            }.tag(1)
         }
     }
+    
+   
 }
 
 
