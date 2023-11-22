@@ -16,6 +16,8 @@ struct TimerView: View {
     @State private var countdownTime: CGFloat = 0
     @Binding var currWork: String
     @Binding var navi: Bool
+    @Binding var list: [ItemWorking]
+    var itemWork: ItemWorking = ItemWorking(nameWork: "")
     
     func playAlarmSound() {
         if let soundURL = Bundle.main.url(forResource: "alarm", withExtension: "mp3") {

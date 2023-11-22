@@ -26,19 +26,17 @@ struct ContentView: View {
     
     @State var currentWork = ""
     
-    //@State var listWorks : [ItemWorking] = []
+    @State var listWorks : [ItemWorking] = []
    
     
     
     var body: some View {
         
         TabView {
-            var first = ItemWorking(nameWork: currentWork)
-            let listWorks : [ItemWorking] = []
-            //let list = listWorks.append(first)
+            
             NavigationView {
                 List(listWorks) { item in
-                    NavigationLink(destination: TimerView(currWork: $currentWork, navi: $navigateToAnotherView)) {
+                    NavigationLink(destination: TimerView(currWork: $currentWork, navi: $navigateToAnotherView, list: $listWorks)) {
                         WorkRow(itemWork: item)
                     }
                 }
@@ -54,7 +52,7 @@ struct ContentView: View {
             }.tag(0)
             
             // Вторая вкладка
-            TimerView(currWork: $currentWork, navi: $navigateToAnotherView)
+            TimerView(currWork: $currentWork, navi: $navigateToAnotherView, list: $listWorks)
             .tabItem {
                 Image(systemName: "clock.fill")
                 Text("Setting")
