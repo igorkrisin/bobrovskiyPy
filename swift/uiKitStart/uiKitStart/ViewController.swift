@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var game: Game!
+    
     @IBOutlet weak var slider: UISlider!
     @IBOutlet var label: UILabel!
     @IBOutlet var viewRound: UILabel!
@@ -20,11 +22,7 @@ class ViewController: UIViewController {
 //        self.present(vc, animated: true, completion: nil)
 //    }
     // код перехода на следующий view  при помощи present
-    var number: Int = 0
-    var round: Int = 1
-    var scores: Int = 0
-    
-    
+   
     
     override func loadView() {
         super.loadView()
@@ -35,68 +33,61 @@ class ViewController: UIViewController {
 //        self.view.addSubview(versionLabel)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("viewWillDisappear")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("viewDidDisappear")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("viewDidAppear")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewWillAtppear")
-    }
-    
     override func viewDidLoad() {
-       
-        self.number = Int.random(in: 1...50)
-        self.label.text = String(self.number)
         
         super.viewDidLoad()
         print("ViewDidload")
-        // Do any additional setup after loading the view.
+        
+        game = Game(startValue: 1, endValue: 50, rounds: 5)
+        updateGameWithTheSecretNumber(newText: String(game.currentSecretValue))
+       
     }
+    // MARK: - взаимодействие  View - Model
+    
     
     @IBAction func checkNumber() {
-        self.round += 1
+        //подсчитываем очки
+        game.calculateScore(with: Int(slider.value))
+        //проверяем не закончилась ли игра
         
-        if(Int(slider.value.rounded()) > self.number) {
-            self.scores += 50 - Int(slider.value.rounded()) + self.number
+        if game.isGameEnded {
+            showAlert(score: game.score)
             
-            print("slider.value >: ",slider.value.rounded(), "self.number: ", self.number)
+            game.restartGame()
+        } else {
+            game.startNewRound()
         }
-        else if (Int(slider.value.rounded()) < self.number) {
-            self.scores += 50 -  self.number + Int(slider.value.rounded())
-            print("slider.value <: ",slider.value.rounded(), "self.number: ", self.number)
-        }
-        else {
-            self.scores += 50
-        }
-        self.viewScores.text = String(self.scores)
-        self.viewRound.text = String(self.round)
+        //обновляем данные о текущем значении загаданного числа
+        
+        updateRoundView(round: String(game.currentRound))
+        updateViewScores(scores: String(game.score))
+        
+        updateGameWithTheSecretNumber(newText: String(game.currentSecretValue))
         
         
-        if self.round == 5 {
-            let alert = UIAlertController(title: "Game over", message: "Your scores:  \(self.scores)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Начать заново", style: .default, handler: nil ))
-            self.present(alert, animated: true, completion: nil)
-            self.round = 0
-            self.scores = 0
-        }
         
-        
-        self.number = Int.random(in: 1...50)
-        self.label.text = String(self.number)
+       
         
     }
     
+    
+    //MARK: обновление View
+    func updateGameWithTheSecretNumber(newText: String) {
+        label.text = newText
+    }
+    
+    func updateRoundView(round: String) {
+        viewRound.text = round
+    }
+    
+    func updateViewScores(scores: String) {
+        viewScores.text = scores
+    }
+    
+    func showAlert(score: Int) {
+        let alert = UIAlertController(title: "Game over", message: "Your scores:  \(game.score)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Начать заново", style: .default, handler: nil ))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 

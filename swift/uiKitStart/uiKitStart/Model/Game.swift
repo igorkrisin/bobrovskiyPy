@@ -24,7 +24,11 @@ protocol GameProtocol {
     //метод начала нового раунда
     func startNewRound()
     //метод подсчета очков и равнения загаданного и пользовательского числа
-    func calculateScore(b value: Int)
+    func calculateScore(with value: Int)
+    
+}
+
+protocol GameRoundProtocol: GameProtocol {
     
 }
 
@@ -42,7 +46,7 @@ class Game: GameProtocol {
     var currentRound: Int = 1
     
     var isGameEnded: Bool {
-        return currentSecretValue >= lastRound
+        return currentRound >= lastRound
     }
     
     init?(startValue: Int, endValue: Int, rounds: Int) {
@@ -59,16 +63,17 @@ class Game: GameProtocol {
     
     func restartGame() {
         self.score = 0
-        self.lastRound = 0
+        self.currentRound = 0
         startNewRound()
     }
     
     func startNewRound() {
         currentSecretValue = self.getNewSecretValue()
         currentRound += 1
+        print("CR: ", currentRound)
     }
     
-    func calculateScore(b value: Int) {
+    func calculateScore(with value: Int) {
         if value > currentSecretValue {
             score += 50 - value + currentSecretValue
         } else if value < currentSecretValue {

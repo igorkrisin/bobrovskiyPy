@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C594655B2B28CF7600AB4701 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594655A2B28CF7600AB4701 /* SecondViewController.swift */; };
 		C594655E2B2A1BCE00AB4701 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594655D2B2A1BCE00AB4701 /* Game.swift */; };
 		C598AF7B2B23A00C0011FE6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598AF7A2B23A00C0011FE6A /* AppDelegate.swift */; };
 		C598AF7D2B23A00C0011FE6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598AF7C2B23A00C0011FE6A /* SceneDelegate.swift */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C594655A2B28CF7600AB4701 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C594655D2B2A1BCE00AB4701 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C598AF772B23A00C0011FE6A /* uiKitStart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uiKitStart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C598AF7A2B23A00C0011FE6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 		C598AF792B23A00C0011FE6A /* uiKitStart */ = {
 			isa = PBXGroup;
 			children = (
-				C594655A2B28CF7600AB4701 /* SecondViewController.swift */,
 				C594655C2B2A1B9600AB4701 /* Model */,
 				C598AF7A2B23A00C0011FE6A /* AppDelegate.swift */,
 				C598AF7C2B23A00C0011FE6A /* SceneDelegate.swift */,
@@ -152,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C594655B2B28CF7600AB4701 /* SecondViewController.swift in Sources */,
 				C594655E2B2A1BCE00AB4701 /* Game.swift in Sources */,
 				C598AF7F2B23A00C0011FE6A /* ViewController.swift in Sources */,
 				C598AF7B2B23A00C0011FE6A /* AppDelegate.swift in Sources */,
