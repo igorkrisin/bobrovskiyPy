@@ -1,24 +1,33 @@
 import SwiftUI
 import UIKit
 import AVFoundation
+import SwiftData
 
 struct ContentView: View {
+   
     
-    @ObservedObject var workNAme = WorkModel()
+    @Query private var items: [MyDataItemNew]
     
+    @ObservedObject var workTime = WorkModel()
     @State var listWorks : [ItemWorking] = []
  
     var body: some View {
         
         TabView {
-            
             NavigationView {
-                List(listWorks) { item in
-                    NavigationLink(destination: ListTimeTodayView(workName: item.nameWork)) {
-                        WorkView(itemWork: item)
+
+                List(items) { item in
+                    NavigationLink(destination: ListTimeTodayView(workName: item.itemWorkForDataBAse.nameWork)) {
+                        WorkView(itemWork: item.itemWorkForDataBAse)
                     }
                 }
-                .navigationTitle("Work list")
+                    
+//                List(listWorks) { item in
+//                    NavigationLink(destination: ListTimeTodayView(workName: item.nameWork)) {
+//                        WorkView(itemWork: item)
+//                    }
+//                }
+//                .navigationTitle("Work list")
             }
             .tabItem {
                 Image(systemName: "list.bullet")
@@ -32,6 +41,8 @@ struct ContentView: View {
             }.tag(1)
         }
     }
+    
+    
 }
 
 

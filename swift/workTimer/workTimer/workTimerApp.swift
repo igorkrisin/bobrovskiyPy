@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct workTimerApp: App {
@@ -13,5 +14,6 @@ struct workTimerApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [MyDataItemNew.self, MyDataItemTime.self])
     }
 }

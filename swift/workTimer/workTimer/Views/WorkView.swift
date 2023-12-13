@@ -1,10 +1,12 @@
 import SwiftUI
+import SwiftData
 
 
 struct ItemWorking: Identifiable, Codable {
     var id: UUID = UUID()
     var nameWork: String
 }
+
 
 
 struct WorkView: View {
@@ -15,5 +17,6 @@ struct WorkView: View {
             Text(itemWork.nameWork)
             TimerView()
         }
+       
     }
 }

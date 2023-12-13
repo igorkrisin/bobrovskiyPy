@@ -7,34 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C580B5A52B1CDD1500237F1C /* MyDataItemNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580B5A42B1CDD1500237F1C /* MyDataItemNew.swift */; };
-		C58E97082B093AB7005BF113 /* workTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58E97072B093AB7005BF113 /* workTimerApp.swift */; };
-		C58E970A2B093AB7005BF113 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58E97092B093AB7005BF113 /* ContentView.swift */; };
-		C58E970C2B093AB8005BF113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58E970B2B093AB8005BF113 /* Assets.xcassets */; };
-		C58E970F2B093AB8005BF113 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58E970E2B093AB8005BF113 /* Preview Assets.xcassets */; };
-		C58E97162B094303005BF113 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58E97152B094303005BF113 /* TimerView.swift */; };
-		C5A8E9632B1217CC00FB43C4 /* ListWorkTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A8E9622B1217CC00FB43C4 /* ListWorkTodayView.swift */; };
-		C5A8E9662B132FB600FB43C4 /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A8E9652B132FB600FB43C4 /* WorkModel.swift */; };
-		C5B0D9B22B111E300034B7C2 /* CreateNewWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D9B12B111E300034B7C2 /* CreateNewWorkView.swift */; };
-		C5B0D9B42B11DD090034B7C2 /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D9B32B11DD090034B7C2 /* WorkView.swift */; };
+		C580B5952B1CCB7900237F1C /* MySwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580B5942B1CCB7900237F1C /* MySwiftDataApp.swift */; };
+		C580B5972B1CCB7900237F1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580B5962B1CCB7900237F1C /* ContentView.swift */; };
+		C580B5992B1CCB7A00237F1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C580B5982B1CCB7A00237F1C /* Assets.xcassets */; };
+		C580B59C2B1CCB7A00237F1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C580B59B2B1CCB7A00237F1C /* Preview Assets.xcassets */; };
+		C580B5A32B1CCBD800237F1C /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580B5A22B1CCBD800237F1C /* DataItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C580B5A42B1CDD1500237F1C /* MyDataItemNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataItemNew.swift; sourceTree = "<group>"; };
-		C58E97042B093AB7005BF113 /* workTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C58E97072B093AB7005BF113 /* workTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workTimerApp.swift; sourceTree = "<group>"; };
-		C58E97092B093AB7005BF113 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C58E970B2B093AB8005BF113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C58E970E2B093AB8005BF113 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C58E97152B094303005BF113 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		C5A8E9622B1217CC00FB43C4 /* ListWorkTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkTodayView.swift; sourceTree = "<group>"; };
-		C5A8E9652B132FB600FB43C4 /* WorkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
-		C5B0D9B12B111E300034B7C2 /* CreateNewWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewWorkView.swift; sourceTree = "<group>"; };
-		C5B0D9B32B11DD090034B7C2 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
+		C580B5912B1CCB7900237F1C /* MySwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C580B5942B1CCB7900237F1C /* MySwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySwiftDataApp.swift; sourceTree = "<group>"; };
+		C580B5962B1CCB7900237F1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C580B5982B1CCB7A00237F1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C580B59B2B1CCB7A00237F1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C580B5A22B1CCBD800237F1C /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C58E97012B093AB7005BF113 /* Frameworks */ = {
+		C580B58E2B1CCB7900237F1C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,91 +34,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C58E96FB2B093AB7005BF113 = {
+		C580B5882B1CCB7900237F1C = {
 			isa = PBXGroup;
 			children = (
-				C58E97062B093AB7005BF113 /* workTimer */,
-				C58E97052B093AB7005BF113 /* Products */,
+				C580B5932B1CCB7900237F1C /* MySwiftData */,
+				C580B5922B1CCB7900237F1C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C58E97052B093AB7005BF113 /* Products */ = {
+		C580B5922B1CCB7900237F1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C58E97042B093AB7005BF113 /* workTimer.app */,
+				C580B5912B1CCB7900237F1C /* MySwiftData.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C58E97062B093AB7005BF113 /* workTimer */ = {
+		C580B5932B1CCB7900237F1C /* MySwiftData */ = {
 			isa = PBXGroup;
 			children = (
-				C58E97072B093AB7005BF113 /* workTimerApp.swift */,
-				C5A8E9652B132FB600FB43C4 /* WorkModel.swift */,
-				C580B5A42B1CDD1500237F1C /* MyDataItemNew.swift */,
-				C5A8E9642B132B2B00FB43C4 /* Views */,
-				C58E970B2B093AB8005BF113 /* Assets.xcassets */,
-				C58E970D2B093AB8005BF113 /* Preview Content */,
+				C580B5942B1CCB7900237F1C /* MySwiftDataApp.swift */,
+				C580B5962B1CCB7900237F1C /* ContentView.swift */,
+				C580B5A22B1CCBD800237F1C /* DataItem.swift */,
+				C580B5982B1CCB7A00237F1C /* Assets.xcassets */,
+				C580B59A2B1CCB7A00237F1C /* Preview Content */,
 			);
-			path = workTimer;
+			path = MySwiftData;
 			sourceTree = "<group>";
 		};
-		C58E970D2B093AB8005BF113 /* Preview Content */ = {
+		C580B59A2B1CCB7A00237F1C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C58E970E2B093AB8005BF113 /* Preview Assets.xcassets */,
+				C580B59B2B1CCB7A00237F1C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		C5A8E9642B132B2B00FB43C4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C58E97152B094303005BF113 /* TimerView.swift */,
-				C5A8E9622B1217CC00FB43C4 /* ListWorkTodayView.swift */,
-				C5B0D9B32B11DD090034B7C2 /* WorkView.swift */,
-				C58E97092B093AB7005BF113 /* ContentView.swift */,
-				C5B0D9B12B111E300034B7C2 /* CreateNewWorkView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C58E97032B093AB7005BF113 /* workTimer */ = {
+		C580B5902B1CCB7900237F1C /* MySwiftData */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C58E97122B093AB8005BF113 /* Build configuration list for PBXNativeTarget "workTimer" */;
+			buildConfigurationList = C580B59F2B1CCB7A00237F1C /* Build configuration list for PBXNativeTarget "MySwiftData" */;
 			buildPhases = (
-				C58E97002B093AB7005BF113 /* Sources */,
-				C58E97012B093AB7005BF113 /* Frameworks */,
-				C58E97022B093AB7005BF113 /* Resources */,
+				C580B58D2B1CCB7900237F1C /* Sources */,
+				C580B58E2B1CCB7900237F1C /* Frameworks */,
+				C580B58F2B1CCB7900237F1C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = workTimer;
-			productName = workTimer;
-			productReference = C58E97042B093AB7005BF113 /* workTimer.app */;
+			name = MySwiftData;
+			productName = MySwiftData;
+			productReference = C580B5912B1CCB7900237F1C /* MySwiftData.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C58E96FC2B093AB7005BF113 /* Project object */ = {
+		C580B5892B1CCB7900237F1C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					C58E97032B093AB7005BF113 = {
+					C580B5902B1CCB7900237F1C = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = C58E96FF2B093AB7005BF113 /* Build configuration list for PBXProject "workTimer" */;
+			buildConfigurationList = C580B58C2B1CCB7900237F1C /* Build configuration list for PBXProject "MySwiftData" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,48 +113,43 @@
 				en,
 				Base,
 			);
-			mainGroup = C58E96FB2B093AB7005BF113;
-			productRefGroup = C58E97052B093AB7005BF113 /* Products */;
+			mainGroup = C580B5882B1CCB7900237F1C;
+			productRefGroup = C580B5922B1CCB7900237F1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C58E97032B093AB7005BF113 /* workTimer */,
+				C580B5902B1CCB7900237F1C /* MySwiftData */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C58E97022B093AB7005BF113 /* Resources */ = {
+		C580B58F2B1CCB7900237F1C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C58E970F2B093AB8005BF113 /* Preview Assets.xcassets in Resources */,
-				C58E970C2B093AB8005BF113 /* Assets.xcassets in Resources */,
+				C580B59C2B1CCB7A00237F1C /* Preview Assets.xcassets in Resources */,
+				C580B5992B1CCB7A00237F1C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C58E97002B093AB7005BF113 /* Sources */ = {
+		C580B58D2B1CCB7900237F1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5A8E9662B132FB600FB43C4 /* WorkModel.swift in Sources */,
-				C5A8E9632B1217CC00FB43C4 /* ListWorkTodayView.swift in Sources */,
-				C580B5A52B1CDD1500237F1C /* MyDataItemNew.swift in Sources */,
-				C58E970A2B093AB7005BF113 /* ContentView.swift in Sources */,
-				C58E97082B093AB7005BF113 /* workTimerApp.swift in Sources */,
-				C5B0D9B22B111E300034B7C2 /* CreateNewWorkView.swift in Sources */,
-				C5B0D9B42B11DD090034B7C2 /* WorkView.swift in Sources */,
-				C58E97162B094303005BF113 /* TimerView.swift in Sources */,
+				C580B5972B1CCB7900237F1C /* ContentView.swift in Sources */,
+				C580B5A32B1CCBD800237F1C /* DataItem.swift in Sources */,
+				C580B5952B1CCB7900237F1C /* MySwiftDataApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C58E97102B093AB8005BF113 /* Debug */ = {
+		C580B59D2B1CCB7A00237F1C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +201,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -240,7 +212,7 @@
 			};
 			name = Debug;
 		};
-		C58E97112B093AB8005BF113 /* Release */ = {
+		C580B59E2B1CCB7A00237F1C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -286,7 +258,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -296,14 +268,14 @@
 			};
 			name = Release;
 		};
-		C58E97132B093AB8005BF113 /* Debug */ = {
+		C580B5A02B1CCB7A00237F1C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"workTimer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MySwiftData/Preview Content\"";
 				DEVELOPMENT_TEAM = U2S6URFDMC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -312,13 +284,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.igorKrysin.workTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.igorKrysin.MySwiftData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -326,14 +297,14 @@
 			};
 			name = Debug;
 		};
-		C58E97142B093AB8005BF113 /* Release */ = {
+		C580B5A12B1CCB7A00237F1C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"workTimer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MySwiftData/Preview Content\"";
 				DEVELOPMENT_TEAM = U2S6URFDMC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -342,13 +313,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.igorKrysin.workTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.igorKrysin.MySwiftData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -359,25 +329,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C58E96FF2B093AB7005BF113 /* Build configuration list for PBXProject "workTimer" */ = {
+		C580B58C2B1CCB7900237F1C /* Build configuration list for PBXProject "MySwiftData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C58E97102B093AB8005BF113 /* Debug */,
-				C58E97112B093AB8005BF113 /* Release */,
+				C580B59D2B1CCB7A00237F1C /* Debug */,
+				C580B59E2B1CCB7A00237F1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C58E97122B093AB8005BF113 /* Build configuration list for PBXNativeTarget "workTimer" */ = {
+		C580B59F2B1CCB7A00237F1C /* Build configuration list for PBXNativeTarget "MySwiftData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C58E97132B093AB8005BF113 /* Debug */,
-				C58E97142B093AB8005BF113 /* Release */,
+				C580B5A02B1CCB7A00237F1C /* Debug */,
+				C580B5A12B1CCB7A00237F1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C58E96FC2B093AB7005BF113 /* Project object */;
+	rootObject = C580B5892B1CCB7900237F1C /* Project object */;
 }
