@@ -38,8 +38,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("ViewDidload")
         
-        game = Game(startValue: 1, endValue: 50, rounds: 5)
-        updateGameWithTheSecretNumber(newText: String(game.currentSecretValue))
+        let generator = Generator(startValue: 1, endValue: 50)!
+        game = Game(valueGenerator: generator, rounds: 5)
+        updateLabelWithSecretNumber(newText: String(game.currentRound.currentSecretValue))
        
     }
     // MARK: - взаимодействие  View - Model
@@ -47,8 +48,8 @@ class ViewController: UIViewController {
     
     @IBAction func checkNumber() {
         //подсчитываем очки
-        game.calculateScore(with: Int(slider.value))
-        //проверяем не закончилась ли игра
+       
+        game.currentRound.calculateScore(with: Int(slider.value))
         
         if game.isGameEnded {
             showAlert(score: game.score)
@@ -58,11 +59,9 @@ class ViewController: UIViewController {
             game.startNewRound()
         }
         //обновляем данные о текущем значении загаданного числа
+       
         
-        updateRoundView(round: String(game.currentRound))
-        updateViewScores(scores: String(game.score))
-        
-        updateGameWithTheSecretNumber(newText: String(game.currentSecretValue))
+        updateLabelWithSecretNumber(newText: String(game.currentRound.currentSecretValue))
         
         
         
@@ -72,7 +71,7 @@ class ViewController: UIViewController {
     
     
     //MARK: обновление View
-    func updateGameWithTheSecretNumber(newText: String) {
+    func updateLabelWithSecretNumber(newText: String) {
         label.text = newText
     }
     
