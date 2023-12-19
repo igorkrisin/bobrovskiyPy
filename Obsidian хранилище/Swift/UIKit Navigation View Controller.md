@@ -2,9 +2,11 @@
 tags:
   - swift
   - uikit
+  - "#uiNAvigationController"
 ---
-
+[[Презентация как стать IOS разработчиком в 2023 году]]
 Что бы создать переход через NVC необходимо внутри класса <mark style="background: #FF5582A6;">ScenceDelegate </mark>прописать следующее
+
 
 ```Swift
  guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -27,4 +29,14 @@ tags:
 
 
 ```
+```
+
+```
+
+Создаем еще одну сущность <mark style="background: #FF5582A6;">SecondViewController</mark> на который будет переходить главный VC
+Изменить цвет корт
+
+
+```Swift 
+
 ```

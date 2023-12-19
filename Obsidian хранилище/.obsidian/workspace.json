@@ -4,19 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "29678018aca32194",
+        "id": "fce3190da9f70224",
         "type": "tabs",
         "children": [
           {
-            "id": "902632bc6c410611",
+            "id": "f2c52d636a9ae7dd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Swift/UIKit Navigation View Controller.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "b609c36a825297e0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "260a699cf118683e",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -65,7 +75,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,14 +96,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Swift/UIKit Navigation View Controller.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -102,7 +112,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Swift/UIKit Navigation View Controller.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,17 +133,15 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Swift/UIKit Navigation View Controller.md"
-              }
+              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,12 +153,16 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "6bf69eecfe3ea7ab",
+  "active": "f2c52d636a9ae7dd",
   "lastOpenFiles": [
-    "Swift",
     "Swift/UIKit Navigation View Controller.md",
-    "Без названия.md",
+    "2023-12-19.md",
+    "Constraints при помощи кода.md",
+    "Как стать iOS разработчиком в 2022 году бесплатно.pdf^.md",
+    "Презентация как стать IOS разработчиком в 2023 году.md",
     "Без названия.canvas",
+    "Как стать iOS разработчиком в 2022 году бесплатно.pdf",
+    "Swift",
     "Без названия 1.canvas"
   ]
 }
