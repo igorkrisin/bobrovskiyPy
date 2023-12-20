@@ -8,25 +8,33 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f2c52d636a9ae7dd",
+            "id": "fe2dd4c2b33ea2d7",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "StackView + Constraints.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
       },
       {
-        "id": "b609c36a825297e0",
+        "id": "c534c37e0c5445e0",
         "type": "tabs",
         "children": [
           {
-            "id": "260a699cf118683e",
+            "id": "85c6d81fe4ecee38",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Расположение элементов внутри stackView.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -58,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "aspe",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -96,6 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "StackView + Constraints.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,6 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "StackView + Constraints.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,11 +143,13 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "StackView + Constraints.md"
+              }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -153,15 +165,18 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "f2c52d636a9ae7dd",
+  "active": "184a0e0be819b7cc",
   "lastOpenFiles": [
-    "Swift/UIKit Navigation View Controller.md",
+    "Расположение элементов внутри stackView.md",
+    "StackView + Constraints.md",
+    "Презентация как стать IOS разработчиком в 2023 году.md",
+    "UIKit Navigation View Controller.md",
+    "Как стать iOS разработчиком в 2022 году бесплатно.pdf",
+    "Без названия.canvas",
+    "Swift/UIKit Navigation View Controller 1.md",
     "2023-12-19.md",
     "Constraints при помощи кода.md",
     "Как стать iOS разработчиком в 2022 году бесплатно.pdf^.md",
-    "Презентация как стать IOS разработчиком в 2023 году.md",
-    "Без названия.canvas",
-    "Как стать iOS разработчиком в 2022 году бесплатно.pdf",
     "Swift",
     "Без названия 1.canvas"
   ]

@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var myStack: UIStackView!
     @IBOutlet weak var blueButton: UIButton!
     
     @IBOutlet weak var myLable: UILabel!
