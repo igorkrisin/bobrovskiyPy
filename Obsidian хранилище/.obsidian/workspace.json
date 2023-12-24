@@ -4,24 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "fce3190da9f70224",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "fe2dd4c2b33ea2d7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "StackView + Constraints.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "c534c37e0c5445e0",
         "type": "tabs",
         "children": [
@@ -29,15 +11,28 @@
             "id": "85c6d81fe4ecee38",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Расположение элементов внутри stackView.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "384ca0e7dddd6b12",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "7fa28a859d6127dc",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -66,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "aspe",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -104,7 +99,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "StackView + Constraints.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +115,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "StackView + Constraints.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,17 +136,23 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "StackView + Constraints.md"
-              }
+              "state": {}
+            }
+          },
+          {
+            "id": "de89904645c66412",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 236.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -162,12 +161,17 @@
       "canvas:Создать новый холст": false,
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
-      "command-palette:Открыть палитру команд": false
+      "command-palette:Открыть палитру команд": false,
+      "zk-prefixer:Создать заметку с уникальным идентификатором": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "184a0e0be819b7cc",
+  "active": "7fa28a859d6127dc",
   "lastOpenFiles": [
+    "Как настроить автозаполнение кнопок внутри stackView.md",
     "Расположение элементов внутри stackView.md",
+    "Screenshot 2023-12-20 at 22.35.32.png",
+    "test.md",
     "StackView + Constraints.md",
     "Презентация как стать IOS разработчиком в 2023 году.md",
     "UIKit Navigation View Controller.md",
