@@ -114,7 +114,9 @@ class ViewController: UIViewController {
     func showCalculatorScreen(_ value: String) {
 
         if isMathSing(value) && value != "." && value != "%" {
-            
+            if !isOperationDuring {
+                firstNumber = resultLabel.text!
+            }
             print("is math sing")
             resultLabel.text! = ""
             resultLabel.text! = value
