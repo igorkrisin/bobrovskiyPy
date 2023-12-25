@@ -11,13 +11,10 @@ class ViewController: UIViewController {
 
     
     let regex = #"^[^\d.]*$"#
-    var firstNumber: String = ""
+    var firstNumber: String = "0"
     var secondNumber: String = ""
     var summaryNumber: String = ""
     var mathSing: String = ""
-    
-    
-    
     
     var isOperationDuring = false
     
@@ -112,7 +109,7 @@ class ViewController: UIViewController {
     
     
     func showCalculatorScreen(_ value: String) {
-
+        
         if isMathSing(value) && value != "." && value != "%" {
             if !isOperationDuring {
                 firstNumber = resultLabel.text!
@@ -120,6 +117,12 @@ class ViewController: UIViewController {
             print("is math sing")
             resultLabel.text! = ""
             resultLabel.text! = value
+        } else if !isFirstTapped && value == "." {
+            print("tapped first .")
+            resultLabel.text! = "0."
+            isFirstTapped = true
+        } else if isFirstTapped && value == "." && isMathSing(resultLabel.text!) {
+            resultLabel.text! = "0."
             
         } else if (!isFirstTapped) { // первое нажатие удаляем первый 0
             print("first")
@@ -141,7 +144,7 @@ class ViewController: UIViewController {
         } else if value == "%" {
             print("%")
             calc()
-        } else if value == "." && !resultLabel.text!.contains(".") {
+        } else if value == "." && !resultLabel.text!.contains(".") && !isMathSing(resultLabel.text!) {
             resultLabel.text! += value
         } else {
             print("else")
@@ -160,14 +163,18 @@ class ViewController: UIViewController {
         
         if !mathSingTapped {
             if value == ("+/-") {
+                print("- + firstNumber")
                 firstNumber = "-" + firstNumber
             } else {
+                print("else firstNumber")
                 firstNumber += value
             }
         } else if !isMathSing(resultLabel.text!) { // что бы при выведении знака на табло невозможно было поставить - перед знаком
             if value == ("+/-") {
+                print("- + secNumber")
                 secondNumber = "-" + secondNumber
             } else {
+                print("else secNumber")
                 secondNumber += value
             }
         }
@@ -186,7 +193,7 @@ class ViewController: UIViewController {
     func calc(){
         print("secondNumber: ", secondNumber)
         print("firstNumber: ", firstNumber)
-        if firstNumber != "" && secondNumber != "" {
+        if firstNumber != "" && secondNumber != ""  && !isMathSing(firstNumber) && !isMathSing(secondNumber) {
             
             switch mathSing {
             case "/":
@@ -226,6 +233,8 @@ class ViewController: UIViewController {
             default:
                 break
             }
+        } else {
+            resetValue()
         }
     }
     
