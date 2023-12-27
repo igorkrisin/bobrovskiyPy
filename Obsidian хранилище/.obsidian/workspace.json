@@ -24,6 +24,45 @@
             }
           },
           {
+            "id": "a8df24114678d129",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Создать кодом новое view и перейти на него при помощи кнопки.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "acc34ac4ac2b20fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Переход на другие view при помощи segue.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0bcf1d4f10443910",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Жизненный цикл View controller (life cycle).md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "7fa28a859d6127dc",
             "type": "leaf",
             "state": {
@@ -99,6 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Создать кодом новое view и перейти на него при помощи кнопки.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,6 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Создать кодом новое view и перейти на него при помощи кнопки.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +177,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Создать кодом новое view и перейти на него при помощи кнопки.md"
+              }
             }
           },
           {
@@ -166,15 +209,23 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "7fa28a859d6127dc",
+  "active": "a8df24114678d129",
   "lastOpenFiles": [
+    "UIKit Navigation View Controller.md",
+    "Переход на другие view при помощи present() и show().md",
+    "Создать кодом новое view и перейти на него при помощи кнопки.md",
+    "Передача информации через text field на другое view.md",
+    "Показать клавиатуру на симуляторе UI KIT.md",
+    "Переход на другие view при помощи segue.md",
+    "Жизненный цикл View controller (life cycle).md",
+    "Screenshot 2023-12-26 at 09.25.22.png",
+    "Screenshot 2023-12-26 at 07.15.34.png",
     "Как настроить автозаполнение кнопок внутри stackView.md",
     "Расположение элементов внутри stackView.md",
     "Screenshot 2023-12-20 at 22.35.32.png",
     "test.md",
     "StackView + Constraints.md",
     "Презентация как стать IOS разработчиком в 2023 году.md",
-    "UIKit Navigation View Controller.md",
     "Как стать iOS разработчиком в 2022 году бесплатно.pdf",
     "Без названия.canvas",
     "Swift/UIKit Navigation View Controller 1.md",

@@ -5,6 +5,7 @@ tags:
   - "#uiNAvigationController"
 ---
 [[Презентация как стать IOS разработчиком в 2023 году]]
+[[Жизненный цикл View controller (life cycle)]]
 Что бы создать переход через NVC необходимо внутри класса <mark style="background: #FF5582A6;">ScenceDelegate </mark>прописать следующее
 
 
