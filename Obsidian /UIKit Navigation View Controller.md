@@ -6,12 +6,7 @@ tags:
 ---
 [[Презентация как стать IOS разработчиком в 2023 году]]
 [[Жизненный цикл View controller (life cycle)]]
-
-[[Переход на другие view при помощи segue]]] ]
-[[Переход на другие view при помощи present() и show()]]
-[[Переход на другие view при помощи pushViewController]]
-
-Что бы создать переход через NavigationVC необходимо внутри класса <mark style="background: #FF5582A6;">ScenceDelegate </mark>прописать следующее
+Что бы создать переход через NVC необходимо внутри класса <mark style="background: #FF5582A6;">ScenceDelegate </mark>прописать следующее
 
 
 ```Swift
@@ -42,3 +37,7 @@ tags:
 Создаем еще одну сущность <mark style="background: #FF5582A6;">SecondViewController</mark> на который будет переходить главный VC
 Изменить цвет корт
 
+
+```Swift 
+
+```
