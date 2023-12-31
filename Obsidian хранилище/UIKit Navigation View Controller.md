@@ -4,12 +4,13 @@ tags:
   - uikit
   - "#uiNAvigationController"
 ---
-[[Презентация как стать IOS разработчиком в 2023 году]]
+[[создание NavigationControllera кодом]]
 [[Жизненный цикл View controller (life cycle)]]
 
 [[Переход на другие view при помощи segue]]] ]
 [[Переход на другие view при помощи present() и show()]]
 [[Переход на другие view при помощи pushViewController]]
+
 
 Что бы создать переход через NavigationVC необходимо внутри класса <mark style="background: #FF5582A6;">ScenceDelegate </mark>прописать следующее
 

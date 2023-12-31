@@ -1,6 +1,7 @@
 #barButtonItem #ios #uiNAvigationController 
 
 [[Добавляем обычный Button  програмно через код]]
+так же [[Добавляем barButtonItem и картинку в шапку NavigationController]]
 
 На _SecondViewController’e_ предлагаю программно добавить **_barButtonItem_** — это кнопка, которая находится в _navigationBar’e:_ слева или справа. 
 
