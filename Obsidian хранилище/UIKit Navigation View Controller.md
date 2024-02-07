@@ -15,7 +15,7 @@ tags:
 Что бы создать переход через NavigationVC необходимо внутри класса <mark style="background: #FF5582A6;">ScenceDelegate </mark>прописать следующее
 
 
-```Swift
+```swift
  guard let windowScene = (scene as? UIWindowScene) else { return }
   // после этой строки в методе scence пишем:
 
