@@ -22,6 +22,7 @@
 
 ![img](https://lms-cdn.skillfactory.ru/assets/courseware/v1/1d9b6f1e4d4fcfc904dda66244ce6696/asset-v1:SkillFactory+iOS-2.0+2021+type@asset+block/ios_m21_u4_p4.png)
 
+```swift
 import UIKit
  
 class ViewController: UIViewController {
@@ -39,6 +40,8 @@ class SecondViewController: UIViewController {
          super.viewDidLoad()
      }
 }
+```
+
 
 [Скачать архив](https://lms-cdn.skillfactory.ru/assets/courseware/v1/5734d839125564f1fc2788d1901390ac/asset-v1:SkillFactory+iOS-2.0+2021+type@asset+block/21.4.1_segue.zip)
 
@@ -67,6 +70,7 @@ class SecondViewController: UIViewController {
 
 В итоге код _SecondViewController’a_ приобрел следующий вид: 
 
+```swift
 import UIKit
  
 class SecondViewController: UIViewController {
@@ -78,11 +82,13 @@ class SecondViewController: UIViewController {
          super.viewDidLoad()
      }
 }
+```
+
 
 Идем в _ViewController.swift._ Здесь для того, чтобы наше приложение заработало, нужно написать всего несколько строчек кода :)
 
 <mark style="background: #FFB86CA6;">Схема следующая:</mark>
-
+```swift
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? yourNextViewControllerClass {
             if segue.identifier == "yourIdentifierInStoryboard" {
@@ -90,11 +96,13 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             }
         }
     }
+```
+
 
 где <mark style="background: #FF5582A6;">`yourNextViewControllerClass`</mark> — контроллер, на который вы хотите перейти, а <mark style="background: #FF5582A6;">`yourIdentifierInStoryboard`</mark> — идентификатор сегвея, который мы добавляли на сториборде.
 
 В нашем случае код приобретет следующий вид:
-
+```swift
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SecondViewController {
             if segue.identifier == "emodji" {
@@ -102,14 +110,18 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             }
         }
     }
+```
+
 
 Этот код можно написать и по-другому. Например, вот так:
-
+```swift
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "emodji" else { return }
         guard let destination = segue.destination as? SecondViewController else { return }
         destination.emodji = ""
   }
+```
+
 
 Тут мы делаем проверку при помощи оператора `guard`. 
 

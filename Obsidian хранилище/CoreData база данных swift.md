@@ -67,6 +67,26 @@
 
 Модель полностью написана.
 
+Сначала  создаем ленивое свойство TableView и подписывем класс на UITableViewDelegate, UITableViewDataSource:
+
+
+```swift
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+```
+
+```swift
+private lazy var tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .insetGrouped)
+        table.delegate = self
+        table.dataSource = self
+        
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(UITableView.self, forCellReuseIdentifier: "cell")
+        
+        return table
+    }()
+```
+
 во ViewControllere создаем экземпляр CoreManager и добавляем в NumberOfRowsSection  количество его timers, а в cellForRowAt выводим информацию из базы данных.
 
 ![[Screenshot 2024-01-28 at 20.53.26.png]]
@@ -81,7 +101,6 @@
 
 
 - Далее идем на созданную только что страницу addViewController и пишем там менеджер и пишем поля для ввода
-
 
 ![[Screenshot 2024-01-28 at 21.05.23.png]]
 - создаем менеджер и экземпляр данных и кнопки с полями

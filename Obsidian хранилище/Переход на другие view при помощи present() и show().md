@@ -1,6 +1,6 @@
 #ios #view #present #show #переход #pushViewController 
 [[Переход на другие view при помощи pushViewController]]
-[[UIKit Navigation View Controller]]
+[[UIKit Navigation View Controller создание кодом]]
 
 
 При отсутствии _navigationController_ переход `navigationController?.pushViewController(destination, animated: true)` не сработает, что логично, ведь тут мы обращаемся к методу _navigationController’a._

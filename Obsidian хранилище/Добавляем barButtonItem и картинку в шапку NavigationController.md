@@ -1,6 +1,6 @@
 #barButtonItem #ios #uiNAvigationController 
 
-[[UIKit Navigation View Controller]]
+[[UIKit Navigation View Controller создание кодом]]
 
 
 Для создания UINavigationViewControllera через код пишем в классе ScenceDelegate  в методе scene:

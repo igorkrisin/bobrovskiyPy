@@ -1,6 +1,6 @@
 #ios #TabBarController #swift 
 
-Создаем в SceneDelegate tabBar, window и [[UIKit Navigation View Controller]]
+Создаем в SceneDelegate tabBar, window и [[UIKit Navigation View Controller создание кодом]]
 
 
 ```swift

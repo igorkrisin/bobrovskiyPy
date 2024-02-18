@@ -47,7 +47,7 @@ Here is an example: `git remote remove origin`
 To check that handler is deleted properly, run the following: `git remote -v`
 
 You will either get an empty list, or you will get a list of remote handlers that are currently attached to the project with origin removed from the list.  
-Now you can run `git remote add origin [url].git` without encountering the `fatal: remote origin already exists` error.
+Now you can run  without encountering the `fatal: remote origin already exists` error.
 
 ### 2. Update the Existing Remote’s URL
 

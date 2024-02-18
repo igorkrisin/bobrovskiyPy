@@ -37,14 +37,122 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "remote origin already exists’ Git error.md",
+                "file": "добавляем обычный Button  програмно через код.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7bb90e60c147b739",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ошибка Could not find a storyboard named 'Main' in bundle NSBundle - не может найти сториборд после его удаления.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "847dceb04c6867e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Множественное выделение ячеек цветом.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0abc42bc402b1abe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Defer.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b0ff65d67d79f7da",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "git выдает ошибку reject error failed to push some refs to.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "07d0cc885840c7cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Создать предикат в базе данных Core Data.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ec2f2db7a68cd6fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MVVM  архитектура.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2ca87f245e5eedae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Переход на другие view при помощи segue.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "323ed6d8553a7429",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Создание TableView.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e1e4b2c63e4e1c17",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Создание indexPath вне методов таблицы.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -73,7 +181,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "remote",
+                "query": "bar",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -111,7 +219,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "remote origin already exists’ Git error.md",
+                "file": "Создание indexPath вне методов таблицы.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +236,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "remote origin already exists’ Git error.md",
+                "file": "Создание indexPath вне методов таблицы.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +259,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "remote origin already exists’ Git error.md"
+                "file": "Создание indexPath вне методов таблицы.md"
               }
             }
           },
@@ -181,44 +289,44 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "343cfbc8e18ef5d0",
+  "active": "e1e4b2c63e4e1c17",
   "lastOpenFiles": [
-    "Архитектура MVC.md",
-    "remote origin already exists’ Git error.md",
-    "Передача данных в обратную сторону или назад.md",
+    "UITableViewController создание кодом.md",
+    "Создание TableView.md",
+    "Создание indexPath вне методов таблицы.md",
+    "UIKit Navigation View Controller создание кодом.md",
+    "Добавить правую или левую кнопку в NavigationViewController.md",
+    "Добавляем barButtonItem и картинку в шапку NavigationController.md",
+    "Переход на другие view при помощи segue.md",
+    "Добавить в панель NAvigationViewController switch (переключатель).md",
+    "Defer.md",
+    "Segue, delegate swift. Передача данных между ViewController..md",
+    "SFSafaryViewController.md",
+    "Viper архитектура.md",
+    "UIGestureRecognizer Жесты.md",
+    "MVVM  архитектура.md",
+    "Screenshot 2024-02-12 at 19.28.29.png",
+    "Создать предикат в базе данных Core Data.md",
+    "git выдает ошибку reject error failed to push some refs to.md",
+    "добавляем обычный Button  програмно через код.md",
+    "Добавление barButtonItem програмно.md",
+    "Что бы добавить делегат (delegate) необходимо произвести 5 действий.md",
+    "CALayer или слои (анимации слоев layer).md",
+    "Делегаты и их реализация часть 1 (без делегата).md",
+    "core data вручную поставить, если забыл установить галочку.md",
+    "CoreData база данных swift.md",
+    "Как правильно раскидывать файлы MVC.md",
+    "Множественное выделение ячеек цветом.md",
+    "Screenshot 2024-02-08 at 09.55.04.png",
+    "Ошибка Could not find a storyboard named 'Main' in bundle NSBundle - не может найти сториборд после его удаления.md",
+    "om6Bb.png",
+    "Screenshot 2024-02-08 at 08.37.45.png",
     "Screenshot 2024-02-06 at 09.46.27.png",
     "Screenshot 2024-02-06 at 09.37.13 1.png",
     "Screenshot 2024-02-06 at 09.37.13.png",
     "Screenshot 2024-02-06 at 09.28.42.png",
     "Screenshot 2024-02-06 at 09.03.06.png",
     "Screenshot 2024-02-06 at 08.58.51.png",
-    "Screenshot 2024-02-06 at 08.54.21.png",
-    "Screenshot 2024-02-06 at 08.49.34.png",
-    "Screenshot 2024-02-06 at 08.41.54.png",
-    "Screenshot 2024-02-06 at 08.39.39.png",
-    "Как правильно раскидывать файлы MVC.md",
-    "Передача данных между ViewController вперед.md",
-    "Переходы между ViewController.md",
-    "CoreData база данных swift.md",
-    "Segue, delegate swift. Передача данных между ViewController..md",
-    "Обработка событий JavaScript.md",
-    "core data вручную поставить, если забыл установить галочку.md",
-    "Что бы добавить делегат (delegate) необходимо произвести 5 действий.md",
-    "Делегаты и их реализация часть 1 (без делегата).md",
-    "Пишем TODO list.md",
-    "Удаление ячейки таблицы по кнопке.md",
-    "WebKit WebView браузер в приложении.md",
-    "SFSafaryViewController.md",
-    "Cоздания ячеек UITableViewCell.md",
-    "UIKit Navigation View Controller.md",
-    "Статические ячейки.md",
-    "UITableViewDataSource и о UITableViewDelegate.md",
-    "Вынести работу с DataSource и Delegate в отдельные файлы и разгрузить наш ViewController.md",
-    "TableView создаем через storyboard.md",
-    "Создать кодом новое view и перейти на него при помощи кнопки.md",
-    "Передача информации через text field (segue) на другое view.md",
-    "Переход на другие view при помощи segue.md",
-    "Показать клавиатуру на симуляторе UI KIT.md",
     "Без названия 1.canvas",
     "Без названия.canvas",
     "Как стать iOS разработчиком в 2022 году бесплатно.pdf",

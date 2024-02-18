@@ -4,7 +4,7 @@
 
 ![[Screenshot 2024-02-05 at 19.05.10.png]]
 
- - далее SupportingFiles в нее переносим LunchScreen и Info.plist, так же нужно настроить новый путь к Info.plist
+ - далее SupportingFiles в нее переносим LunchScreen и Info.plistRe, так же нужно настроить новый путь к Info.plist
 
 ![[Screenshot 2024-02-05 at 19.06.51.png]]
 

@@ -1,6 +1,6 @@
 #uiNAvigationController #delegate #ios 
 
-[[UIKit Navigation View Controller]]
+[[UIKit Navigation View Controller создание кодом]]
 ```swift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	//создаем окно
